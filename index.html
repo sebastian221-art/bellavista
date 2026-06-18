@@ -15,8 +15,6 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;font-size:16px;}
 body{font-family:'Nunito',sans-serif;background:var(--CR);color:var(--C);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
-
-/* ── LOADER ── */
 #loader{position:fixed;inset:0;background:var(--C);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;z-index:10000;transition:opacity .8s ease,visibility .8s ease;}
 #loader.gone{opacity:0;visibility:hidden;pointer-events:none;}
 .ld-wordmark{font-family:'Schoolbell',cursive;font-size:3rem;font-weight:400;color:var(--Y);letter-spacing:.02em;}
@@ -24,14 +22,10 @@ body{font-family:'Nunito',sans-serif;background:var(--CR);color:var(--C);overflo
 .ld-bar{width:140px;height:1.5px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;}
 .ld-fill{height:100%;width:0;background:var(--Y);animation:ldfill 2s cubic-bezier(.4,0,.2,1) forwards;}
 @keyframes ldfill{to{width:100%;}}
-
-/* ── CURSOR ── */
 @media(pointer:fine){
   .cur{width:16px;height:16px;border:1.5px solid var(--Y);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s;mix-blend-mode:exclusion;}
   .cdot{width:4px;height:4px;background:var(--Y);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
 }
-
-/* ── SOCIAL / COMPANIES BAR ── */
 .social-bar{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:80;display:flex;flex-direction:column;}
 .sb{display:flex;align-items:center;justify-content:center;width:42px;height:42px;background:rgba(92,42,0,.92);border-left:2px solid var(--Y);color:rgba(255,255,255,.5);text-decoration:none;transition:background .2s,color .2s;position:relative;}
 .sb:first-child{border-radius:8px 0 0 0;}
@@ -45,8 +39,6 @@ body{font-family:'Nunito',sans-serif;background:var(--CR);color:var(--C);overflo
 .sb-company:hover{background:rgba(200,40,30,.15);}
 .sb-divider{height:1px;background:rgba(245,200,0,.15);}
 @media(max-width:768px){.social-bar{display:none;}}
-
-/* ── NAV ── */
 nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:66px;display:flex;align-items:center;justify-content:space-between;background:rgba(92,42,0,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(245,200,0,.2);transition:background .3s;}
 .nav-left{display:flex;align-items:center;gap:14px;}
 .logo-box{width:40px;height:40px;border:1.5px dashed rgba(245,200,0,.5);border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
@@ -60,8 +52,6 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:66px;displ
 .nav-links a:hover::after{width:100%;}
 .nav-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1.5px solid var(--Y);color:var(--Y);padding:9px 20px;border-radius:4px;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .25s,color .25s,transform .2s;}
 .nav-btn:hover{background:var(--Y);color:var(--C);transform:translateY(-1px);}
-
-/* ── HAMBURGER ── */
 .ham-wrap{display:none;flex-direction:column;justify-content:center;width:36px;height:36px;gap:5px;cursor:pointer;padding:4px;}
 .ham-wrap span{display:block;height:1.5px;background:rgba(255,255,255,.7);border-radius:2px;transition:transform .35s cubic-bezier(.76,0,.24,1),opacity .2s,width .3s;transform-origin:center;}
 .ham-wrap span:nth-child(1){width:22px;}
@@ -71,8 +61,6 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:66px;displ
 .ham-wrap.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);width:22px;background:var(--Y);}
 .ham-wrap.open span:nth-child(2){opacity:0;transform:scaleX(0);}
 .ham-wrap.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);width:22px;background:var(--Y);}
-
-/* ── MOBILE MENU ── */
 .mob{position:fixed;inset:0;background:var(--O);z-index:99;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:60px 40px;transform:translateX(100%);transition:transform .5s cubic-bezier(.76,0,.24,1);}
 .mob.open{transform:translateX(0);}
 .mob-link{font-family:'Schoolbell',cursive;font-size:3.2rem;font-weight:400;color:rgba(255,255,255,.3);text-decoration:none;line-height:1.2;display:block;transition:color .2s;}
@@ -81,32 +69,19 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:66px;displ
 .mob-contact{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.4);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:color .2s;}
 .mob-contact:hover{color:var(--Y);}
 .mob-contact svg{width:16px;height:16px;fill:currentColor;}
-
-/* ── HERO ── */
 #hero{min-height:100svh;position:relative;overflow:hidden;background:var(--C);display:flex;align-items:center;padding:80px 40px 80px;}
-.hero-media-wrap{position:absolute;inset:0;z-index:0;}
-.hero-media-wrap img,.hero-media-wrap video{width:100%;height:100%;object-fit:cover;opacity:.35;}
-.hero-media-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border:2px dashed rgba(245,200,0,.25);background:transparent;}
-.hero-media-ph-ico{font-size:2.5rem;opacity:.25;}
-.hero-media-ph-txt{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,200,0,.35);text-align:center;}
 .hero-bg-map{position:absolute;inset:0;z-index:0;overflow:hidden;}
 #heroBgMap{width:100%;height:100%;display:block;transition:transform .25s cubic-bezier(.25,.46,.45,.94);will-change:transform;}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,3,0,.88) 0%,rgba(30,10,0,.72) 45%,rgba(8,3,0,.60) 100%);z-index:1;}
-.hero-blobs{position:absolute;inset:0;overflow:hidden;z-index:1;}
-.hb{position:absolute;border-radius:50%;filter:blur(90px);animation:hbm 12s ease-in-out infinite;}
-.hb1{width:500px;height:500px;background:rgba(200,40,30,.25);top:-100px;right:-80px;animation-delay:0s;}
-.hb2{width:400px;height:400px;background:rgba(30,102,20,.2);bottom:-80px;left:-60px;animation-delay:-4s;}
-.hb3{width:280px;height:280px;background:rgba(245,200,0,.12);top:45%;left:58%;animation-delay:-7s;}
-@keyframes hbm{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(20px,-20px) scale(1.05);}66%{transform:translate(-15px,15px) scale(.97);}}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(108deg,rgba(8,3,0,.93) 0%,rgba(16,7,0,.66) 46%,rgba(8,3,0,.40) 100%);}
 .hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;opacity:0;animation:fadeup .9s .2s ease forwards;}
 .hero-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--GL);animation:pulse 2s ease infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
 .hero-eyebrow span{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:500;}
-h1.hero-h1{font-family:'Schoolbell',cursive;font-size:clamp(4rem,7vw,6.5rem);font-weight:600;line-height:1.0;letter-spacing:-.01em;color:var(--W);margin-bottom:24px;opacity:0;animation:fadeup .9s .35s ease forwards;}
+h1.hero-h1{font-family:'Schoolbell',cursive;font-size:clamp(4rem,7vw,6.5rem);font-weight:600;line-height:1.0;letter-spacing:-.01em;color:var(--W);margin-bottom:24px;opacity:0;animation:fadeup .9s .35s ease forwards;text-shadow:0 2px 30px rgba(0,0,0,.5);}
 h1.hero-h1 em{color:var(--Y);font-style:italic;display:block;}
-.hero-desc{font-size:.95rem;color:rgba(255,255,255,.5);line-height:1.8;max-width:440px;margin-bottom:36px;opacity:0;animation:fadeup .9s .5s ease forwards;}
-.hero-desc strong{color:rgba(255,255,255,.8);font-weight:500;}
+.hero-desc{font-size:.95rem;color:rgba(255,255,255,.55);line-height:1.8;max-width:440px;margin-bottom:36px;opacity:0;animation:fadeup .9s .5s ease forwards;}
+.hero-desc strong{color:rgba(255,255,255,.85);font-weight:500;}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeup .9s .65s ease forwards;}
 .btn-wa{display:inline-flex;align-items:center;gap:9px;background:#22c55e;color:var(--W);padding:13px 26px;border-radius:4px;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;}
 .btn-wa::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);transform:scaleX(0);transform-origin:left;transition:transform .4s;}
@@ -116,73 +91,35 @@ h1.hero-h1 em{color:var(--Y);font-style:italic;display:block;}
 .btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);padding:13px 24px;border-radius:4px;font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:border-color .2s,color .2s;}
 .btn-ghost:hover{border-color:var(--Y);color:var(--Y);}
 .hero-right{display:flex;flex-direction:column;gap:16px;opacity:0;animation:fadeup .9s .5s ease forwards;}
-.hero-stat-card{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
-  border-radius:12px;padding:20px 24px;backdrop-filter:blur(10px);
-  cursor:default;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,background .3s,border-color .3s;
-}
-.hero-stat-card:hover{
-  transform:translateY(-6px) scale(1.03);
-  background:rgba(245,200,0,.09);
-  border-color:rgba(245,200,0,.45);
-  box-shadow:0 14px 36px rgba(0,0,0,.35),0 0 0 1px rgba(245,200,0,.15);
-}
+.hero-stat-card{background:rgba(20,8,0,.34);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px 24px;backdrop-filter:blur(12px);cursor:default;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,background .3s,border-color .3s;}
+.hero-stat-card:hover{transform:translateY(-6px) scale(1.03);background:rgba(245,200,0,.12);border-color:rgba(245,200,0,.45);box-shadow:0 14px 36px rgba(0,0,0,.35),0 0 0 1px rgba(245,200,0,.15);}
 .hero-stat-card:hover .hsc-num{color:var(--W);text-shadow:0 0 20px rgba(245,200,0,.6);}
 .hero-stat-card:first-child{border-color:rgba(245,200,0,.2);}
 .hsc-num{font-family:'Schoolbell',cursive;font-size:2.6rem;font-weight:600;color:var(--Y);line-height:1;margin-bottom:4px;transition:color .3s,text-shadow .3s;}
-.hsc-label{font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;}
+.hsc-label{font-size:.72rem;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;}
 .hsc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.hsc-mini{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:16px 18px;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,background .3s,border-color .3s;cursor:default;}
+.hsc-mini{background:rgba(20,8,0,.3);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:16px 18px;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,background .3s,border-color .3s;cursor:default;backdrop-filter:blur(12px);}
 .hsc-mini .hsc-num{font-size:1.8rem;transition:color .3s,text-shadow .3s;}
-.hsc-mini:hover{transform:translateY(-5px) scale(1.04);background:rgba(245,200,0,.09);border-color:rgba(245,200,0,.4);box-shadow:0 12px 30px rgba(0,0,0,.3);}
+.hsc-mini:hover{transform:translateY(-5px) scale(1.04);background:rgba(245,200,0,.12);border-color:rgba(245,200,0,.4);box-shadow:0 12px 30px rgba(0,0,0,.3);}
 .hsc-mini:hover .hsc-num{color:var(--W);text-shadow:0 0 18px rgba(245,200,0,.55);}
 .hero-wave{position:absolute;bottom:0;left:0;right:0;z-index:3;}
 @keyframes fadeup{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
-
-/* ── WAVE ── */
 .wv{display:block;width:100%;overflow:hidden;line-height:0;}
 .wv svg{display:block;}
-
-/* ── SECTION GENERIC ── */
 .section-eyebrow{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:14px;display:block;}
-.ey-cafe{color:var(--CM);}
-.ey-y{color:var(--Y);}
-.ey-w{color:rgba(255,255,255,.4);}
-.ey-g{color:var(--GL);}
+.ey-cafe{color:var(--CM);}.ey-y{color:var(--Y);}.ey-w{color:rgba(255,255,255,.4);}.ey-g{color:var(--GL);}
 .section-title{font-family:'Schoolbell',cursive;font-weight:400;line-height:1.15;letter-spacing:.01em;}
-.st-dark{color:var(--C);}
-.st-light{color:var(--W);}
-em.ital{font-style:italic;}
-
-/* ══════════════════════════════════════════
-   COMPANIES BAR — logos del grupo (barra amarilla expandida)
-══════════════════════════════════════════ */
+.st-dark{color:var(--C);}.st-light{color:var(--W);}em.ital{font-style:italic;}
 #companies-bar{background:var(--Y);padding:0;}
-.co-bar-logos{
-  max-width:800px;margin:0 auto;
-  display:flex;align-items:center;justify-content:center;
-  padding:32px 40px;
-  gap:0;
-}
-.co-bar-item{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:10px;padding:12px 60px;text-decoration:none;transition:background .2s;flex:1;max-width:320px;
-}
+.co-bar-logos{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:center;padding:32px 40px;gap:0;}
+.co-bar-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:12px 60px;text-decoration:none;transition:background .2s;flex:1;max-width:320px;}
 .co-bar-item:hover{background:rgba(92,42,0,.06);}
 .co-bar-item:first-child{border-right:1px solid rgba(92,42,0,.15);}
-.co-bar-logo{
-  width:72px;height:72px;border-radius:14px;
-  background:rgba(92,42,0,.1);border:2px dashed rgba(92,42,0,.25);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.48rem;color:rgba(92,42,0,.45);text-align:center;line-height:1.5;
-  text-transform:uppercase;letter-spacing:.05em;font-weight:700;
-  transition:background .2s,border-color .2s,transform .25s;overflow:hidden;
-}
+.co-bar-logo{width:72px;height:72px;border-radius:14px;background:rgba(92,42,0,.1);border:2px dashed rgba(92,42,0,.25);display:flex;align-items:center;justify-content:center;font-size:.48rem;color:rgba(92,42,0,.45);text-align:center;line-height:1.5;text-transform:uppercase;letter-spacing:.05em;font-weight:700;transition:background .2s,border-color .2s,transform .25s;overflow:hidden;}
 .co-bar-logo img{width:100%;height:100%;object-fit:contain;}
 .co-bar-item:hover .co-bar-logo{background:rgba(92,42,0,.18);border-color:rgba(92,42,0,.5);transform:scale(1.05);}
 .co-bar-name{font-size:.72rem;font-weight:700;color:rgba(92,42,0,.65);text-transform:uppercase;letter-spacing:.1em;text-align:center;}
 .co-bar-sub{font-size:.58rem;color:rgba(92,42,0,.4);letter-spacing:.08em;text-transform:uppercase;}
-/* NEWS TICKER */
 #news-ticker{background:var(--Y);border-top:1px solid rgba(92,42,0,.12);overflow:hidden;height:44px;display:flex;align-items:center;position:relative;}
 #news-ticker::before{content:'NOTICIAS';position:absolute;left:0;top:0;bottom:0;width:110px;background:var(--Y);border-right:2px solid rgba(92,42,0,.18);display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;letter-spacing:.14em;color:var(--C);z-index:2;padding:0 18px;}
 .ticker-track{display:flex;align-items:center;gap:0;padding-left:130px;animation:ticker-scroll 40s linear infinite;white-space:nowrap;}
@@ -191,53 +128,24 @@ em.ital{font-style:italic;}
 .ticker-item::after{content:'•';color:rgba(92,42,0,.4);margin-left:40px;}
 .ticker-dot{width:5px;height:5px;border-radius:50%;background:var(--C);flex-shrink:0;opacity:.5;}
 @keyframes ticker-scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-@media(max-width:600px){
-  .co-bar-item{padding:14px 28px;}
-  .co-bar-logo{width:56px;height:56px;}
-  #news-ticker::before{width:85px;padding:0 12px;}
-  .ticker-track{padding-left:100px;}
-}
-
-/* ══════════════════════════════════════════
-   NOSOTROS — versión compacta unificada
-══════════════════════════════════════════ */
+@media(max-width:600px){.co-bar-item{padding:14px 28px;}.co-bar-logo{width:56px;height:56px;}#news-ticker::before{width:85px;padding:0 12px;}.ticker-track{padding-left:100px;}}
 #nosotros{background:var(--CR);padding:90px 40px;}
 .nos-inner{max-width:1100px;margin:0 auto;}
-/* Layout: 2 cols — texto izquierda, fotos derecha */
-.nos-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:64px;
-  align-items:start;
-}
-/* Columna izquierda: todo el texto + cita */
+.nos-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
 .nos-left .section-title{font-size:clamp(2rem,3.2vw,2.8rem);color:var(--C);margin-bottom:16px;}
 .nos-left p{font-size:.88rem;color:rgba(92,42,0,.62);line-height:1.85;margin-bottom:10px;}
 .nos-quote{background:var(--Y);border-radius:10px;padding:18px 22px;margin:18px 0;position:relative;}
 .nos-quote::before{content:'"';font-family:'Schoolbell',cursive;font-size:4.5rem;color:rgba(92,42,0,.12);position:absolute;top:-12px;left:14px;line-height:1;}
 .nos-quote p{font-size:.82rem;font-style:italic;color:rgba(92,42,0,.78);line-height:1.75;padding-top:8px;}
 .nos-quote cite{display:block;margin-top:8px;font-size:.65rem;color:var(--R);font-style:normal;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
-/* Pills de impacto — horizontal y compactas */
 .nos-impact-pills{display:flex;flex-direction:column;gap:8px;margin-top:16px;}
-.np{
-  display:flex;align-items:center;gap:12px;
-  padding:11px 14px;
-  background:var(--W);border-radius:8px;
-  border-left:3px solid var(--Y);
-  box-shadow:0 1px 6px rgba(92,42,0,.05);
-  transition:transform .25s,box-shadow .25s;
-}
+.np{display:flex;align-items:center;gap:12px;padding:11px 14px;background:var(--W);border-radius:8px;border-left:3px solid var(--Y);box-shadow:0 1px 6px rgba(92,42,0,.05);transition:transform .25s,box-shadow .25s;}
 .np:hover{transform:translateX(5px);box-shadow:0 4px 16px rgba(92,42,0,.1);}
 .np-ico{font-size:1.1rem;flex-shrink:0;}
 .np strong{display:block;font-size:.78rem;color:var(--C);font-weight:600;}
 .np span{font-size:.7rem;color:rgba(92,42,0,.5);}
-/* Columna derecha: fotos apiladas */
 .nos-photos{display:flex;flex-direction:column;gap:10px;}
-.ph{
-  border-radius:12px;overflow:hidden;position:relative;
-  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;
-  border:1.5px dashed;transition:transform .3s;
-}
+.ph{border-radius:12px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;border:1.5px dashed;transition:transform .3s;}
 .ph:hover{transform:scale(1.015);}
 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .ph-a{height:200px;background:rgba(92,42,0,.05);border-color:rgba(92,42,0,.15);}
@@ -245,13 +153,7 @@ em.ital{font-style:italic;}
 .ph-c{height:130px;background:rgba(200,40,30,.05);border-color:rgba(200,40,30,.15);}
 .ph-ico{font-size:1.5rem;opacity:.22;}
 .ph-lbl{font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;opacity:.28;text-align:center;padding:0 10px;line-height:1.6;}
-
-/* photo heights on small screens */
-@media(max-width:860px){
-  .ph-a{height:160px;}.ph-b{height:120px;}.ph-c{height:100px;}
-}
-
-/* ── PRODUCTOS ── */
+@media(max-width:860px){.ph-a{height:160px;}.ph-b{height:120px;}.ph-c{height:100px;}}
 #productos{background:var(--C);padding:120px 40px;}
 .prod-header{max-width:1100px;margin:0 auto 52px;display:flex;justify-content:space-between;align-items:flex-end;}
 .prod-header .section-title{font-size:clamp(2rem,3.5vw,3rem);}
@@ -262,7 +164,7 @@ em.ital{font-style:italic;}
 .family-img{height:200px;position:relative;overflow:hidden;}
 .family-slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease;display:flex;align-items:center;justify-content:center;}
 .family-slide.active{opacity:1;}
-.family-slide img{width:100%;height:100%;object-fit:cover;}
+.family-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .family-slide-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
 .family-dots{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:5px;z-index:2;}
 .fdot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.3);transition:background .3s,transform .3s;}
@@ -290,8 +192,6 @@ em.ital{font-style:italic;}
 .fc-5 .family-cta{color:#C48A5A;}.fc-5 .family-tag{background:rgba(139,94,60,.2);color:#C48A5A;}
 .fc-6 .family-accent{background:linear-gradient(90deg,#8DC63F,transparent);}
 .fc-6 .family-cta{color:#8BD45A;}.fc-6 .family-tag{background:rgba(91,170,37,.15);color:#8BD45A;}
-
-/* ── CERTS ── */
 #certificaciones{background:var(--G);padding:120px 40px;position:relative;overflow:hidden;}
 #certificaciones::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:rgba(255,255,255,.03);}
 .certs-inner{max-width:1100px;margin:0 auto;}
@@ -307,8 +207,6 @@ em.ital{font-style:italic;}
 .stamp-ico{font-size:2rem;display:block;margin-bottom:3px;}
 .stamp-name{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--W);line-height:1.4;opacity:.9;}
 @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-
-/* ── MODELOS DE NEGOCIO ── */
 #modelos{background:var(--CR);padding:120px 40px;overflow:hidden;}
 .mod-inner{max-width:1200px;margin:0 auto;}
 .mod-head{max-width:520px;margin-bottom:60px;}
@@ -317,6 +215,7 @@ em.ital{font-style:italic;}
 .mod-companies{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px;}
 .mod-company{border-radius:16px;overflow:hidden;position:relative;height:340px;cursor:pointer;text-decoration:none;display:block;}
 .mod-company-bg{position:absolute;inset:0;background:var(--C);transition:transform .5s ease;}
+.mod-company-bg img{width:100%;height:100%;object-fit:cover;}
 .mod-company-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;border:2px dashed rgba(245,200,0,.2);}
 .mod-company-ph-ico{font-size:3rem;opacity:.15;}
 .mod-company-ph-txt{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2);}
@@ -341,26 +240,6 @@ em.ital{font-style:italic;}
 .msc-ico{font-size:1.6rem;margin-bottom:12px;display:block;}
 .mod-sub-card h4{font-family:'Schoolbell',cursive;font-size:1.2rem;font-weight:600;color:var(--C);margin-bottom:8px;}
 .mod-sub-card p{font-size:.78rem;color:rgba(92,42,0,.55);line-height:1.65;}
-
-/* ── EXPORTACIONES ── */
-#exportaciones{background:var(--O);padding:120px 40px;}
-.expo-inner{max-width:1100px;margin:0 auto;}
-.expo-top{text-align:center;margin-bottom:60px;}
-.expo-top .section-title{font-size:clamp(2rem,3.5vw,2.8rem);}
-.expo-top p{font-size:.9rem;color:rgba(255,255,255,.4);max-width:500px;margin:10px auto 0;line-height:1.7;}
-.expo-layout{display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:start;}
-.paises{display:flex;flex-direction:column;gap:8px;}
-.pais{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px 16px;transition:background .2s,border-color .2s,transform .2s;}
-.pais:hover{background:rgba(245,200,0,.05);border-color:rgba(245,200,0,.18);transform:translateX(4px);}
-.pl{display:flex;align-items:center;gap:11px;}
-.fl{font-size:1.3rem;line-height:1;}
-.pn{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.8);}
-.ba{background:rgba(91,170,37,.18);color:#7DC84A;font-size:.6rem;padding:3px 10px;border-radius:3px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;}
-.bn{background:rgba(245,200,0,.12);color:var(--Y);font-size:.6rem;padding:3px 10px;border-radius:3px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;}
-.map-wrap{border-radius:16px;overflow:hidden;position:relative;background:#0A0500;border:1px solid rgba(255,255,255,.05);}
-#worldMap{display:block;width:100%;}
-
-/* ── CTA ── */
 #contacto{background:var(--R);padding:120px 40px;text-align:center;position:relative;overflow:hidden;}
 .cta-deco{position:absolute;border-radius:50%;background:rgba(255,255,255,.05);}
 .cta-deco.d1{width:400px;height:400px;top:-150px;left:-100px;}
@@ -376,8 +255,6 @@ em.ital{font-style:italic;}
 .btn-wa-big svg{width:18px;height:18px;fill:white;}
 .btn-outline-w{display:inline-flex;align-items:center;gap:9px;border:1.5px solid rgba(255,255,255,.3);color:rgba(255,255,255,.7);padding:15px 28px;border-radius:4px;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:border-color .2s,color .2s;}
 .btn-outline-w:hover{border-color:rgba(255,255,255,.7);color:var(--W);}
-
-/* ── FOOTER ── */
 footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,200,0,.12);}
 .ft-inner{max-width:1100px;margin:0 auto;}
 .ft-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:60px;margin-bottom:48px;}
@@ -393,30 +270,19 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
 .ft-wa{display:inline-flex;align-items:center;gap:7px;background:#22c55e;color:var(--W);padding:9px 18px;border-radius:4px;text-decoration:none;font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;transition:transform .2s,opacity .2s;}
 .ft-wa:hover{transform:translateY(-1px);opacity:.9;}
 .ft-wa svg{width:14px;height:14px;fill:white;}
-
-/* ── WA FLOAT ── */
 .waf{position:fixed;bottom:28px;right:28px;z-index:200;width:56px;height:56px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(34,197,94,.45);transition:transform .25s,box-shadow .25s;}
 .waf::before{content:'';position:absolute;inset:-5px;border-radius:50%;border:1.5px solid rgba(34,197,94,.4);animation:wring 2.2s ease infinite;}
 .waf:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(34,197,94,.6);}
 .waf:hover::before{animation:none;}
 .waf svg{width:26px;height:26px;fill:white;}
 @keyframes wring{0%{transform:scale(1);opacity:1;}100%{transform:scale(1.6);opacity:0;}}
-
-/* ── REVEALS ── */
 .rv,.rvl,.rvr{opacity:0;transition:opacity .7s ease,transform .7s ease;}
-.rv{transform:translateY(32px);}
-.rvl{transform:translateX(-32px);}
-.rvr{transform:translateX(32px);}
+.rv{transform:translateY(32px);}.rvl{transform:translateX(-32px);}.rvr{transform:translateX(32px);}
 .rv.in,.rvl.in,.rvr.in{opacity:1;transform:none;}
-
-/* ── MOBILE ── */
-/* ── TABLET (max 900px) ── */
 @media(max-width:900px){
-  nav{padding:0 20px;}
-  .nav-links,.nav-btn{display:none;}
-  .ham-wrap{display:flex;}
-
-  #hero{padding:80px 20px 100px;}
+  nav{padding:0 20px;}.nav-links,.nav-btn{display:none;}.ham-wrap{display:flex;}
+  #hero{padding:96px 20px 90px;}
+  .hero-overlay{background:linear-gradient(180deg,rgba(8,3,0,.92) 0%,rgba(12,5,0,.62) 40%,rgba(10,4,0,.78) 100%);}
   .hero-inner{grid-template-columns:1fr;gap:32px;}
   .hero-right{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .hero-right .hero-stat-card:first-child{grid-column:1/-1;}
@@ -424,105 +290,33 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
   .hsc-grid{grid-template-columns:1fr 1fr;gap:10px;}
   .map-dest-tags{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
   .map-dest-tags .mdt:last-child{grid-column:1/-1;}
-
-  #nosotros{padding:60px 20px;}
-  .nos-grid{grid-template-columns:1fr;gap:36px;}
-
-  #certificaciones{padding:70px 20px;}
-  .stamps-row{gap:24px;}
-  .stamp{width:116px;height:116px;}
-
-  #modelos{padding:70px 20px;}
-  .mod-inner .mod-head{margin-bottom:36px;}
-  .mod-companies{grid-template-columns:1fr;}
-  .mod-company{height:260px;}
-  .mod-sub{grid-template-columns:1fr;}
-
-  #exportaciones{padding:70px 20px;}
-  .expo-layout{grid-template-columns:1fr;}
-  .map-wrap{display:none;}
-
-  #noticias{padding:70px 20px !important;}
-  .news-grid{grid-template-columns:1fr;}
-
-  #impacto{padding:70px 20px;}
-  .imp-inner{grid-template-columns:1fr;gap:36px;}
-
-  #contacto{padding:70px 20px;}
-  .cta-btns{flex-direction:column;align-items:stretch;}
-  .btn-wa-big,.btn-outline-w{justify-content:center;}
-
-  .hero-actions{flex-direction:column;}
-  .btn-wa,.btn-ghost{justify-content:center;width:100%;}
-
-  footer{padding:48px 20px 20px;}
-  .ft-top{grid-template-columns:1fr;gap:32px;}
-  .ft-bot{flex-direction:column;text-align:center;}
-
-  .mob{padding:70px 24px;}
-  .mob-link{font-size:2rem;}
-
-  .prod-header{flex-direction:column;align-items:flex-start;gap:10px;}
-  .prod-header p{text-align:left;max-width:100%;}
-  #productos{padding:70px 20px;}
+  #nosotros{padding:60px 20px;}.nos-grid{grid-template-columns:1fr;gap:36px;}
+  #certificaciones{padding:70px 20px;}.stamps-row{gap:24px;}.stamp{width:116px;height:116px;}
+  #modelos{padding:70px 20px;}.mod-inner .mod-head{margin-bottom:36px;}.mod-companies{grid-template-columns:1fr;}.mod-company{height:260px;}.mod-sub{grid-template-columns:1fr;}
+  #noticias{padding:70px 20px !important;}.news-grid{grid-template-columns:1fr;}
+  #contacto{padding:70px 20px;}.cta-btns{flex-direction:column;align-items:stretch;}.btn-wa-big,.btn-outline-w{justify-content:center;}
+  .hero-actions{flex-direction:column;}.btn-wa,.btn-ghost{justify-content:center;width:100%;}
+  footer{padding:48px 20px 20px;}.ft-top{grid-template-columns:1fr;gap:32px;}.ft-bot{flex-direction:column;text-align:center;}
+  .mob{padding:70px 24px;}.mob-link{font-size:2rem;}
+  .prod-header{flex-direction:column;align-items:flex-start;gap:10px;}.prod-header p{text-align:left;max-width:100%;}#productos{padding:70px 20px;}
 }
-
-/* ── MÓVIL PEQUEÑO (max 480px) ── */
 @media(max-width:480px){
-  nav{padding:0 16px;height:58px;}
-  .nav-brand{font-size:1.1rem;}
-
-  #hero{padding:70px 16px 90px;}
-  .hero-inner{gap:24px;}
-  h1.hero-h1{font-size:clamp(2.8rem,11vw,4rem);}
-  .hero-desc{font-size:.88rem;}
+  nav{padding:0 16px;height:58px;}.nav-brand{font-size:1.1rem;}
+  #hero{padding:88px 16px 84px;}.hero-inner{gap:24px;}
+  h1.hero-h1{font-size:clamp(2.8rem,11vw,4rem);}.hero-desc{font-size:.88rem;}
   .hero-right{grid-template-columns:1fr;}
-  .hero-right .hero-stat-card:first-child{grid-column:1;}
-  .hero-right .hero-stat-card:last-child{grid-column:1;}
-  .hsc-grid{grid-template-columns:1fr 1fr;}
-  .map-dest-tags{grid-template-columns:1fr;}
-  .map-dest-tags .mdt:last-child{grid-column:1;}
-
-  #companies-bar .co-bar-logos{padding:20px 16px;gap:0;}
-  .co-bar-item{padding:10px 20px;}
-  .co-bar-logo{width:52px;height:52px;}
-  .co-bar-name{font-size:.62rem;}
-
-  #news-ticker{height:38px;}
-  #news-ticker::before{width:80px;font-size:.55rem;}
-  .ticker-track{padding-left:90px;}
-  .ticker-item{font-size:.67rem;padding:0 28px;}
-
-  #nosotros{padding:50px 16px;}
-  .nos-grid{gap:28px;}
-
-  #certificaciones{padding:50px 16px;}
-  .stamps-row{gap:16px;}
-  .stamp{width:100px;height:100px;}
-  .stamp-ico{font-size:1.6rem;}
-  .stamp-name{font-size:.54rem;}
-
-  #modelos{padding:50px 16px;}
-  #productos{padding:50px 16px;}
-  .prod-families{grid-template-columns:1fr;}
-
-  #noticias{padding:50px 16px !important;}
-  .news-card-body{padding:14px 16px;}
-  .news-card h3{font-size:1rem;}
-
-  #impacto{padding:50px 16px;}
-  #contacto{padding:60px 16px;}
-  .cta-inner .section-title{font-size:clamp(1.9rem,8vw,2.8rem);}
-
-  footer{padding:40px 16px 18px;}
-  .ft-top{gap:24px;}
-  .ft-brand p{max-width:100%;}
-
-  .mob{padding:60px 20px;}
-  .mob-link{font-size:1.8rem;line-height:1.3;}
+  .hero-right .hero-stat-card:first-child{grid-column:1;}.hero-right .hero-stat-card:last-child{grid-column:1;}
+  .hsc-grid{grid-template-columns:1fr 1fr;}.map-dest-tags{grid-template-columns:1fr;}.map-dest-tags .mdt:last-child{grid-column:1;}
+  #companies-bar .co-bar-logos{padding:20px 16px;gap:0;}.co-bar-item{padding:10px 20px;}.co-bar-logo{width:52px;height:52px;}.co-bar-name{font-size:.62rem;}
+  #news-ticker{height:38px;}#news-ticker::before{width:80px;font-size:.55rem;}.ticker-track{padding-left:90px;}.ticker-item{font-size:.67rem;padding:0 28px;}
+  #nosotros{padding:50px 16px;}.nos-grid{gap:28px;}
+  #certificaciones{padding:50px 16px;}.stamps-row{gap:16px;}.stamp{width:100px;height:100px;}.stamp-ico{font-size:1.6rem;}.stamp-name{font-size:.54rem;}
+  #modelos{padding:50px 16px;}#productos{padding:50px 16px;}.prod-families{grid-template-columns:1fr;}
+  #noticias{padding:50px 16px !important;}.news-card-body{padding:14px 16px;}.news-card h3{font-size:1rem;}
+  #contacto{padding:60px 16px;}.cta-inner .section-title{font-size:clamp(1.9rem,8vw,2.8rem);}
+  footer{padding:40px 16px 18px;}.ft-top{gap:24px;}.ft-brand p{max-width:100%;}
+  .mob{padding:60px 20px;}.mob-link{font-size:1.8rem;line-height:1.3;}
 }
-
-/* ── NOTICIAS ── */
 .news-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;}
 .news-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden;transition:transform .3s,box-shadow .3s;}
 .news-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.3);}
@@ -543,83 +337,38 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
 .news-side{display:flex;flex-direction:column;gap:14px;}
 .news-card-featured .news-card-img{height:240px;}
 @media(max-width:768px){.news-grid{grid-template-columns:1fr;}}
-
-/* ── MAP DESTINATION TAGS ── */
 .map-dest-tags{display:flex;flex-direction:column;gap:7px;margin-top:4px;}
-.mdt{
-  display:inline-flex;align-items:center;gap:10px;
-  background:rgba(245,200,0,.08);
-  border:1px solid rgba(245,200,0,.2);
-  border-radius:8px;padding:10px 16px;
-  font-size:.78rem;font-weight:500;color:rgba(255,255,255,.8);
-  cursor:pointer;
-  transition:background .25s,border-color .25s,transform .25s,box-shadow .25s;
-}
-.mdt:hover{
-  background:rgba(245,200,0,.18);
-  border-color:rgba(245,200,0,.6);
-  transform:translateX(6px);
-  box-shadow:0 4px 16px rgba(0,0,0,.25);
-  color:var(--W);
-}
-.mdt-next{opacity:.5;}
-.mdt-next:hover{opacity:.85;}
+.mdt{display:inline-flex;align-items:center;gap:10px;background:rgba(245,200,0,.08);border:1px solid rgba(245,200,0,.2);border-radius:8px;padding:10px 16px;font-size:.78rem;font-weight:500;color:rgba(255,255,255,.8);cursor:pointer;transition:background .25s,border-color .25s,transform .25s,box-shadow .25s;}
+.mdt:hover{background:rgba(245,200,0,.18);border-color:rgba(245,200,0,.6);transform:translateX(6px);box-shadow:0 4px 16px rgba(0,0,0,.25);color:var(--W);}
+.mdt-next{opacity:.5;}.mdt-next:hover{opacity:.85;}
 .mdt-badge{background:rgba(91,170,37,.22);color:#7DC84A;font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-left:auto;}
 .mdt-badge-next{background:rgba(245,200,0,.15);color:var(--Y);}
-/* Stat card tooltip */
 .hero-stat-card[data-tip]{position:relative;}
-.hero-stat-card[data-tip]::after{
-  content:attr(data-tip);
-  position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(4px);
-  background:rgba(92,42,0,.95);color:rgba(255,255,255,.8);
-  font-size:.65rem;padding:5px 12px;border-radius:6px;white-space:nowrap;
-  border:1px solid rgba(245,200,0,.2);
-  opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;
-  font-family:'Nunito',sans-serif;font-weight:400;letter-spacing:.03em;
-}
+.hero-stat-card[data-tip]::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(4px);background:rgba(92,42,0,.95);color:rgba(255,255,255,.8);font-size:.65rem;padding:5px 12px;border-radius:6px;white-space:nowrap;border:1px solid rgba(245,200,0,.2);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;font-family:'Nunito',sans-serif;font-weight:400;letter-spacing:.03em;}
 .hero-stat-card[data-tip]:hover::after{opacity:1;transform:translateX(-50%) translateY(0);}
-
-/* Productos 2 cols en tablet */
-@media(min-width:481px) and (max-width:900px){
-  .prod-families{grid-template-columns:repeat(2,1fr);}
-  .imp-inner{grid-template-columns:1fr !important;}
-}
+@media(min-width:481px) and (max-width:900px){.prod-families{grid-template-columns:repeat(2,1fr);}}
 </style>
 </head>
 <body>
 
-<!-- LOADER -->
 <div id="loader">
   <div class="ld-wordmark">Bellavista</div>
   <div class="ld-sub">From Santander · Since 2002</div>
   <div class="ld-bar"><div class="ld-fill"></div></div>
 </div>
 
-<!-- CURSOR -->
 <div class="cur" id="cur"></div>
 <div class="cdot" id="cdot"></div>
 
-<!-- SOCIAL + COMPANIES BAR -->
 <aside class="social-bar" aria-label="Redes y empresas">
-  <a class="sb sb-company" href="#modelos" data-tip="Empresa 1">
-    <div class="sb-company-logo">Logo<br>Emp 1</div>
-  </a>
-  <a class="sb sb-company" href="#modelos" data-tip="Empresa 2">
-    <div class="sb-company-logo">Logo<br>Emp 2</div>
-  </a>
+  <a class="sb sb-company" href="#modelos" data-tip="Empresa 1"><div class="sb-company-logo">Logo<br>Emp 1</div></a>
+  <a class="sb sb-company" href="#modelos" data-tip="Empresa 2"><div class="sb-company-logo">Logo<br>Emp 2</div></a>
   <div class="sb-divider"></div>
-  <a class="sb" href="https://facebook.com/panelabellavista" target="_blank" rel="noopener" data-tip="Facebook">
-    <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-  </a>
-  <a class="sb" href="https://instagram.com/panelabellavista" target="_blank" rel="noopener" data-tip="Instagram">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
-  </a>
-  <a class="sb" href="https://wa.me/TUNUMERO" target="_blank" rel="noopener" data-tip="WhatsApp" style="color:#22c55e;">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-  </a>
+  <a class="sb" href="https://facebook.com/panelabellavista" target="_blank" rel="noopener" data-tip="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+  <a class="sb" href="https://instagram.com/panelabellavista" target="_blank" rel="noopener" data-tip="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg></a>
+  <a class="sb" href="https://wa.me/TUNUMERO" target="_blank" rel="noopener" data-tip="WhatsApp" style="color:#22c55e;"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
 </aside>
 
-<!-- MOBILE MENU -->
 <div class="mob" id="mob">
   <a class="mob-link" href="#nosotros" onclick="closeMob()">Nosotros</a>
   <a class="mob-link" href="#productos" onclick="closeMob()">Productos</a>
@@ -627,19 +376,12 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
   <a class="mob-link" href="#noticias" onclick="closeMob()">Noticias</a>
   <a class="mob-link" href="#modelos" onclick="closeMob()">Empresas</a>
   <div class="mob-sep"></div>
-  <a class="mob-contact" href="https://wa.me/TUNUMERO" target="_blank">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    Escribir por WhatsApp
-  </a>
+  <a class="mob-contact" href="https://wa.me/TUNUMERO" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Escribir por WhatsApp</a>
 </div>
 
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-left">
-    <div class="logo-box">
-      <!-- REEMPLAZAR: <img src="logo.png" alt="Bellavista"> -->
-      <span class="logo-ph-txt">Tu Logo</span>
-    </div>
+    <div class="logo-box"><!-- REEMPLAZAR: <img src="img/logo.png" alt="Bellavista"> --><span class="logo-ph-txt">Tu Logo</span></div>
     <span class="nav-brand">Bellavista</span>
   </div>
   <ul class="nav-links">
@@ -650,54 +392,29 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
     <li><a href="#modelos">Empresas</a></li>
   </ul>
   <a href="https://wa.me/TUNUMERO" class="nav-btn" target="_blank">Contáctanos</a>
-  <div class="ham-wrap" id="ham" onclick="toggleMob()">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="ham-wrap" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- ═══ HERO ═══ -->
 <section id="hero">
-  <!-- MAPA ANIMADO DE FONDO -->
-  <div class="hero-bg-map">
-    <canvas id="heroBgMap"></canvas>
-  </div>
+  <div class="hero-bg-map"><canvas id="heroBgMap"></canvas></div>
   <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="hero-eyebrow">
-        <div class="hero-eyebrow-dot"></div>
-        <span>Mogotes, Santander · Colombia · Since 2002</span>
-      </div>
+      <div class="hero-eyebrow"><div class="hero-eyebrow-dot"></div><span>Mogotes, Santander · Colombia · Since 2002</span></div>
       <h1 class="hero-h1">Del campo<br><em>al mundo.</em></h1>
       <p class="hero-desc">Somos <strong>Bellavista</strong> — más de 20 años produciendo lo mejor del campo colombiano con calidad certificada internacionalmente.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/TUNUMERO?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Bellavista" class="btn-wa" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          Hablar con un asesor
-        </a>
+        <a href="https://wa.me/TUNUMERO?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Bellavista" class="btn-wa" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Hablar con un asesor</a>
         <a href="#productos" class="btn-ghost">Ver portafolio →</a>
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-stat-card" data-tip="Reconocimiento nacional e internacional">
-        <div class="hsc-num">Top 5</div>
-        <div class="hsc-label">Exportadores de panela en Colombia</div>
-      </div>
+      <div class="hero-stat-card" data-tip="Reconocimiento nacional e internacional"><div class="hsc-num">Top 5</div><div class="hsc-label">Exportadores de panela en Colombia</div></div>
       <div class="hsc-grid">
-        <div class="hsc-mini hero-stat-card" data-tip="Desde 2002 en Mogotes, Santander">
-          <div class="hsc-num">20+</div>
-          <div class="hsc-label">Años de experiencia</div>
-        </div>
-        <div class="hsc-mini hero-stat-card" data-tip="Capacidad productiva mensual">
-          <div class="hsc-num">500t</div>
-          <div class="hsc-label">Capacidad / mes</div>
-        </div>
+        <div class="hsc-mini hero-stat-card" data-tip="Desde 2002 en Mogotes, Santander"><div class="hsc-num">20+</div><div class="hsc-label">Años de experiencia</div></div>
+        <div class="hsc-mini hero-stat-card" data-tip="Capacidad productiva mensual"><div class="hsc-num">500t</div><div class="hsc-label">Capacidad / mes</div></div>
       </div>
-      <div class="hero-stat-card" data-tip="USA · España · Canadá · Aruba · Asia">
-        <div class="hsc-num">5 países</div>
-        <div class="hsc-label">Con presencia activa o en expansión</div>
-      </div>
-      <!-- Destinos flotantes sobre el mapa -->
+      <div class="hero-stat-card" data-tip="USA · España · Canadá · Aruba · Asia"><div class="hsc-num">5 países</div><div class="hsc-label">Con presencia activa o en expansión</div></div>
       <div class="map-dest-tags">
         <div class="mdt" data-region="usa" onmouseenter="highlightRegion('usa')" onmouseleave="clearHighlight()">🇺🇸 USA <span class="mdt-badge">Activo</span></div>
         <div class="mdt" data-region="europe" onmouseenter="highlightRegion('europe')" onmouseleave="clearHighlight()">🇪🇸 España <span class="mdt-badge">Activo</span></div>
@@ -707,31 +424,14 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
       </div>
     </div>
   </div>
-  <div class="hero-wave">
-    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C360,70 1080,10 1440,40 L1440,60 L0,60 Z" fill="#F0D400"/></svg>
-  </div>
+  <div class="hero-wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C360,70 1080,10 1440,40 L1440,60 L0,60 Z" fill="#F0D400"/></svg></div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     COMPANIES BAR — solo los 2 logos del grupo
-════════════════════════════════════════════ -->
 <section id="companies-bar">
-  <!-- LOGOS DE LAS DOS EMPRESAS DEL GRUPO -->
   <div class="co-bar-logos">
-    <a class="co-bar-item" href="#modelos">
-      <!-- Reemplaza por: <img src="logo-empresa1.png" alt="Empresa 1"> dentro de .co-bar-logo -->
-      <div class="co-bar-logo">Logo<br>Empresa 1</div>
-      <div class="co-bar-name">Empresa 1</div>
-      <div class="co-bar-sub">del grupo Bellavista</div>
-    </a>
-    <a class="co-bar-item" href="#modelos">
-      <!-- Reemplaza por: <img src="logo-empresa2.png" alt="Empresa 2"> dentro de .co-bar-logo -->
-      <div class="co-bar-logo">Logo<br>Empresa 2</div>
-      <div class="co-bar-name">Empresa 2</div>
-      <div class="co-bar-sub">del grupo Bellavista</div>
-    </a>
+    <a class="co-bar-item" href="#modelos"><div class="co-bar-logo">Logo<br>Empresa 1</div><div class="co-bar-name">Empresa 1</div><div class="co-bar-sub">del grupo Bellavista</div></a>
+    <a class="co-bar-item" href="#modelos"><div class="co-bar-logo">Logo<br>Empresa 2</div><div class="co-bar-name">Empresa 2</div><div class="co-bar-sub">del grupo Bellavista</div></a>
   </div>
-  <!-- TICKER DE NOTICIAS -->
   <div id="news-ticker">
     <div class="ticker-track" id="tickerTrack">
       <span class="ticker-item"><span class="ticker-dot"></span>Bellavista amplía su red de exportación a nuevos mercados en Europa</span>
@@ -750,11 +450,9 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
 
 <div class="wv" style="background:var(--Y)"><svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,25 C480,50 960,0 1440,25 L1440,50 L0,50 Z" fill="var(--CR)"/></svg></div>
 
-<!-- ═══ NOSOTROS — compacto y unificado ═══ -->
 <section id="nosotros">
   <div class="nos-inner">
     <div class="nos-grid">
-      <!-- Columna izquierda: todo el texto -->
       <div class="nos-left rvl">
         <span class="section-eyebrow ey-cafe">Quiénes somos</span>
         <h2 class="section-title" style="font-size:clamp(2rem,3.2vw,2.8rem);color:var(--C);margin-bottom:16px;">Más que panela.<br>Somos <em class="ital" style="color:var(--R)">Bellavista.</em></h2>
@@ -769,20 +467,10 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
           <div class="np"><span class="np-ico">👨‍🌾</span><div><strong>Darle estatus al campo</strong><span>Empleo digno y precios justos para las familias de Santander.</span></div></div>
         </div>
       </div>
-      <!-- Columna derecha: fotos -->
       <div class="nos-photos rvr">
-        <div class="ph ph-a">
-          <!-- <img src="campo.jpg" alt="Campo"> -->
-          <span class="ph-ico">📷</span><span class="ph-lbl">Foto campo / cultivo</span>
-        </div>
-        <div class="ph ph-b">
-          <!-- <img src="producto.jpg" alt="Producto"> -->
-          <span class="ph-ico">📷</span><span class="ph-lbl">Foto producto</span>
-        </div>
-        <div class="ph ph-c">
-          <!-- <img src="equipo.jpg" alt="Equipo"> -->
-          <span class="ph-ico">📷</span><span class="ph-lbl">Foto equipo</span>
-        </div>
+        <div class="ph ph-a"><img src="img/nosotros-campo.jpg" alt="Campo Bellavista" loading="lazy" onerror="this.remove();"><span class="ph-ico">📷</span><span class="ph-lbl">img/nosotros-campo.jpg</span></div>
+        <div class="ph ph-b"><img src="img/nosotros-producto.jpg" alt="Producto Bellavista" loading="lazy" onerror="this.remove();"><span class="ph-ico">📷</span><span class="ph-lbl">img/nosotros-producto.jpg</span></div>
+        <div class="ph ph-c"><img src="img/nosotros-equipo.jpg" alt="Equipo Bellavista" loading="lazy" onerror="this.remove();"><span class="ph-ico">📷</span><span class="ph-lbl">img/nosotros-equipo.jpg</span></div>
       </div>
     </div>
   </div>
@@ -790,7 +478,6 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
 
 <div class="wv" style="background:var(--CR)"><svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,10 C360,50 1080,0 1440,40 L1440,50 L0,50 Z" fill="var(--C)"/></svg></div>
 
-<!-- ═══ PRODUCTOS — FAMILIAS CON CARRUSEL ═══ -->
 <section id="productos">
   <div class="prod-header rv">
     <div>
@@ -800,205 +487,68 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
     </div>
     <p style="font-size:.85rem;color:rgba(255,255,255,.35);max-width:260px;text-align:right;line-height:1.7;">Desliza las flechas para ver todas las presentaciones disponibles</p>
   </div>
-
   <div class="prod-families">
-    <!-- FAMILIA 1: Cuadrada / Bloque -->
     <a class="family-card fc-1" href="/panela-bloque" data-family="0">
       <div class="family-img">
-        <div class="family-slide active pi-a">
-          <div class="family-slide-ph" style="background:linear-gradient(135deg,#6B3800,#B87040)">
-            <span style="font-size:3rem;opacity:.4">🟫</span>
-            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">Foto Panela Cuadrada</span>
-          </div>
-        </div>
-        <div class="family-slide pi-a">
-          <div class="family-slide-ph" style="background:linear-gradient(135deg,#7A4200,#C4883A)">
-            <span style="font-size:3rem;opacity:.4">📦</span>
-            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">Foto Presentación Caja</span>
-          </div>
-        </div>
-        <div class="family-slide pi-a">
-          <div class="family-slide-ph" style="background:linear-gradient(135deg,#5C2E00,#A06030)">
-            <span style="font-size:3rem;opacity:.4">🏭</span>
-            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">Foto Proceso Producción</span>
-          </div>
-        </div>
+        <div class="family-slide active"><img src="img/bloque-1.jpg" alt="Panela Bloque" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="family-slide-ph" style="background:linear-gradient(135deg,#6B3800,#B87040)"><span style="font-size:3rem;opacity:.4">🟫</span><span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">img/bloque-1.jpg</span></div></div>
+        <div class="family-slide"><img src="img/bloque-2.jpg" alt="Panela Bloque presentación" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="family-slide-ph" style="background:linear-gradient(135deg,#7A4200,#C4883A)"><span style="font-size:3rem;opacity:.4">📦</span><span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">img/bloque-2.jpg</span></div></div>
+        <div class="family-slide"><img src="img/bloque-3.jpg" alt="Proceso panela bloque" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="family-slide-ph" style="background:linear-gradient(135deg,#5C2E00,#A06030)"><span style="font-size:3rem;opacity:.4">🏭</span><span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">img/bloque-3.jpg</span></div></div>
         <div class="family-dots"><div class="fdot active"></div><div class="fdot"></div><div class="fdot"></div></div>
-        <div class="family-arrows">
-          <div class="farr" onclick="prevSlide(event,this)">‹</div>
-          <div class="farr" onclick="nextSlide(event,this)">›</div>
-        </div>
+        <div class="family-arrows"><div class="farr" onclick="prevSlide(event,this)">‹</div><div class="farr" onclick="nextSlide(event,this)">›</div></div>
       </div>
-      <div class="family-body">
-        <div class="family-accent"></div>
-        <h3>Panela Bloque</h3>
-        <p>Cuadrada, redonda, piloncillo. Orgánica y convencional. Todas las presentaciones comerciales. Vida útil: 1 año.</p>
-        <span class="family-tag">Nacional & Exportación</span>
-        <span class="family-cta"> Ver todos →</span>
-      </div>
+      <div class="family-body"><div class="family-accent"></div><h3>Panela Bloque</h3><p>Cuadrada, redonda, piloncillo. Orgánica y convencional. Todas las presentaciones comerciales. Vida útil: 1 año.</p><span class="family-tag">Nacional & Exportación</span><span class="family-cta"> Ver todos →</span></div>
     </a>
-
-    <!-- FAMILIA 2: Fraccionada / Partida -->
     <a class="family-card fc-2" href="/panela-partida" data-family="1">
       <div class="family-img">
-        <div class="family-slide active">
-          <div class="family-slide-ph" style="background:linear-gradient(135deg,#2D7A2D,#8DC63F)">
-            <span style="font-size:3rem;opacity:.4">✂️</span>
-            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">Foto Panela Fraccionada</span>
-          </div>
-        </div>
-        <div class="family-slide">
-          <div class="family-slide-ph" style="background:linear-gradient(135deg,#186010,#4A9920)">
-            <span style="font-size:3rem;opacity:.4">🎁</span>
-            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">Foto Empaque Partida</span>
-          </div>
-        </div>
+        <div class="family-slide active"><img src="img/partida-1.jpg" alt="Panela Partida" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="family-slide-ph" style="background:linear-gradient(135deg,#2D7A2D,#8DC63F)"><span style="font-size:3rem;opacity:.4">✂️</span><span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">img/partida-1.jpg</span></div></div>
+        <div class="family-slide"><img src="img/partida-2.jpg" alt="Empaque panela partida" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="family-slide-ph" style="background:linear-gradient(135deg,#186010,#4A9920)"><span style="font-size:3rem;opacity:.4">🎁</span><span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">img/partida-2.jpg</span></div></div>
         <div class="family-dots"><div class="fdot active"></div><div class="fdot"></div></div>
-        <div class="family-arrows">
-          <div class="farr" onclick="prevSlide(event,this)">‹</div>
-          <div class="farr" onclick="nextSlide(event,this)">›</div>
-        </div>
+        <div class="family-arrows"><div class="farr" onclick="prevSlide(event,this)">‹</div><div class="farr" onclick="nextSlide(event,this)">›</div></div>
       </div>
-      <div class="family-body">
-        <div class="family-accent"></div>
-        <h3>Panela Partida</h3>
-        <p>Fraccionada y partida en distintos gramajes. Ideal para empaques individuales y mercados minoristas.</p>
-        <span class="family-tag">Minorista</span>
-        <span class="family-cta"> Ver todos →</span>
-      </div>
+      <div class="family-body"><div class="family-accent"></div><h3>Panela Partida</h3><p>Fraccionada y partida en distintos gramajes. Ideal para empaques individuales y mercados minoristas.</p><span class="family-tag">Minorista</span><span class="family-cta"> Ver todos →</span></div>
     </a>
-
-    <!-- FAMILIA 3: Pastilla -->
     <a class="family-card fc-3" href="/pastilla-sachet" data-family="2">
       <div class="family-img">
-        <div class="family-slide active">
-          <div class="family-slide-ph" style="background:linear-gradient(135deg,#8B0000,#E8192C)">
-            <span style="font-size:3rem;opacity:.4">💊</span>
-            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">Foto Pastilla Panela</span>
-          </div>
-        </div>
-        <div class="family-slide">
-          <div class="family-slide-ph" style="background:linear-gradient(135deg,#700000,#A82020)">
-            <span style="font-size:3rem;opacity:.4">✈️</span>
-            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">Foto Sachet Horeca</span>
-          </div>
-        </div>
+        <div class="family-slide active"><img src="img/pastilla-1.jpg" alt="Pastilla de panela" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="family-slide-ph" style="background:linear-gradient(135deg,#8B0000,#E8192C)"><span style="font-size:3rem;opacity:.4">💊</span><span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">img/pastilla-1.jpg</span></div></div>
+        <div class="family-slide"><img src="img/pastilla-2.jpg" alt="Sachet horeca" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="family-slide-ph" style="background:linear-gradient(135deg,#700000,#A82020)"><span style="font-size:3rem;opacity:.4">✈️</span><span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">img/pastilla-2.jpg</span></div></div>
         <div class="family-dots"><div class="fdot active"></div><div class="fdot"></div></div>
-        <div class="family-arrows">
-          <div class="farr" onclick="prevSlide(event,this)">‹</div>
-          <div class="farr" onclick="nextSlide(event,this)">›</div>
-        </div>
+        <div class="family-arrows"><div class="farr" onclick="prevSlide(event,this)">‹</div><div class="farr" onclick="nextSlide(event,this)">›</div></div>
       </div>
-      <div class="family-body">
-        <div class="family-accent"></div>
-        <h3>Pastilla & Sachet</h3>
-        <p>Pastillas individuales y sachets de 8g para hoteles, restaurantes y aerolíneas. Presentación premium.</p>
-        <span class="family-tag">Horeca & Aerolíneas</span>
-        <span class="family-cta"> Ver todos →</span>
-      </div>
+      <div class="family-body"><div class="family-accent"></div><h3>Pastilla & Sachet</h3><p>Pastillas individuales y sachets de 8g para hoteles, restaurantes y aerolíneas. Presentación premium.</p><span class="family-tag">Horeca & Aerolíneas</span><span class="family-cta"> Ver todos →</span></div>
     </a>
-
-    <!-- FAMILIA 4: Pulverizada / Granulada -->
     <a class="family-card fc-4" href="/granulada-pulverizada" data-family="3">
       <div class="family-img">
-        <div class="family-slide active">
-          <div class="family-slide-ph" style="background:linear-gradient(135deg,#8A7000,#F0D400)">
-            <span style="font-size:3rem;opacity:.4">✨</span>
-            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">Foto Panela Pulverizada</span>
-          </div>
-        </div>
-        <div class="family-slide">
-          <div class="family-slide-ph" style="background:linear-gradient(135deg,#706000,#D4A800)">
-            <span style="font-size:3rem;opacity:.4">🍰</span>
-            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">Foto Doypack Granulada</span>
-          </div>
-        </div>
-        <div class="family-slide">
-          <div class="family-slide-ph" style="background:linear-gradient(135deg,#604800,#B88800)">
-            <span style="font-size:3rem;opacity:.4">🏺</span>
-            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">Foto Tarro Granulado</span>
-          </div>
-        </div>
+        <div class="family-slide active"><img src="img/granulada-1.jpg" alt="Panela pulverizada" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="family-slide-ph" style="background:linear-gradient(135deg,#8A7000,#F0D400)"><span style="font-size:3rem;opacity:.4">✨</span><span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">img/granulada-1.jpg</span></div></div>
+        <div class="family-slide"><img src="img/granulada-2.jpg" alt="Doypack granulada" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="family-slide-ph" style="background:linear-gradient(135deg,#706000,#D4A800)"><span style="font-size:3rem;opacity:.4">🍰</span><span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">img/granulada-2.jpg</span></div></div>
+        <div class="family-slide"><img src="img/granulada-3.jpg" alt="Tarro granulado" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="family-slide-ph" style="background:linear-gradient(135deg,#604800,#B88800)"><span style="font-size:3rem;opacity:.4">🏺</span><span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">img/granulada-3.jpg</span></div></div>
         <div class="family-dots"><div class="fdot active"></div><div class="fdot"></div><div class="fdot"></div></div>
-        <div class="family-arrows">
-          <div class="farr" onclick="prevSlide(event,this)">‹</div>
-          <div class="farr" onclick="nextSlide(event,this)">›</div>
-        </div>
+        <div class="family-arrows"><div class="farr" onclick="prevSlide(event,this)">‹</div><div class="farr" onclick="nextSlide(event,this)">›</div></div>
       </div>
-      <div class="family-body">
-        <div class="family-accent"></div>
-        <h3>Granulada & Pulverizada</h3>
-        <p>Granulada, pulverizada y micro-pulverizada. Doypack, sachet, tarros y bolsas. Ideal para repostería.</p>
-        <span class="family-tag">Exportación</span>
-        <span class="family-cta"> Ver todos →</span>
-      </div>
+      <div class="family-body"><div class="family-accent"></div><h3>Granulada & Pulverizada</h3><p>Granulada, pulverizada y micro-pulverizada. Doypack, sachet, tarros y bolsas. Ideal para repostería.</p><span class="family-tag">Exportación</span><span class="family-cta"> Ver todos →</span></div>
     </a>
-
-    <!-- FAMILIA 5: Líquida -->
     <a class="family-card fc-5" href="/panela-liquida" data-family="4">
       <div class="family-img">
-        <div class="family-slide active">
-          <div class="family-slide-ph" style="background:linear-gradient(135deg,#4A2000,#9A5020)">
-            <span style="font-size:3rem;opacity:.4">🍯</span>
-            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">Foto Panela Líquida</span>
-          </div>
-        </div>
-        <div class="family-slide">
-          <div class="family-slide-ph" style="background:linear-gradient(135deg,#3A1800,#7A3A10)">
-            <span style="font-size:3rem;opacity:.4">🫙</span>
-            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">Foto Frasco 350g</span>
-          </div>
-        </div>
+        <div class="family-slide active"><img src="img/liquida-1.jpg" alt="Panela líquida" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="family-slide-ph" style="background:linear-gradient(135deg,#4A2000,#9A5020)"><span style="font-size:3rem;opacity:.4">🍯</span><span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">img/liquida-1.jpg</span></div></div>
+        <div class="family-slide"><img src="img/liquida-2.jpg" alt="Frasco panela líquida" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="family-slide-ph" style="background:linear-gradient(135deg,#3A1800,#7A3A10)"><span style="font-size:3rem;opacity:.4">🫙</span><span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">img/liquida-2.jpg</span></div></div>
         <div class="family-dots"><div class="fdot active"></div><div class="fdot"></div></div>
-        <div class="family-arrows">
-          <div class="farr" onclick="prevSlide(event,this)">‹</div>
-          <div class="farr" onclick="nextSlide(event,this)">›</div>
-        </div>
+        <div class="family-arrows"><div class="farr" onclick="prevSlide(event,this)">‹</div><div class="farr" onclick="nextSlide(event,this)">›</div></div>
       </div>
-      <div class="family-body">
-        <div class="family-accent"></div>
-        <h3>Panela Líquida</h3>
-        <p>Miel de caña Premium. Presentaciones 350g, 520g y 5.3kg. Alternativa natural a las mieles procesadas.</p>
-        <span class="family-tag">Premium</span>
-        <span class="family-cta"> Ver todos →</span>
-      </div>
+      <div class="family-body"><div class="family-accent"></div><h3>Panela Líquida</h3><p>Miel de caña Premium. Presentaciones 350g, 520g y 5.3kg. Alternativa natural a las mieles procesadas.</p><span class="family-tag">Premium</span><span class="family-cta"> Ver todos →</span></div>
     </a>
-
-    <!-- FAMILIA 6: Redonda / Piloncillo -->
     <a class="family-card fc-6" href="/redonda-piloncillo" data-family="5">
       <div class="family-img">
-        <div class="family-slide active">
-          <div class="family-slide-ph" style="background:linear-gradient(135deg,#2A6020,#6AB840)">
-            <span style="font-size:3rem;opacity:.4">⭕</span>
-            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">Foto Panela Redonda</span>
-          </div>
-        </div>
-        <div class="family-slide">
-          <div class="family-slide-ph" style="background:linear-gradient(135deg,#1E5018,#58A030)">
-            <span style="font-size:3rem;opacity:.4">🌮</span>
-            <span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">Foto Piloncillo México</span>
-          </div>
-        </div>
+        <div class="family-slide active"><img src="img/redonda-1.jpg" alt="Panela redonda" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="family-slide-ph" style="background:linear-gradient(135deg,#2A6020,#6AB840)"><span style="font-size:3rem;opacity:.4">⭕</span><span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">img/redonda-1.jpg</span></div></div>
+        <div class="family-slide"><img src="img/redonda-2.jpg" alt="Piloncillo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="family-slide-ph" style="background:linear-gradient(135deg,#1E5018,#58A030)"><span style="font-size:3rem;opacity:.4">🌮</span><span style="font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">img/redonda-2.jpg</span></div></div>
         <div class="family-dots"><div class="fdot active"></div><div class="fdot"></div></div>
-        <div class="family-arrows">
-          <div class="farr" onclick="prevSlide(event,this)">‹</div>
-          <div class="farr" onclick="nextSlide(event,this)">›</div>
-        </div>
+        <div class="family-arrows"><div class="farr" onclick="prevSlide(event,this)">‹</div><div class="farr" onclick="nextSlide(event,this)">›</div></div>
       </div>
-      <div class="family-body">
-        <div class="family-accent"></div>
-        <h3>Redonda & Piloncillo</h3>
-        <p>Forma redonda y piloncillo para mercados de México y Centroamérica. Presentaciones exportación.</p>
-        <span class="family-tag">Exportación LATAM</span>
-        <span class="family-cta"> Ver todos →</span>
-      </div>
+      <div class="family-body"><div class="family-accent"></div><h3>Redonda & Piloncillo</h3><p>Forma redonda y piloncillo para mercados de México y Centroamérica. Presentaciones exportación.</p><span class="family-tag">Exportación LATAM</span><span class="family-cta"> Ver todos →</span></div>
     </a>
   </div>
 </section>
 
 <div class="wv" style="background:var(--C)"><svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C480,0 960,50 1440,15 L1440,50 L0,50 Z" fill="var(--G)"/></svg></div>
 
-<!-- ── CERTIFICACIONES ── -->
 <section id="certificaciones">
   <div class="certs-inner">
     <div class="certs-head rv">
@@ -1007,33 +557,17 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
       <p>Los avales más exigentes de la industria alimentaria nacional e internacional.</p>
     </div>
     <div class="stamps-row">
-      <div class="stamp rv">
-        <svg class="ring" viewBox="0 0 140 140"><circle cx="70" cy="70" r="64" fill="rgba(20,80,14,.7)" stroke="rgba(245,200,0,.45)" stroke-width="2"/><circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1" stroke-dasharray="3,3"/><text font-size="7" fill="rgba(255,255,255,.65)" font-family="Nunito,sans-serif" letter-spacing="4.5" font-weight="600"><textPath href="#c1">· REGISTRO SANITARIO · COLOMBIA ·</textPath></text><defs><path id="c1" d="M70,70 m-54,0 a54,54 0 1,1 0.1,0"/></defs></svg>
-        <div class="stamp-inner"><span class="stamp-ico">🏥</span><div class="stamp-name">INVIMA</div></div>
-      </div>
-      <div class="stamp rv">
-        <svg class="ring" viewBox="0 0 140 140"><circle cx="70" cy="70" r="64" fill="rgba(20,80,14,.7)" stroke="rgba(245,200,0,.45)" stroke-width="2"/><circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1" stroke-dasharray="3,3"/><text font-size="7" fill="rgba(255,255,255,.65)" font-family="Nunito,sans-serif" letter-spacing="4.5" font-weight="600"><textPath href="#c2">· FDA APPROVED · EXPORT QUOTA ·</textPath></text><defs><path id="c2" d="M70,70 m-54,0 a54,54 0 1,1 0.1,0"/></defs></svg>
-        <div class="stamp-inner"><span class="stamp-ico">🇺🇸</span><div class="stamp-name">FDA<br>Approved</div></div>
-      </div>
-      <div class="stamp rv">
-        <svg class="ring" viewBox="0 0 140 140"><circle cx="70" cy="70" r="64" fill="rgba(20,80,14,.7)" stroke="rgba(91,170,37,.5)" stroke-width="2"/><circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1" stroke-dasharray="3,3"/><text font-size="7" fill="rgba(255,255,255,.65)" font-family="Nunito,sans-serif" letter-spacing="4" font-weight="600"><textPath href="#c3">· GREEN BUSINESS · SOSTENIBLE ·</textPath></text><defs><path id="c3" d="M70,70 m-54,0 a54,54 0 1,1 0.1,0"/></defs></svg>
-        <div class="stamp-inner"><span class="stamp-ico">🌱</span><div class="stamp-name">Green<br>Business</div></div>
-      </div>
-      <div class="stamp rv">
-        <svg class="ring" viewBox="0 0 140 140"><circle cx="70" cy="70" r="64" fill="rgba(20,80,14,.7)" stroke="rgba(245,200,0,.45)" stroke-width="2"/><circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1" stroke-dasharray="3,3"/><text font-size="7" fill="rgba(255,255,255,.65)" font-family="Nunito,sans-serif" letter-spacing="4" font-weight="600"><textPath href="#c4">· CO COLOMBIA · CERTIFIED ORIGIN ·</textPath></text><defs><path id="c4" d="M70,70 m-54,0 a54,54 0 1,1 0.1,0"/></defs></svg>
-        <div class="stamp-inner"><span class="stamp-ico">🇨🇴</span><div class="stamp-name">CO<br>Colombia</div></div>
-      </div>
-      <div class="stamp rv">
-        <svg class="ring" viewBox="0 0 140 140"><circle cx="70" cy="70" r="64" fill="rgba(20,80,14,.7)" stroke="rgba(245,200,0,.45)" stroke-width="2"/><circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1" stroke-dasharray="3,3"/><text font-size="7" fill="rgba(255,255,255,.65)" font-family="Nunito,sans-serif" letter-spacing="4" font-weight="600"><textPath href="#c5">· CERTIFICADO DE ORIGEN · 2002 ·</textPath></text><defs><path id="c5" d="M70,70 m-54,0 a54,54 0 1,1 0.1,0"/></defs></svg>
-        <div class="stamp-inner"><span class="stamp-ico">📜</span><div class="stamp-name">Cert. de<br>Origen</div></div>
-      </div>
+      <div class="stamp rv"><svg class="ring" viewBox="0 0 140 140"><circle cx="70" cy="70" r="64" fill="rgba(20,80,14,.7)" stroke="rgba(245,200,0,.45)" stroke-width="2"/><circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1" stroke-dasharray="3,3"/><text font-size="7" fill="rgba(255,255,255,.65)" font-family="Nunito,sans-serif" letter-spacing="4.5" font-weight="600"><textPath href="#c1">· REGISTRO SANITARIO · COLOMBIA ·</textPath></text><defs><path id="c1" d="M70,70 m-54,0 a54,54 0 1,1 0.1,0"/></defs></svg><div class="stamp-inner"><span class="stamp-ico">🏥</span><div class="stamp-name">INVIMA</div></div></div>
+      <div class="stamp rv"><svg class="ring" viewBox="0 0 140 140"><circle cx="70" cy="70" r="64" fill="rgba(20,80,14,.7)" stroke="rgba(245,200,0,.45)" stroke-width="2"/><circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1" stroke-dasharray="3,3"/><text font-size="7" fill="rgba(255,255,255,.65)" font-family="Nunito,sans-serif" letter-spacing="4.5" font-weight="600"><textPath href="#c2">· FDA APPROVED · EXPORT QUOTA ·</textPath></text><defs><path id="c2" d="M70,70 m-54,0 a54,54 0 1,1 0.1,0"/></defs></svg><div class="stamp-inner"><span class="stamp-ico">🇺🇸</span><div class="stamp-name">FDA<br>Approved</div></div></div>
+      <div class="stamp rv"><svg class="ring" viewBox="0 0 140 140"><circle cx="70" cy="70" r="64" fill="rgba(20,80,14,.7)" stroke="rgba(91,170,37,.5)" stroke-width="2"/><circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1" stroke-dasharray="3,3"/><text font-size="7" fill="rgba(255,255,255,.65)" font-family="Nunito,sans-serif" letter-spacing="4" font-weight="600"><textPath href="#c3">· GREEN BUSINESS · SOSTENIBLE ·</textPath></text><defs><path id="c3" d="M70,70 m-54,0 a54,54 0 1,1 0.1,0"/></defs></svg><div class="stamp-inner"><span class="stamp-ico">🌱</span><div class="stamp-name">Green<br>Business</div></div></div>
+      <div class="stamp rv"><svg class="ring" viewBox="0 0 140 140"><circle cx="70" cy="70" r="64" fill="rgba(20,80,14,.7)" stroke="rgba(245,200,0,.45)" stroke-width="2"/><circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1" stroke-dasharray="3,3"/><text font-size="7" fill="rgba(255,255,255,.65)" font-family="Nunito,sans-serif" letter-spacing="4" font-weight="600"><textPath href="#c4">· CO COLOMBIA · CERTIFIED ORIGIN ·</textPath></text><defs><path id="c4" d="M70,70 m-54,0 a54,54 0 1,1 0.1,0"/></defs></svg><div class="stamp-inner"><span class="stamp-ico">🇨🇴</span><div class="stamp-name">CO<br>Colombia</div></div></div>
+      <div class="stamp rv"><svg class="ring" viewBox="0 0 140 140"><circle cx="70" cy="70" r="64" fill="rgba(20,80,14,.7)" stroke="rgba(245,200,0,.45)" stroke-width="2"/><circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1" stroke-dasharray="3,3"/><text font-size="7" fill="rgba(255,255,255,.65)" font-family="Nunito,sans-serif" letter-spacing="4" font-weight="600"><textPath href="#c5">· CERTIFICADO DE ORIGEN · 2002 ·</textPath></text><defs><path id="c5" d="M70,70 m-54,0 a54,54 0 1,1 0.1,0"/></defs></svg><div class="stamp-inner"><span class="stamp-ico">📜</span><div class="stamp-name">Cert. de<br>Origen</div></div></div>
     </div>
   </div>
 </section>
 
 <div class="wv" style="background:var(--G)"><svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 C360,50 1080,0 1440,35 L1440,50 L0,50 Z" fill="var(--CR)"/></svg></div>
 
-<!-- ═══ MODELOS DE NEGOCIO ═══ -->
 <section id="modelos">
   <div class="mod-inner">
     <div class="mod-head rv">
@@ -1043,62 +577,26 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
     </div>
     <div class="mod-companies rv">
       <a class="mod-company" href="#contacto">
-        <div class="mod-company-bg">
-          <div class="mod-company-ph">
-            <div class="mod-company-ph-ico">🏭</div>
-            <div class="mod-company-ph-txt">Foto empresa 1</div>
-          </div>
-        </div>
-        <div class="mod-company-overlay"></div>
-        <div class="mod-plus">+</div>
-        <div class="mod-company-content">
-          <div class="mod-co-logo">Logo<br>1</div>
-          <div class="mod-co-badge">● Activa</div>
-          <h3>Empresa 1</h3>
-          <p>Descripción breve de la empresa 1 del grupo y su especialidad.</p>
-        </div>
+        <div class="mod-company-bg"><img src="img/empresa-1.jpg" alt="Empresa 1" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="mod-company-ph"><div class="mod-company-ph-ico">🏭</div><div class="mod-company-ph-txt">img/empresa-1.jpg</div></div></div>
+        <div class="mod-company-overlay"></div><div class="mod-plus">+</div>
+        <div class="mod-company-content"><div class="mod-co-logo">Logo<br>1</div><div class="mod-co-badge">● Activa</div><h3>Empresa 1</h3><p>Descripción breve de la empresa 1 del grupo y su especialidad.</p></div>
       </a>
       <a class="mod-company" href="#contacto">
-        <div class="mod-company-bg">
-          <div class="mod-company-ph">
-            <div class="mod-company-ph-ico">🌾</div>
-            <div class="mod-company-ph-txt">Foto empresa 2</div>
-          </div>
-        </div>
-        <div class="mod-company-overlay"></div>
-        <div class="mod-plus">+</div>
-        <div class="mod-company-content">
-          <div class="mod-co-logo">Logo<br>2</div>
-          <div class="mod-co-badge">● Activa</div>
-          <h3>Empresa 2</h3>
-          <p>Descripción breve de la empresa 2 del grupo y su especialidad.</p>
-        </div>
+        <div class="mod-company-bg"><img src="img/empresa-2.jpg" alt="Empresa 2" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="mod-company-ph"><div class="mod-company-ph-ico">🌾</div><div class="mod-company-ph-txt">img/empresa-2.jpg</div></div></div>
+        <div class="mod-company-overlay"></div><div class="mod-plus">+</div>
+        <div class="mod-company-content"><div class="mod-co-logo">Logo<br>2</div><div class="mod-co-badge">● Activa</div><h3>Empresa 2</h3><p>Descripción breve de la empresa 2 del grupo y su especialidad.</p></div>
       </a>
     </div>
     <div class="mod-sub rv">
-      <div class="mod-sub-card">
-        <span class="msc-ico">🏷️</span>
-        <h4>Marca Propia</h4>
-        <p>Producimos bajo nuestra marca Bellavista con los más altos estándares para mercados nacionales e internacionales.</p>
-      </div>
-      <div class="mod-sub-card">
-        <span class="msc-ico">🤝</span>
-        <h4>White Label</h4>
-        <p>Tu marca, nuestra producción. Para distribuidores y retailers que buscan calidad certificada internacionalmente.</p>
-      </div>
-      <div class="mod-sub-card">
-        <span class="msc-ico">🏭</span>
-        <h4>Maquila</h4>
-        <p>Fabricación por contrato. 500 toneladas/mes para cubrir demandas industriales a escala internacional.</p>
-      </div>
+      <div class="mod-sub-card"><span class="msc-ico">🏷️</span><h4>Marca Propia</h4><p>Producimos bajo nuestra marca Bellavista con los más altos estándares para mercados nacionales e internacionales.</p></div>
+      <div class="mod-sub-card"><span class="msc-ico">🤝</span><h4>White Label</h4><p>Tu marca, nuestra producción. Para distribuidores y retailers que buscan calidad certificada internacionalmente.</p></div>
+      <div class="mod-sub-card"><span class="msc-ico">🏭</span><h4>Maquila</h4><p>Fabricación por contrato. 500 toneladas/mes para cubrir demandas industriales a escala internacional.</p></div>
     </div>
   </div>
 </section>
 
 <div class="wv" style="background:var(--CR)"><svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,35 C480,5 960,50 1440,15 L1440,50 L0,50 Z" fill="var(--O)"/></svg></div>
 
-<!-- ═══ EXPORTACIONES + MAPA ═══ -->
-<!-- ═══ NOTICIAS ═══ -->
 <section id="noticias" style="background:var(--O);padding:100px 40px;">
   <div style="max-width:1100px;margin:0 auto;">
     <div class="rv" style="text-align:center;margin-bottom:56px;">
@@ -1108,51 +606,13 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
     </div>
     <div class="news-grid rv">
       <article class="news-card news-card-featured">
-        <div class="news-card-img">
-          <!-- <img src="noticia1.jpg" alt=""> -->
-          <div class="news-img-ph"><span>📷</span><span>Foto noticia principal</span></div>
-        </div>
-        <div class="news-card-body">
-          <span class="news-tag">Exportaciones</span>
-          <h3>Bellavista amplía su presencia en mercados europeos</h3>
-          <p>La empresa consolida su posición como exportador de referencia con nuevos acuerdos comerciales en España y próximas negociaciones en otros países de la Unión Europea.</p>
-          <span class="news-date">Bellavista · 2025</span>
-        </div>
+        <div class="news-card-img"><img src="img/noticia-1.jpg" alt="Noticia principal" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="news-img-ph"><span>📷</span><span>img/noticia-1.jpg</span></div></div>
+        <div class="news-card-body"><span class="news-tag">Exportaciones</span><h3>Bellavista amplía su presencia en mercados europeos</h3><p>La empresa consolida su posición como exportador de referencia con nuevos acuerdos comerciales en España y próximas negociaciones en otros países de la Unión Europea.</p><span class="news-date">Bellavista · 2025</span></div>
       </article>
       <div class="news-side">
-        <article class="news-card news-card-sm">
-          <div class="news-card-img news-card-img-sm">
-            <div class="news-img-ph"><span>📷</span><span>Foto</span></div>
-          </div>
-          <div class="news-card-body">
-            <span class="news-tag">Certificaciones</span>
-            <h3>Renovación certificación FDA 2025</h3>
-            <p>Cuota de exportación activa garantizada para el mercado de Estados Unidos durante 2025.</p>
-            <span class="news-date">Bellavista · 2025</span>
-          </div>
-        </article>
-        <article class="news-card news-card-sm">
-          <div class="news-card-img news-card-img-sm">
-            <div class="news-img-ph"><span>📷</span><span>Foto</span></div>
-          </div>
-          <div class="news-card-body">
-            <span class="news-tag">Producción</span>
-            <h3>Nueva línea de panela granulada orgánica</h3>
-            <p>Ampliamos el portafolio con panela granulada y micro-pulverizada en presentación orgánica certificada.</p>
-            <span class="news-date">Bellavista · 2025</span>
-          </div>
-        </article>
-        <article class="news-card news-card-sm">
-          <div class="news-card-img news-card-img-sm">
-            <div class="news-img-ph"><span>📷</span><span>Foto</span></div>
-          </div>
-          <div class="news-card-body">
-            <span class="news-tag">Capacidad</span>
-            <h3>500 toneladas/mes: nueva meta productiva</h3>
-            <p>Bellavista alcanza su mayor capacidad de producción mensual, fortaleciendo la oferta exportadora.</p>
-            <span class="news-date">Bellavista · 2025</span>
-          </div>
-        </article>
+        <article class="news-card news-card-sm"><div class="news-card-img news-card-img-sm"><img src="img/noticia-2.jpg" alt="Noticia" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="news-img-ph"><span>📷</span><span>img/noticia-2.jpg</span></div></div><div class="news-card-body"><span class="news-tag">Certificaciones</span><h3>Renovación certificación FDA 2025</h3><p>Cuota de exportación activa garantizada para el mercado de Estados Unidos durante 2025.</p><span class="news-date">Bellavista · 2025</span></div></article>
+        <article class="news-card news-card-sm"><div class="news-card-img news-card-img-sm"><img src="img/noticia-3.jpg" alt="Noticia" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="news-img-ph"><span>📷</span><span>img/noticia-3.jpg</span></div></div><div class="news-card-body"><span class="news-tag">Producción</span><h3>Nueva línea de panela granulada orgánica</h3><p>Ampliamos el portafolio con panela granulada y micro-pulverizada en presentación orgánica certificada.</p><span class="news-date">Bellavista · 2025</span></div></article>
+        <article class="news-card news-card-sm"><div class="news-card-img news-card-img-sm"><img src="img/noticia-4.jpg" alt="Noticia" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="news-img-ph"><span>📷</span><span>img/noticia-4.jpg</span></div></div><div class="news-card-body"><span class="news-tag">Capacidad</span><h3>500 toneladas/mes: nueva meta productiva</h3><p>Bellavista alcanza su mayor capacidad de producción mensual, fortaleciendo la oferta exportadora.</p><span class="news-date">Bellavista · 2025</span></div></article>
       </div>
     </div>
   </div>
@@ -1160,7 +620,6 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
 
 <div class="wv" style="background:var(--O)"><svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,10 C360,50 1080,0 1440,40 L1440,50 L0,50 Z" fill="var(--R)"/></svg></div>
 
-<!-- ── CTA ── -->
 <section id="contacto">
   <div class="cta-deco d1"></div><div class="cta-deco d2"></div>
   <div class="cta-inner rv">
@@ -1168,433 +627,72 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
     <h2 class="section-title st-light" style="font-size:clamp(2.2rem,4vw,3.8rem);margin-bottom:18px;">¿Listo para trabajar<br>con <em class="ital" style="color:var(--Y)">Bellavista?</em></h2>
     <p>Cuéntanos qué necesitas — muestra, cotización o información. Respondemos rápido.</p>
     <div class="cta-btns">
-      <a href="https://wa.me/TUNUMERO?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Bellavista" class="btn-wa-big" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        Escribir por WhatsApp
-      </a>
+      <a href="https://wa.me/TUNUMERO?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Bellavista" class="btn-wa-big" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Escribir por WhatsApp</a>
       <a href="mailto:info@panelabellavista.com" class="btn-outline-w">✉ Enviar correo</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="ft-inner">
     <div class="ft-top">
-      <div class="ft-brand">
-        <div class="fb-logo">
-          <div class="logo-box"><span class="logo-ph-txt">Logo</span></div>
-          <span class="nav-brand">Bellavista</span>
-        </div>
-        <p>Del campo colombiano al mundo. Productos naturales con calidad certificada. Mogotes, Santander.</p>
-      </div>
-      <div class="ft-col">
-        <h5>Navegación</h5>
-        <ul>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#productos">Productos</a></li>
-          <li><a href="#certificaciones">Certificaciones</a></li>
-          <li><a href="#noticias">Noticias</a></li>
-          <li><a href="#modelos">Empresas</a></li>
-        </ul>
-      </div>
-      <div class="ft-col">
-        <h5>Contacto</h5>
-        <ul>
-          <li><a href="https://wa.me/TUNUMERO" target="_blank">WhatsApp</a></li>
-          <li><a href="mailto:info@panelabellavista.com">info@panelabellavista.com</a></li>
-          <li><a href="https://panelabellavista.com" target="_blank">panelabellavista.com</a></li>
-        </ul>
-      </div>
+      <div class="ft-brand"><div class="fb-logo"><div class="logo-box"><span class="logo-ph-txt">Logo</span></div><span class="nav-brand">Bellavista</span></div><p>Del campo colombiano al mundo. Productos naturales con calidad certificada. Mogotes, Santander.</p></div>
+      <div class="ft-col"><h5>Navegación</h5><ul><li><a href="#nosotros">Nosotros</a></li><li><a href="#productos">Productos</a></li><li><a href="#certificaciones">Certificaciones</a></li><li><a href="#noticias">Noticias</a></li><li><a href="#modelos">Empresas</a></li></ul></div>
+      <div class="ft-col"><h5>Contacto</h5><ul><li><a href="https://wa.me/TUNUMERO" target="_blank">WhatsApp</a></li><li><a href="mailto:info@panelabellavista.com">info@panelabellavista.com</a></li><li><a href="https://panelabellavista.com" target="_blank">panelabellavista.com</a></li></ul></div>
     </div>
     <div class="ft-bot">
       <p>© 2025 Bellavista · VR Vega Rodríguez SAS · Mogotes, Santander, Colombia</p>
-      <a href="https://wa.me/TUNUMERO" class="ft-wa" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        WhatsApp
-      </a>
+      <a href="https://wa.me/TUNUMERO" class="ft-wa" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> WhatsApp</a>
     </div>
   </div>
 </footer>
 
-<!-- WA FLOAT -->
-<a href="https://wa.me/TUNUMERO?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Bellavista" class="waf" target="_blank" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-</a>
+<a href="https://wa.me/TUNUMERO?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Bellavista" class="waf" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
 
 <script>
-// ── LOADER
-window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('gone'),2100));
+// LOADER
+window.addEventListener('load',function(){setTimeout(function(){document.getElementById('loader').classList.add('gone');},2100);});
 
-// ── CURSOR
+// CURSOR
 var cur=document.getElementById('cur'),cdot=document.getElementById('cdot');
-if(cur){var mx=0,my=0,cx=0,cy=0;document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cdot.style.left=mx+'px';cdot.style.top=my+'px';});(function tick(){cx+=(mx-cx)*.1;cy+=(my-cy)*.1;cur.style.left=cx+'px';cur.style.top=cy+'px';requestAnimationFrame(tick);})();document.querySelectorAll('a,button,.stamp,.family-card,.mod-company,.mod-sub-card,.np,.pais,.co-bar-item').forEach(function(el){el.addEventListener('mouseenter',function(){cur.style.width='30px';cur.style.height='30px';cur.style.background='rgba(245,200,0,.1)';});el.addEventListener('mouseleave',function(){cur.style.width='16px';cur.style.height='16px';cur.style.background='transparent';});});}
+if(cur){var mx=0,my=0,cx=0,cy=0;document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cdot.style.left=mx+'px';cdot.style.top=my+'px';});(function tick(){cx+=(mx-cx)*.1;cy+=(my-cy)*.1;cur.style.left=cx+'px';cur.style.top=cy+'px';requestAnimationFrame(tick);})();document.querySelectorAll('a,button,.stamp,.family-card,.mod-company,.mod-sub-card,.np,.co-bar-item').forEach(function(el){el.addEventListener('mouseenter',function(){cur.style.width='30px';cur.style.height='30px';cur.style.background='rgba(245,200,0,.1)';});el.addEventListener('mouseleave',function(){cur.style.width='16px';cur.style.height='16px';cur.style.background='transparent';});});}
 
-// ── MOBILE MENU
+// MOBILE MENU
 var mobOpen=false;
 function toggleMob(){mobOpen=!mobOpen;document.getElementById('mob').classList.toggle('open',mobOpen);document.getElementById('ham').classList.toggle('open',mobOpen);}
 function closeMob(){mobOpen=false;document.getElementById('mob').classList.remove('open');document.getElementById('ham').classList.remove('open');}
 
-// ── SCROLL REVEAL
+// SCROLL REVEAL
 var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:0.08});
 document.querySelectorAll('.rv,.rvl,.rvr').forEach(function(el){obs.observe(el);});
 
-// ── NAV
+// NAV
 window.addEventListener('scroll',function(){document.getElementById('nav').style.background=window.scrollY>60?'rgba(92,42,0,.99)':'rgba(92,42,0,.96)';});
 
-// ══════════════════════════════════════════
 // CARRUSEL DE FAMILIAS
-// ══════════════════════════════════════════
 var carousels=[];
 document.querySelectorAll('.family-card').forEach(function(card,i){
   var slides=card.querySelectorAll('.family-slide');
   var dots=card.querySelectorAll('.fdot');
-  var cur=0;
-  function goTo(n){
-    slides[cur].classList.remove('active');
-    dots[cur].classList.remove('active');
-    cur=(n+slides.length)%slides.length;
-    slides[cur].classList.add('active');
-    dots[cur].classList.add('active');
-  }
-  carousels.push({goTo:goTo,total:slides.length,getCur:function(){return cur;}});
-  var timer=setInterval(function(){goTo(cur+1);},3200+i*400);
+  var c=0;
+  function goTo(n){slides[c].classList.remove('active');dots[c].classList.remove('active');c=(n+slides.length)%slides.length;slides[c].classList.add('active');dots[c].classList.add('active');}
+  carousels.push({goTo:goTo,total:slides.length,getCur:function(){return c;}});
+  var timer=setInterval(function(){goTo(c+1);},3200+i*400);
   card.addEventListener('mouseenter',function(){clearInterval(timer);});
-  card.addEventListener('mouseleave',function(){timer=setInterval(function(){goTo(cur+1);},3200+i*400);});
+  card.addEventListener('mouseleave',function(){timer=setInterval(function(){goTo(c+1);},3200+i*400);});
 });
-
-function nextSlide(e,btn){
-  e.preventDefault();e.stopPropagation();
-  var card=btn.closest('.family-card');
-  var idx=Array.from(document.querySelectorAll('.family-card')).indexOf(card);
-  carousels[idx].goTo(carousels[idx].getCur()+1);
-}
-function prevSlide(e,btn){
-  e.preventDefault();e.stopPropagation();
-  var card=btn.closest('.family-card');
-  var idx=Array.from(document.querySelectorAll('.family-card')).indexOf(card);
-  carousels[idx].goTo(carousels[idx].getCur()-1);
-}
+function nextSlide(e,btn){e.preventDefault();e.stopPropagation();var card=btn.closest('.family-card');var idx=Array.from(document.querySelectorAll('.family-card')).indexOf(card);carousels[idx].goTo(carousels[idx].getCur()+1);}
+function prevSlide(e,btn){e.preventDefault();e.stopPropagation();var card=btn.closest('.family-card');var idx=Array.from(document.querySelectorAll('.family-card')).indexOf(card);carousels[idx].goTo(carousels[idx].getCur()-1);}
 
 // ══════════════════════════════════════════
-// MAPA DEL MUNDO — ILUMINACIÓN PRECISA POR REGIÓN
-// ══════════════════════════════════════════
-(function(){
-  var canvas=document.getElementById('worldMap');
-  if(!canvas)return;
-
-  var W,H;
-  function initMap(){
-    W=canvas.parentElement.clientWidth||680;
-    H=Math.round(W*0.56);
-    canvas.width=W;canvas.height=H;
-  }
-  initMap();
-  var ctx=canvas.getContext('2d');
-
-  // ── Landmass polygons as [x%, y%] of canvas dimensions
-  // Each region key maps to one or more polygon arrays
-  var regionPolygons = {
-    // Canada — upper portion of North America
-    canada: [
-      [[.13,.02],[.19,.00],[.28,.01],[.35,.02],[.40,.06],[.42,.10],[.37,.12],[.30,.11],[.22,.11],[.16,.10],[.13,.07]]
-    ],
-    // USA — lower N.America + some overlap
-    usa: [
-      [[.13,.10],[.22,.11],[.30,.11],[.37,.12],[.42,.10],[.44,.14],[.41,.18],[.37,.23],[.32,.28],[.27,.30],[.22,.28],[.17,.23],[.13,.17]]
-    ],
-    // Europe
-    europe: [
-      [[.44,.08],[.49,.06],[.54,.06],[.59,.08],[.61,.11],[.59,.15],[.56,.18],[.51,.19],[.46,.17],[.44,.13]]
-    ],
-    // Asia — large block
-    asia: [
-      [[.57,.05],[.65,.03],[.74,.04],[.82,.05],[.88,.08],[.90,.13],[.87,.18],[.80,.21],[.72,.22],[.64,.20],[.59,.15],[.57,.10]]
-    ],
-    // South America (for Colombia visual context)
-    southAmerica: [
-      [[.26,.32],[.32,.30],[.37,.33],[.39,.40],[.37,.50],[.33,.58],[.28,.61],[.23,.57],[.21,.48],[.22,.38]]
-    ],
-    // Africa
-    africa: [
-      [[.46,.20],[.53,.18],[.59,.20],[.61,.28],[.59,.42],[.54,.50],[.49,.52],[.45,.47],[.43,.36],[.44,.26]]
-    ],
-    // Australia
-    australia: [
-      [[.76,.43],[.82,.40],[.87,.44],[.85,.51],[.79,.53],[.75,.49],[.75,.44]]
-    ],
-    // Aruba — just a small dot area
-    aruba: null // handled separately
-  };
-
-  var COL_PCT={x:.285,y:.53};
-
-  // Destinations with their region keys
-  var dests=[
-    {x:.18,y:.21,label:'USA',region:'usa',active:true,speed:.004,off:0},
-    {x:.50,y:.13,label:'España',region:'europe',active:true,speed:.003,off:.5},
-    {x:.22,y:.12,label:'Canadá',region:'canada',active:true,speed:.0025,off:.3},
-    {x:.292,y:.335,label:'Aruba',region:'aruba',active:true,speed:.003,off:.7},
-    {x:.80,y:.14,label:'Corea',region:'asia',active:false,speed:.002,off:.6}
-  ];
-
-  var frame=0;
-  var activeHighlight=null;
-  // Arrival glow: region -> alpha (0..1, decays)
-  var arrivals={};
-
-
-  // Mouse parallax + continent detection on hero map
-  var heroEl=document.getElementById('hero');
-  if(heroEl){
-    heroEl.addEventListener('mousemove',function(e){if(window.innerWidth<900)return;
-      var rect=heroEl.getBoundingClientRect();
-      var rx=(e.clientX-rect.left)/rect.width-.5;
-      var ry=(e.clientY-rect.top)/rect.height-.5;
-      canvas.style.transform='translate('+(-rx*18)+'px,'+(-ry*10)+'px) scale(1.04)';
-
-      // Detect continent under cursor
-      var mx2=(e.clientX-rect.left)/rect.width;
-      var my2=(e.clientY-rect.top)/rect.height;
-
-      function ptInPoly(pts,px,py){
-        var inside=false;
-        for(var i=0,j=pts.length-1;i<pts.length;j=i++){
-          var xi=pts[i][0],yi=pts[i][1],xj=pts[j][0],yj=pts[j][1];
-          if(((yi>py)!=(yj>py))&&(px<(xj-xi)*(py-yi)/(yj-yi)+xi))inside=!inside;
-        }
-        return inside;
-      }
-
-      var found=null;
-      var keys=Object.keys(regionPolygons);
-      for(var ki=0;ki<keys.length;ki++){
-        var rk=keys[ki];
-        var polys=regionPolygons[rk];
-        if(!polys)continue;
-        for(var pi2=0;pi2<polys.length;pi2++){
-          if(ptInPoly(polys[pi2],mx2,my2)){found=rk;break;}
-        }
-        if(found)break;
-      }
-      // Also check aruba dot proximity
-      var adx=mx2-.292,ady=my2-.435;
-      if(Math.sqrt(adx*adx+ady*ady)<0.02)found='aruba';
-
-      activeHighlight=found;
-    });
-    heroEl.addEventListener('mouseleave',function(){
-      canvas.style.transform='translate(0,0) scale(1)';
-      activeHighlight=null;
-    });
-  }
-
-  window.highlightRegion=function(r){activeHighlight=r;};
-  window.clearHighlight=function(){activeHighlight=null;};
-
-  // Draw a filled polygon from [x%,y%] pairs
-  function drawPoly(pts, fillStyle, strokeStyle){
-    ctx.beginPath();
-    pts.forEach(function(p,i){
-      var px=p[0]*W, py=p[1]*H;
-      i===0 ? ctx.moveTo(px,py) : ctx.lineTo(px,py);
-    });
-    ctx.closePath();
-    if(fillStyle){ctx.fillStyle=fillStyle;ctx.fill();}
-    if(strokeStyle){ctx.strokeStyle=strokeStyle;ctx.lineWidth=.6;ctx.stroke();}
-  }
-
-  // Draw highlighted overlay ON the polygon shape (clipped)
-  function drawHighlightOnRegion(regionKey, alpha){
-    var polys = regionPolygons[regionKey];
-    if(!polys) return; // aruba handled separately
-
-    polys.forEach(function(pts){
-      ctx.save();
-      // Clip to the polygon shape
-      ctx.beginPath();
-      pts.forEach(function(p,i){
-        var px=p[0]*W, py=p[1]*H;
-        i===0 ? ctx.moveTo(px,py) : ctx.lineTo(px,py);
-      });
-      ctx.closePath();
-      ctx.clip();
-
-      // Fill with golden glow inside the clipped area
-      // Find centroid for radial gradient
-      var cx=0,cy=0;
-      pts.forEach(function(p){cx+=p[0]*W;cy+=p[1]*H;});
-      cx/=pts.length;cy/=pts.length;
-      // Radius covers the polygon
-      var maxR=0;
-      pts.forEach(function(p){var dx=p[0]*W-cx,dy=p[1]*H-cy;maxR=Math.max(maxR,Math.sqrt(dx*dx+dy*dy));});
-      maxR=Math.max(maxR,30);
-
-      var grd=ctx.createRadialGradient(cx,cy,0,cx,cy,maxR);
-      grd.addColorStop(0,'rgba(245,200,0,'+Math.min(alpha*0.9,.75)+')');
-      grd.addColorStop(0.6,'rgba(245,200,0,'+Math.min(alpha*0.5,.45)+')');
-      grd.addColorStop(1,'rgba(245,200,0,0)');
-      ctx.fillStyle=grd;
-      ctx.fillRect(0,0,W,H);
-      ctx.restore();
-    });
-  }
-
-  function bez(t,x1,y1,cx2,cy2,x2,y2){
-    var i=1-t;
-    return{x:i*i*x1+2*i*t*cx2+t*t*x2, y:i*i*y1+2*i*t*cy2+t*t*y2};
-  }
-  function ctrlPt(x1,y1,x2,y2){
-    var mx=(x1+x2)/2, my=(y1+y2)/2;
-    var dx=x2-x1, dy=y2-y1;
-    return{cx:mx-dy*.35, cy:my+dx*.35};
-  }
-
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-
-    // BG
-    var bg=ctx.createLinearGradient(0,0,W,H);
-    bg.addColorStop(0,'#0E0600');bg.addColorStop(1,'#060300');
-    ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
-
-    // Grid
-    ctx.strokeStyle='rgba(255,255,255,.03)';ctx.lineWidth=.5;
-    for(var g=0;g<=10;g++){
-      ctx.beginPath();ctx.moveTo(W*g/10,0);ctx.lineTo(W*g/10,H);ctx.stroke();
-      ctx.beginPath();ctx.moveTo(0,H*g/10);ctx.lineTo(W,H*g/10);ctx.stroke();
-    }
-
-    // ── Draw base landmasses (normal color) ──
-    var baseFill='rgba(85,48,10,.65)';
-    var baseStr='rgba(165,95,28,.25)';
-    Object.keys(regionPolygons).forEach(function(rk){
-      var polys=regionPolygons[rk];
-      if(!polys)return;
-      polys.forEach(function(pts){drawPoly(pts,baseFill,baseStr);});
-    });
-    // Aruba dot
-    ctx.beginPath();ctx.arc(.292*W,.335*H,3,0,Math.PI*2);
-    ctx.fillStyle='rgba(72,40,8,.8)';ctx.fill();
-
-    // ── Highlight overlay — drawn ON top of landmass polygons, clipped to shape ──
-    // Hover highlight
-    if(activeHighlight){
-      var alpha=0.55+Math.sin(frame*.06)*.1;
-      if(activeHighlight==='aruba'){
-        // Aruba: small radial on the dot
-        var ax=.292*W,ay=.335*H;
-        var ag=ctx.createRadialGradient(ax,ay,0,ax,ay,18);
-        ag.addColorStop(0,'rgba(245,200,0,.8)');ag.addColorStop(1,'rgba(245,200,0,0)');
-        ctx.beginPath();ctx.arc(ax,ay,18,0,Math.PI*2);ctx.fillStyle=ag;ctx.fill();
-      } else {
-        drawHighlightOnRegion(activeHighlight, alpha);
-      }
-    }
-
-    // Arrival glow (when particle reaches destination)
-    Object.keys(arrivals).forEach(function(rk){
-      var a=arrivals[rk];
-      if(a>0.01){
-        if(rk==='aruba'){
-          var ax=.292*W,ay=.335*H;
-          var ag=ctx.createRadialGradient(ax,ay,0,ax,ay,22);
-          ag.addColorStop(0,'rgba(245,200,0,'+Math.min(a*.8,.7)+')');ag.addColorStop(1,'rgba(245,200,0,0)');
-          ctx.beginPath();ctx.arc(ax,ay,22,0,Math.PI*2);ctx.fillStyle=ag;ctx.fill();
-        } else {
-          drawHighlightOnRegion(rk, a*0.7);
-        }
-        arrivals[rk]-=.015; // fade out
-        if(arrivals[rk]<0)arrivals[rk]=0;
-      }
-    });
-
-    // ── Routes & animated particles ──
-    var col_x=COL_PCT.x*W, col_y=COL_PCT.y*H;
-    for(var di=0;di<dests.length;di++){
-      var d=dests[di];
-      var dx=d.x*W, dy=d.y*H;
-      var cp=ctrlPt(col_x,col_y,dx,dy);
-
-      // Dashed route line
-      ctx.beginPath();ctx.moveTo(col_x,col_y);ctx.quadraticCurveTo(cp.cx,cp.cy,dx,dy);
-      ctx.strokeStyle=d.active?'rgba(245,200,0,.12)':'rgba(245,200,0,.04)';
-      ctx.lineWidth=d.active?1:.5;ctx.setLineDash([3,6]);ctx.stroke();ctx.setLineDash([]);
-
-      if(d.active){
-        var pct=((frame*d.speed+d.off)%1);
-        var pt=bez(pct,col_x,col_y,cp.cx,cp.cy,dx,dy);
-
-        // Glow tail
-        var tail=ctx.createRadialGradient(pt.x,pt.y,0,pt.x,pt.y,10);
-        tail.addColorStop(0,'rgba(245,200,0,.9)');tail.addColorStop(1,'rgba(245,200,0,0)');
-        ctx.beginPath();ctx.arc(pt.x,pt.y,10,0,Math.PI*2);ctx.fillStyle=tail;ctx.fill();
-        ctx.beginPath();ctx.arc(pt.x,pt.y,2.5,0,Math.PI*2);ctx.fillStyle='#F0D400';ctx.fill();
-
-        // Detect arrival → trigger region glow
-        if(pct>0.90){
-          arrivals[d.region]=(arrivals[d.region]||0)<0.5 ? 1.0 : (arrivals[d.region]||0);
-        }
-
-        // Arrow at 75%
-        var a1=bez(.72,col_x,col_y,cp.cx,cp.cy,dx,dy);
-        var a2=bez(.76,col_x,col_y,cp.cx,cp.cy,dx,dy);
-        var ang=Math.atan2(a2.y-a1.y,a2.x-a1.x);
-        ctx.save();ctx.translate(a2.x,a2.y);ctx.rotate(ang);
-        ctx.beginPath();ctx.moveTo(7,0);ctx.lineTo(-4,4);ctx.lineTo(-4,-4);ctx.closePath();
-        ctx.fillStyle='rgba(245,200,0,.65)';ctx.fill();ctx.restore();
-      }
-    }
-
-    // ── Destination dots + labels ──
-    for(var di2=0;di2<dests.length;di2++){
-      var dd=dests[di2];
-      var ddx=dd.x*W, ddy=dd.y*H;
-      var pr=dd.active ? 4+Math.sin(frame*.06+di2)*1.2 : 2.5;
-      var dg=ctx.createRadialGradient(ddx,ddy,0,ddx,ddy,pr+8);
-      dg.addColorStop(0,dd.active?'rgba(245,200,0,.5)':'rgba(245,200,0,.1)');
-      dg.addColorStop(1,'rgba(245,200,0,0)');
-      ctx.beginPath();ctx.arc(ddx,ddy,pr+8,0,Math.PI*2);ctx.fillStyle=dg;ctx.fill();
-      ctx.beginPath();ctx.arc(ddx,ddy,dd.active?3.5:2,0,Math.PI*2);
-      ctx.fillStyle=dd.active?'#F0D400':'rgba(245,200,0,.3)';ctx.fill();
-      var fsize=W>500?'9px':'7.5px';
-      ctx.font=(dd.active?'600 ':'400 ')+fsize+' Nunito,sans-serif';
-      ctx.fillStyle=dd.active?'rgba(255,255,255,.85)':'rgba(255,255,255,.3)';
-      ctx.fillText(dd.label,ddx+5,ddy-4);
-    }
-
-    // ── Colombia pulse ──
-    var cpR=9+Math.sin(frame*.055)*2.5;
-    var cpG=ctx.createRadialGradient(col_x,col_y,0,col_x,col_y,cpR+12);
-    cpG.addColorStop(0,'rgba(200,40,30,.7)');cpG.addColorStop(1,'rgba(200,40,30,0)');
-    ctx.beginPath();ctx.arc(col_x,col_y,cpR+12,0,Math.PI*2);ctx.fillStyle=cpG;ctx.fill();
-    ctx.beginPath();ctx.arc(col_x,col_y,5.5,0,Math.PI*2);ctx.fillStyle='#E8192C';ctx.fill();
-    ctx.beginPath();ctx.arc(col_x,col_y,2,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
-    var fsize2=W>500?'9px':'7px';
-    ctx.font='600 '+fsize2+' Nunito,sans-serif';
-    ctx.fillStyle='rgba(255,255,255,.85)';
-    ctx.fillText('🇨🇴 Colombia',col_x+8,col_y-7);
-
-    // Watermark
-    ctx.font='6.5px Nunito,sans-serif';ctx.fillStyle='rgba(255,255,255,.06)';
-    ctx.textAlign='center';ctx.fillText('panelabellavista.com',W/2,H-6);ctx.textAlign='left';
-
-    frame++;
-    requestAnimationFrame(draw);
-  }
-  draw();
-
-  window.addEventListener('resize',function(){initMap();});
-})();
-
-
-// ══════════════════════════════════════════
-// MAPA DE FONDO DEL HERO (canvas fullscreen)
+// MAPA DE FONDO DEL HERO — responsivo (cover + foco por dispositivo + DPR)
 // ══════════════════════════════════════════
 (function(){
   var canvas=document.getElementById('heroBgMap');
   if(!canvas)return;
-  var W,H,ctx,frame=0,activeHighlight=null,arrivals={};
+  var ctx=canvas.getContext('2d');
+  var W=0,H=0,T={scale:1,offX:0,offY:0},frame=0,activeHighlight=null,arrivals={};
+  var WW=1000,WH=560;
 
   var regionPolygons={
     canada:[[[0.13,0.12],[0.19,0.10],[0.28,0.11],[0.35,0.12],[0.40,0.16],[0.42,0.20],[0.37,0.22],[0.30,0.21],[0.22,0.21],[0.16,0.20],[0.13,0.17]]],
@@ -1605,8 +703,7 @@ function prevSlide(e,btn){
     africa:[[[0.46,0.30],[0.53,0.28],[0.59,0.30],[0.61,0.38],[0.59,0.52],[0.54,0.60],[0.49,0.62],[0.45,0.57],[0.43,0.46],[0.44,0.36]]],
     australia:[[[0.76,0.53],[0.82,0.50],[0.87,0.54],[0.85,0.61],[0.79,0.63],[0.75,0.59],[0.75,0.54]]]
   };
-
-  var COL_PCT={x:.285,y:.53};
+  var COL={x:.285,y:.53};
   var dests=[
     {x:.18,y:.31,label:'USA 🇺🇸',region:'usa',active:true,speed:.004,off:0},
     {x:.50,y:.23,label:'España 🇪🇸',region:'europe',active:true,speed:.003,off:.5},
@@ -1615,17 +712,26 @@ function prevSlide(e,btn){
     {x:.80,y:.24,label:'Corea 🇰🇷',region:'asia',active:false,speed:.002,off:.6}
   ];
 
-  function init(){
-    W=canvas.parentElement.offsetWidth||window.innerWidth;
-    H=canvas.parentElement.offsetHeight||window.innerHeight;
-    canvas.width=W;canvas.height=H;
-    ctx=canvas.getContext('2d');
+  function isMobile(){return window.innerWidth<=760;}
+
+  function resize(){
+    var r=canvas.parentElement.getBoundingClientRect();
+    W=r.width||window.innerWidth; H=r.height||window.innerHeight;
+    var dpr=Math.min(window.devicePixelRatio||1,2);
+    canvas.width=Math.round(W*dpr); canvas.height=Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    var view=isMobile()?{x0:.10,y0:.07,x1:.60,y1:.74}:{x0:.04,y0:.00,x1:.95,y1:.80};
+    var vw=(view.x1-view.x0)*WW, vh=(view.y1-view.y0)*WH;
+    var scale=Math.max(W/vw,H/vh);
+    var vcx=((view.x0+view.x1)/2)*WW, vcy=((view.y0+view.y1)/2)*WH;
+    T={scale:scale,offX:W/2-vcx*scale,offY:H/2-vcy*scale};
   }
-  init();
+
+  function P(nx,ny){return{x:nx*WW*T.scale+T.offX,y:ny*WH*T.scale+T.offY};}
 
   function drawPoly(pts,fill,stroke){
     ctx.beginPath();
-    pts.forEach(function(p,i){i===0?ctx.moveTo(p[0]*W,p[1]*H):ctx.lineTo(p[0]*W,p[1]*H);});
+    pts.forEach(function(p,i){var q=P(p[0],p[1]);i===0?ctx.moveTo(q.x,q.y):ctx.lineTo(q.x,q.y);});
     ctx.closePath();
     if(fill){ctx.fillStyle=fill;ctx.fill();}
     if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=.8;ctx.stroke();}
@@ -1634,149 +740,124 @@ function prevSlide(e,btn){
   function drawHighlight(rk,alpha){
     var polys=regionPolygons[rk];if(!polys)return;
     polys.forEach(function(pts){
-      ctx.save();
-      ctx.beginPath();
-      pts.forEach(function(p,i){i===0?ctx.moveTo(p[0]*W,p[1]*H):ctx.lineTo(p[0]*W,p[1]*H);});
+      ctx.save();ctx.beginPath();
+      pts.forEach(function(p,i){var q=P(p[0],p[1]);i===0?ctx.moveTo(q.x,q.y):ctx.lineTo(q.x,q.y);});
       ctx.closePath();ctx.clip();
-      var cx2=0,cy2=0;pts.forEach(function(p){cx2+=p[0]*W;cy2+=p[1]*H;});cx2/=pts.length;cy2/=pts.length;
-      var maxR=0;pts.forEach(function(p){var dx=p[0]*W-cx2,dy=p[1]*H-cy2;maxR=Math.max(maxR,Math.sqrt(dx*dx+dy*dy));});maxR=Math.max(maxR,40);
-      var g=ctx.createRadialGradient(cx2,cy2,0,cx2,cy2,maxR);
+      var cx=0,cy=0;pts.forEach(function(p){var q=P(p[0],p[1]);cx+=q.x;cy+=q.y;});cx/=pts.length;cy/=pts.length;
+      var maxR=0;pts.forEach(function(p){var q=P(p[0],p[1]),dx=q.x-cx,dy=q.y-cy;maxR=Math.max(maxR,Math.sqrt(dx*dx+dy*dy));});maxR=Math.max(maxR,40);
+      var g=ctx.createRadialGradient(cx,cy,0,cx,cy,maxR);
       g.addColorStop(0,'rgba(245,200,0,'+Math.min(alpha*.85,.7)+')');
       g.addColorStop(.6,'rgba(245,200,0,'+Math.min(alpha*.45,.4)+')');
       g.addColorStop(1,'rgba(245,200,0,0)');
-      ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
-      ctx.restore();
+      ctx.fillStyle=g;ctx.fillRect(0,0,W,H);ctx.restore();
     });
   }
 
-  function bez(t,x1,y1,cx2,cy2,x2,y2){var i=1-t;return{x:i*i*x1+2*i*t*cx2+t*t*x2,y:i*i*y1+2*i*t*cy2+t*t*y2};}
+  function bez(t,x1,y1,cx,cy,x2,y2){var i=1-t;return{x:i*i*x1+2*i*t*cx+t*t*x2,y:i*i*y1+2*i*t*cy+t*t*y2};}
   function ctrlPt(x1,y1,x2,y2){var mx=(x1+x2)/2,my=(y1+y2)/2,dx=x2-x1,dy=y2-y1;return{cx:mx-dy*.35,cy:my+dx*.35};}
 
   function draw(){
+    var mob=isMobile();
     ctx.clearRect(0,0,W,H);
     var bg=ctx.createLinearGradient(0,0,W,H);
-    bg.addColorStop(0,'#0E0600');bg.addColorStop(1,'#060300');
+    bg.addColorStop(0,'#120800');bg.addColorStop(1,'#070300');
     ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
-    ctx.strokeStyle='rgba(255,255,255,.025)';ctx.lineWidth=.4;
+
+    ctx.strokeStyle='rgba(255,255,255,.022)';ctx.lineWidth=.4;
     for(var g2=0;g2<=12;g2++){ctx.beginPath();ctx.moveTo(W*g2/12,0);ctx.lineTo(W*g2/12,H);ctx.stroke();ctx.beginPath();ctx.moveTo(0,H*g2/12);ctx.lineTo(W,H*g2/12);ctx.stroke();}
-    var baseFill='rgba(65,35,6,.55)',baseStr='rgba(130,72,18,.18)';
-    Object.keys(regionPolygons).forEach(function(rk){if(!regionPolygons[rk])return;regionPolygons[rk].forEach(function(pts){drawPoly(pts,baseFill,baseStr);});});
-    ctx.beginPath();ctx.arc(.292*W,.335*H,3,0,Math.PI*2);ctx.fillStyle='rgba(65,35,6,.8)';ctx.fill();
+
+    var baseFill='rgba(72,40,8,.62)',baseStr='rgba(140,78,20,.22)';
+    Object.keys(regionPolygons).forEach(function(rk){regionPolygons[rk].forEach(function(pts){drawPoly(pts,baseFill,baseStr);});});
+    var ar=P(.292,.435);ctx.beginPath();ctx.arc(ar.x,ar.y,3,0,Math.PI*2);ctx.fillStyle='rgba(72,40,8,.85)';ctx.fill();
+
     if(activeHighlight){
-      var al=0.72+Math.sin(frame*.06)*.12;
-      if(activeHighlight==='aruba'){var ax=.292*W,ay=.335*H;var ag=ctx.createRadialGradient(ax,ay,0,ax,ay,20);ag.addColorStop(0,'rgba(245,200,0,.75)');ag.addColorStop(1,'rgba(245,200,0,0)');ctx.beginPath();ctx.arc(ax,ay,20,0,Math.PI*2);ctx.fillStyle=ag;ctx.fill();}
+      var al=.72+Math.sin(frame*.06)*.12;
+      if(activeHighlight==='aruba'){var a=P(.292,.435);var ag=ctx.createRadialGradient(a.x,a.y,0,a.x,a.y,22);ag.addColorStop(0,'rgba(245,200,0,.75)');ag.addColorStop(1,'rgba(245,200,0,0)');ctx.beginPath();ctx.arc(a.x,a.y,22,0,Math.PI*2);ctx.fillStyle=ag;ctx.fill();}
       else drawHighlight(activeHighlight,al);
     }
-    Object.keys(arrivals).forEach(function(rk){var a=arrivals[rk];if(a>0.01){if(rk==='aruba'){var ax=.292*W,ay=.335*H;var ag=ctx.createRadialGradient(ax,ay,0,ax,ay,24);ag.addColorStop(0,'rgba(245,200,0,'+Math.min(a*.75,.65)+')');ag.addColorStop(1,'rgba(245,200,0,0)');ctx.beginPath();ctx.arc(ax,ay,24,0,Math.PI*2);ctx.fillStyle=ag;ctx.fill();}else drawHighlight(rk,a*.65);arrivals[rk]-=.012;if(arrivals[rk]<0)arrivals[rk]=0;}});
-    var col_x=COL_PCT.x*W,col_y=COL_PCT.y*H;
+    Object.keys(arrivals).forEach(function(rk){var a=arrivals[rk];if(a>.01){if(rk==='aruba'){var pt=P(.292,.435);var ag=ctx.createRadialGradient(pt.x,pt.y,0,pt.x,pt.y,24);ag.addColorStop(0,'rgba(245,200,0,'+Math.min(a*.75,.65)+')');ag.addColorStop(1,'rgba(245,200,0,0)');ctx.beginPath();ctx.arc(pt.x,pt.y,24,0,Math.PI*2);ctx.fillStyle=ag;ctx.fill();}else drawHighlight(rk,a*.65);arrivals[rk]-=.012;if(arrivals[rk]<0)arrivals[rk]=0;}});
+
+    var c=P(COL.x,COL.y);
     for(var di=0;di<dests.length;di++){
-      var d=dests[di],dx=d.x*W,dy2=d.y*H,cp=ctrlPt(col_x,col_y,dx,dy2);
-      ctx.beginPath();ctx.moveTo(col_x,col_y);ctx.quadraticCurveTo(cp.cx,cp.cy,dx,dy2);
-      ctx.strokeStyle=d.active?'rgba(245,200,0,.1)':'rgba(245,200,0,.03)';
-      ctx.lineWidth=d.active?.9:.4;ctx.setLineDash([3,6]);ctx.stroke();ctx.setLineDash([]);
+      var d=dests[di],dp=P(d.x,d.y),cp=ctrlPt(c.x,c.y,dp.x,dp.y);
+      ctx.beginPath();ctx.moveTo(c.x,c.y);ctx.quadraticCurveTo(cp.cx,cp.cy,dp.x,dp.y);
+      ctx.strokeStyle=d.active?'rgba(245,200,0,.13)':'rgba(245,200,0,.035)';
+      ctx.lineWidth=d.active?1:.5;ctx.setLineDash([3,6]);ctx.stroke();ctx.setLineDash([]);
       if(d.active){
-        var pct=((frame*d.speed+d.off)%1),pt=bez(pct,col_x,col_y,cp.cx,cp.cy,dx,dy2);
-        var tail=ctx.createRadialGradient(pt.x,pt.y,0,pt.x,pt.y,9);tail.addColorStop(0,'rgba(245,200,0,.85)');tail.addColorStop(1,'rgba(245,200,0,0)');
-        ctx.beginPath();ctx.arc(pt.x,pt.y,9,0,Math.PI*2);ctx.fillStyle=tail;ctx.fill();
-        ctx.beginPath();ctx.arc(pt.x,pt.y,2.2,0,Math.PI*2);ctx.fillStyle='#F0D400';ctx.fill();
-        if(pct>0.90){arrivals[d.region]=(arrivals[d.region]||0)<0.5?1.0:(arrivals[d.region]||0);}
-        var a1=bez(.72,col_x,col_y,cp.cx,cp.cy,dx,dy2),a2=bez(.76,col_x,col_y,cp.cx,cp.cy,dx,dy2);
+        var pct=((frame*d.speed+d.off)%1),pt=bez(pct,c.x,c.y,cp.cx,cp.cy,dp.x,dp.y);
+        var tr=mob?12:10;
+        var tail=ctx.createRadialGradient(pt.x,pt.y,0,pt.x,pt.y,tr);tail.addColorStop(0,'rgba(245,200,0,.9)');tail.addColorStop(1,'rgba(245,200,0,0)');
+        ctx.beginPath();ctx.arc(pt.x,pt.y,tr,0,Math.PI*2);ctx.fillStyle=tail;ctx.fill();
+        ctx.beginPath();ctx.arc(pt.x,pt.y,mob?3:2.4,0,Math.PI*2);ctx.fillStyle='#F0D400';ctx.fill();
+        if(pct>.9){arrivals[d.region]=(arrivals[d.region]||0)<.5?1:(arrivals[d.region]||0);}
+        var a1=bez(.72,c.x,c.y,cp.cx,cp.cy,dp.x,dp.y),a2=bez(.76,c.x,c.y,cp.cx,cp.cy,dp.x,dp.y);
         var ang=Math.atan2(a2.y-a1.y,a2.x-a1.x);
-        ctx.save();ctx.translate(a2.x,a2.y);ctx.rotate(ang);ctx.beginPath();ctx.moveTo(6,0);ctx.lineTo(-4,3.5);ctx.lineTo(-4,-3.5);ctx.closePath();ctx.fillStyle='rgba(245,200,0,.6)';ctx.fill();ctx.restore();
+        ctx.save();ctx.translate(a2.x,a2.y);ctx.rotate(ang);ctx.beginPath();ctx.moveTo(7,0);ctx.lineTo(-4,4);ctx.lineTo(-4,-4);ctx.closePath();ctx.fillStyle='rgba(245,200,0,.6)';ctx.fill();ctx.restore();
       }
     }
+
     for(var di2=0;di2<dests.length;di2++){
-      var dd=dests[di2],ddx=dd.x*W,ddy=dd.y*H;
-      var pr=dd.active?3.5+Math.sin(frame*.06+di2)*1:2;
-      var dg=ctx.createRadialGradient(ddx,ddy,0,ddx,ddy,pr+7);
-      dg.addColorStop(0,dd.active?'rgba(245,200,0,.45)':'rgba(245,200,0,.08)');dg.addColorStop(1,'rgba(245,200,0,0)');
-      ctx.beginPath();ctx.arc(ddx,ddy,pr+7,0,Math.PI*2);ctx.fillStyle=dg;ctx.fill();
-      ctx.beginPath();ctx.arc(ddx,ddy,dd.active?3:1.8,0,Math.PI*2);ctx.fillStyle=dd.active?'#F0D400':'rgba(245,200,0,.25)';ctx.fill();
-      var fs=W>700?'11px':'9px';
-      if(dd.active){
-        ctx.font='600 '+fs+' Nunito,sans-serif';
-        var lbw=ctx.measureText(dd.label).width;
-        var lx=ddx+10,ly=ddy-6;
-        // Pill background
-        ctx.fillStyle='rgba(15,5,0,.78)';
-        ctx.beginPath();ctx.roundRect(lx-7,ly-14,lbw+16,20,5);ctx.fill();
-        ctx.fillStyle='rgba(255,255,255,.92)';
-        ctx.fillText(dd.label,lx,ly);
-      } else {
-        ctx.font='400 '+fs+' Nunito,sans-serif';
-        ctx.fillStyle='rgba(255,255,255,.28)';
-        ctx.fillText(dd.label,ddx+7,ddy-4);
+      var dd=dests[di2],q=P(dd.x,dd.y);
+      var pr=dd.active?(mob?4.5:4)+Math.sin(frame*.06+di2)*1.2:(mob?3:2.2);
+      var halo=pr+(mob?10:8);
+      var dg=ctx.createRadialGradient(q.x,q.y,0,q.x,q.y,halo);
+      dg.addColorStop(0,dd.active?'rgba(245,200,0,.5)':'rgba(245,200,0,.1)');dg.addColorStop(1,'rgba(245,200,0,0)');
+      ctx.beginPath();ctx.arc(q.x,q.y,halo,0,Math.PI*2);ctx.fillStyle=dg;ctx.fill();
+      ctx.beginPath();ctx.arc(q.x,q.y,dd.active?(mob?4:3.4):2,0,Math.PI*2);ctx.fillStyle=dd.active?'#F0D400':'rgba(245,200,0,.3)';ctx.fill();
+      if(!mob){
+        var fs=W>700?'11px':'9px';
+        if(dd.active){
+          ctx.font='600 '+fs+' Nunito,sans-serif';
+          var lbw=ctx.measureText(dd.label).width,lx=q.x+10,ly=q.y-6;
+          ctx.fillStyle='rgba(15,5,0,.78)';ctx.beginPath();ctx.roundRect(lx-7,ly-14,lbw+16,20,5);ctx.fill();
+          ctx.fillStyle='rgba(255,255,255,.92)';ctx.fillText(dd.label,lx,ly);
+        }else{
+          ctx.font='400 '+fs+' Nunito,sans-serif';ctx.fillStyle='rgba(255,255,255,.28)';ctx.fillText(dd.label,q.x+7,q.y-4);
+        }
       }
     }
-    var cpR=8+Math.sin(frame*.055)*2.2;
-    var cpG=ctx.createRadialGradient(col_x,col_y,0,col_x,col_y,cpR+10);
-    cpG.addColorStop(0,'rgba(200,40,30,.65)');cpG.addColorStop(1,'rgba(200,40,30,0)');
-    ctx.beginPath();ctx.arc(col_x,col_y,cpR+10,0,Math.PI*2);ctx.fillStyle=cpG;ctx.fill();
-    ctx.beginPath();ctx.arc(col_x,col_y,5,0,Math.PI*2);ctx.fillStyle='#E8192C';ctx.fill();
-    ctx.beginPath();ctx.arc(col_x,col_y,1.8,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
-    var fs2=W>700?'12px':'9px';
-    ctx.font='700 '+fs2+' Nunito,sans-serif';
-    var colLabel='🇨🇴 Colombia';
-    var ctw=ctx.measureText(colLabel).width;
-    var clx=col_x+12,cly=col_y-8;
-    ctx.fillStyle='rgba(200,40,30,.8)';
-    ctx.beginPath();ctx.roundRect(clx-6,cly-14,ctw+14,20,4);ctx.fill();
-    ctx.fillStyle='#fff';
-    ctx.fillText(colLabel,clx,cly);
+
+    var cpR=(mob?10:8)+Math.sin(frame*.055)*2.2;
+    var halo2=cpR+(mob?14:10);
+    var cg=ctx.createRadialGradient(c.x,c.y,0,c.x,c.y,halo2);
+    cg.addColorStop(0,'rgba(232,25,44,.72)');cg.addColorStop(1,'rgba(232,25,44,0)');
+    ctx.beginPath();ctx.arc(c.x,c.y,halo2,0,Math.PI*2);ctx.fillStyle=cg;ctx.fill();
+    ctx.beginPath();ctx.arc(c.x,c.y,mob?6:5,0,Math.PI*2);ctx.fillStyle='#E8192C';ctx.fill();
+    ctx.beginPath();ctx.arc(c.x,c.y,mob?2.2:1.8,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
+    if(!mob){
+      ctx.font='700 '+(W>700?'12px':'9px')+' Nunito,sans-serif';
+      var cl='🇨🇴 Colombia',cw=ctx.measureText(cl).width,clx=c.x+12,cly=c.y-8;
+      ctx.fillStyle='rgba(232,25,44,.8)';ctx.beginPath();ctx.roundRect(clx-6,cly-14,cw+14,20,4);ctx.fill();
+      ctx.fillStyle='#fff';ctx.fillText(cl,clx,cly);
+    }
+
     frame++;requestAnimationFrame(draw);
   }
-  draw();
 
-  // Mouse parallax + continent detection on hero map
+  resize();draw();
+
   var heroEl=document.getElementById('hero');
   if(heroEl){
-    heroEl.addEventListener('mousemove',function(e){if(window.innerWidth<900)return;
+    heroEl.addEventListener('mousemove',function(e){
+      if(window.innerWidth<900)return;
       var rect=heroEl.getBoundingClientRect();
-      var rx=(e.clientX-rect.left)/rect.width-.5;
-      var ry=(e.clientY-rect.top)/rect.height-.5;
+      var rx=(e.clientX-rect.left)/rect.width-.5,ry=(e.clientY-rect.top)/rect.height-.5;
       canvas.style.transform='translate('+(-rx*18)+'px,'+(-ry*10)+'px) scale(1.04)';
-
-      // Detect continent under cursor
-      var mx2=(e.clientX-rect.left)/rect.width;
-      var my2=(e.clientY-rect.top)/rect.height;
-
-      function ptInPoly(pts,px,py){
-        var inside=false;
-        for(var i=0,j=pts.length-1;i<pts.length;j=i++){
-          var xi=pts[i][0],yi=pts[i][1],xj=pts[j][0],yj=pts[j][1];
-          if(((yi>py)!=(yj>py))&&(px<(xj-xi)*(py-yi)/(yj-yi)+xi))inside=!inside;
-        }
-        return inside;
-      }
-
-      var found=null;
-      var keys=Object.keys(regionPolygons);
-      for(var ki=0;ki<keys.length;ki++){
-        var rk=keys[ki];
-        var polys=regionPolygons[rk];
-        if(!polys)continue;
-        for(var pi2=0;pi2<polys.length;pi2++){
-          if(ptInPoly(polys[pi2],mx2,my2)){found=rk;break;}
-        }
-        if(found)break;
-      }
-      // Also check aruba dot proximity
-      var adx=mx2-.292,ady=my2-.435;
-      if(Math.sqrt(adx*adx+ady*ady)<0.02)found='aruba';
-
+      var sx=e.clientX-rect.left, sy=e.clientY-rect.top;
+      var wx=((sx)-T.offX)/(T.scale*WW), wy=((sy)-T.offY)/(T.scale*WH);
+      function ptInPoly(pts,px,py){var inside=false;for(var i=0,j=pts.length-1;i<pts.length;j=i++){var xi=pts[i][0],yi=pts[i][1],xj=pts[j][0],yj=pts[j][1];if(((yi>py)!=(yj>py))&&(px<(xj-xi)*(py-yi)/(yj-yi)+xi))inside=!inside;}return inside;}
+      var found=null,keys=Object.keys(regionPolygons);
+      for(var ki=0;ki<keys.length;ki++){var polys=regionPolygons[keys[ki]];for(var p2=0;p2<polys.length;p2++){if(ptInPoly(polys[p2],wx,wy)){found=keys[ki];break;}}if(found)break;}
+      var adx=wx-.292,ady=wy-.435;if(Math.sqrt(adx*adx+ady*ady)<.02)found='aruba';
       activeHighlight=found;
     });
-    heroEl.addEventListener('mouseleave',function(){
-      canvas.style.transform='translate(0,0) scale(1)';
-      activeHighlight=null;
-    });
+    heroEl.addEventListener('mouseleave',function(){canvas.style.transform='translate(0,0) scale(1)';activeHighlight=null;});
   }
 
   window.highlightRegion=function(r){activeHighlight=r;};
   window.clearHighlight=function(){activeHighlight=null;};
-  window.addEventListener('resize',init);
+  var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(resize,150);});
 })();
-
 </script>
 </body>
 </html>
