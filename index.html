@@ -716,15 +716,17 @@ function prevSlide(e,btn){e.preventDefault();e.stopPropagation();var card=btn.cl
 
   function resize(){
     var r=canvas.parentElement.getBoundingClientRect();
-    W=r.width||window.innerWidth; H=r.height||window.innerHeight;
+    W=Math.max(1,Math.round(r.width)); H=Math.max(1,Math.round(r.height));
     var dpr=Math.min(window.devicePixelRatio||1,2);
     canvas.width=Math.round(W*dpr); canvas.height=Math.round(H*dpr);
     ctx.setTransform(dpr,0,0,dpr,0,0);
-    var view=isMobile()?{x0:.10,y0:.07,x1:.60,y1:.74}:{x0:.04,y0:.00,x1:.95,y1:.80};
-    var vw=(view.x1-view.x0)*WW, vh=(view.y1-view.y0)*WH;
-    var scale=Math.max(W/vw,H/vh);
-    var vcx=((view.x0+view.x1)/2)*WW, vcy=((view.y0+view.y1)/2)*WH;
-    T={scale:scale,offX:W/2-vcx*scale,offY:H/2-vcy*scale};
+    // Encuadre adaptable: enmarca Colombia + destinos y se ajusta a CUALQUIER tamaño/forma
+    var f={x0:.14,y0:.16,x1:.56,y1:.60};
+    var fw=(f.x1-f.x0)*WW, fh=(f.y1-f.y0)*WH;
+    var cover=Math.max(W/fw,H/fh);
+    var scale=Math.min(cover,(W/fw)*1.7); // evita sobre-zoom en pantallas muy altas (celular)
+    var fcx=((f.x0+f.x1)/2)*WW, fcy=((f.y0+f.y1)/2)*WH;
+    T={scale:scale,offX:W/2-fcx*scale,offY:H/2-fcy*scale};
   }
 
   function P(nx,ny){return{x:nx*WW*T.scale+T.offX,y:ny*WH*T.scale+T.offY};}
@@ -856,7 +858,13 @@ function prevSlide(e,btn){e.preventDefault();e.stopPropagation();var card=btn.cl
 
   window.highlightRegion=function(r){activeHighlight=r;};
   window.clearHighlight=function(){activeHighlight=null;};
-  var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(resize,150);});
+  // Responsivo real: observa el tamaño del contenedor y reajusta al instante (no depende solo de window.resize)
+  if(typeof ResizeObserver!=='undefined'){
+    var ro=new ResizeObserver(function(){resize();});
+    ro.observe(canvas.parentElement);
+  }
+  window.addEventListener('resize',resize);
+  window.addEventListener('orientationchange',function(){setTimeout(resize,200);});
 })();
 </script>
 </body>
