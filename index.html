@@ -388,6 +388,18 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
 .nf .nf-cal td:last-child{color:var(--C);}
 @media(max-width:900px){#tablas{padding:70px 20px;}.tab-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:480px){#tablas{padding:50px 16px;}.tab-grid{grid-template-columns:1fr;}}
+
+.lang-switch{position:relative;}
+.lang-cur{display:inline-flex;align-items:center;gap:5px;background:transparent;border:1px solid rgba(245,200,0,.45);color:var(--Y);padding:7px 12px;border-radius:4px;font:600 .7rem 'Nunito',sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s;}
+.lang-cur:hover{background:var(--Y);color:var(--C);}
+.lang-menu{position:absolute;top:calc(100% + 8px);right:0;background:rgba(92,42,0,.98);border:1px solid rgba(245,200,0,.25);border-radius:8px;padding:6px;display:none;flex-direction:column;gap:2px;min-width:140px;z-index:130;box-shadow:0 12px 30px rgba(0,0,0,.45);}
+.lang-menu.open{display:flex;}
+.lang-menu button{background:transparent;border:none;color:rgba(255,255,255,.7);text-align:left;padding:9px 12px;border-radius:5px;font:500 .82rem 'Nunito',sans-serif;cursor:pointer;transition:background .15s,color .15s;}
+.lang-menu button:hover,.lang-menu button.active{background:rgba(245,200,0,.16);color:var(--Y);}
+.mob-langs{display:flex;gap:8px;margin:6px 0 0;}
+.mob-langs button{flex:1;background:transparent;border:1px solid rgba(245,200,0,.35);color:rgba(255,255,255,.65);padding:11px 8px;border-radius:7px;font:600 .78rem 'Nunito',sans-serif;cursor:pointer;transition:background .2s,color .2s;}
+.mob-langs button.active{background:var(--Y);color:var(--C);border-color:var(--Y);}
+@media(max-width:900px){.lang-switch{display:none;}}
 </style>
 </head>
 <body>
@@ -411,14 +423,15 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
 </aside>
 
 <div class="mob" id="mob">
-  <a class="mob-link" href="#nosotros" onclick="closeMob()">Nosotros</a>
-  <a class="mob-link" href="#productos" onclick="closeMob()">Productos</a>
-  <a class="mob-link" href="#tablas" onclick="closeMob()">Tablas nutricionales</a>
-  <a class="mob-link" href="#certificaciones" onclick="closeMob()">Certificaciones</a>
-  <a class="mob-link" href="#noticias" onclick="closeMob()">Noticias</a>
-  <a class="mob-link" href="#modelos" onclick="closeMob()">Empresas</a>
+  <a class="mob-link" href="#nosotros" onclick="closeMob()" data-i18n="nav_about">Nosotros</a>
+  <a class="mob-link" href="#productos" onclick="closeMob()" data-i18n="nav_products">Productos</a>
+  <a class="mob-link" href="#tablas" onclick="closeMob()" data-i18n="nav_nutrition">Tablas nutricionales</a>
+  <a class="mob-link" href="#certificaciones" onclick="closeMob()" data-i18n="nav_certs">Certificaciones</a>
+  <a class="mob-link" href="#noticias" onclick="closeMob()" data-i18n="nav_news">Noticias</a>
+  <a class="mob-link" href="#modelos" onclick="closeMob()" data-i18n="nav_companies">Empresas</a>
+  <div class="mob-langs"><button data-lang="es" onclick="setLang('es')">ES</button><button data-lang="en" onclick="setLang('en')">EN</button><button data-lang="ko" onclick="setLang('ko')">한국어</button></div>
   <div class="mob-sep"></div>
-  <a class="mob-contact" href="https://wa.me/TUNUMERO" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Escribir por WhatsApp</a>
+  <a class="mob-contact" href="https://wa.me/TUNUMERO" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> <span data-i18n="wa_write">Escribir por WhatsApp</span></a>
 </div>
 
 <nav id="nav">
@@ -427,14 +440,22 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
     <span class="nav-brand">Bellavista</span>
   </div>
   <ul class="nav-links">
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#productos">Productos</a></li>
-    <li><a href="#tablas">Tablas nutricionales</a></li>
-    <li><a href="#certificaciones">Certificaciones</a></li>
-    <li><a href="#noticias">Noticias</a></li>
-    <li><a href="#modelos">Empresas</a></li>
+    <li><a href="#nosotros" data-i18n="nav_about">Nosotros</a></li>
+    <li><a href="#productos" data-i18n="nav_products">Productos</a></li>
+    <li><a href="#tablas" data-i18n="nav_nutrition">Tablas nutricionales</a></li>
+    <li><a href="#certificaciones" data-i18n="nav_certs">Certificaciones</a></li>
+    <li><a href="#noticias" data-i18n="nav_news">Noticias</a></li>
+    <li><a href="#modelos" data-i18n="nav_companies">Empresas</a></li>
   </ul>
-  <a href="https://wa.me/TUNUMERO" class="nav-btn" target="_blank">Contáctanos</a>
+  <div class="lang-switch" id="langSwitch">
+    <button class="lang-cur" onclick="toggleLang(event)"><span id="langLabel">ES</span> ▾</button>
+    <div class="lang-menu" id="langMenu">
+      <button data-lang="es" onclick="setLang('es')">Español</button>
+      <button data-lang="en" onclick="setLang('en')">English</button>
+      <button data-lang="ko" onclick="setLang('ko')">한국어</button>
+    </div>
+  </div>
+  <a href="https://wa.me/TUNUMERO" class="nav-btn" target="_blank" data-i18n="nav_contact">Contáctanos</a>
   <div class="ham-wrap" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
 </nav>
 
@@ -660,27 +681,27 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
   <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="hero-eyebrow"><div class="hero-eyebrow-dot"></div><span>Mogotes, Santander · Colombia · Since 2002</span></div>
-      <h1 class="hero-h1">Del campo<br><em>al mundo.</em></h1>
-      <p class="hero-desc">Somos <strong>Bellavista</strong> — más de 20 años produciendo lo mejor del campo colombiano con calidad certificada internacionalmente.</p>
+      <div class="hero-eyebrow"><div class="hero-eyebrow-dot"></div><span data-i18n="hero_eyebrow">Mogotes, Santander · Colombia · Since 2002</span></div>
+      <h1 class="hero-h1" data-i18n="hero_h1" data-i18n-html>Del campo<br><em>al mundo.</em></h1>
+      <p class="hero-desc" data-i18n="hero_desc" data-i18n-html>Somos <strong>Bellavista</strong> — más de 20 años produciendo lo mejor del campo colombiano con calidad certificada internacionalmente.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/TUNUMERO?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Bellavista" class="btn-wa" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Hablar con un asesor</a>
-        <a href="#productos" class="btn-ghost">Ver portafolio →</a>
+        <a href="https://wa.me/TUNUMERO?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Bellavista" class="btn-wa" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> <span data-i18n="wa_advisor">Hablar con un asesor</span></a>
+        <a href="#productos" class="btn-ghost" data-i18n="hero_cta2">Ver portafolio →</a>
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-stat-card" data-tip="Reconocimiento nacional e internacional"><div class="hsc-num">Top 5</div><div class="hsc-label">Exportadores de panela en Colombia</div></div>
+      <div class="hero-stat-card" data-tip="Reconocimiento nacional e internacional"><div class="hsc-num">Top 5</div><div class="hsc-label" data-i18n="stat_top5lbl">Exportadores de panela en Colombia</div></div>
       <div class="hsc-grid">
-        <div class="hsc-mini hero-stat-card" data-tip="Desde 2002 en Mogotes, Santander"><div class="hsc-num">20+</div><div class="hsc-label">Años de experiencia</div></div>
-        <div class="hsc-mini hero-stat-card" data-tip="Capacidad productiva mensual"><div class="hsc-num">500t</div><div class="hsc-label">Capacidad / mes</div></div>
+        <div class="hsc-mini hero-stat-card" data-tip="Desde 2002 en Mogotes, Santander"><div class="hsc-num">20+</div><div class="hsc-label" data-i18n="stat_yearslbl">Años de experiencia</div></div>
+        <div class="hsc-mini hero-stat-card" data-tip="Capacidad productiva mensual"><div class="hsc-num">500t</div><div class="hsc-label" data-i18n="stat_caplbl">Capacidad / mes</div></div>
       </div>
-      <div class="hero-stat-card" data-tip="USA · España · Canadá · Aruba · Asia"><div class="hsc-num">5 países</div><div class="hsc-label">Con presencia activa o en expansión</div></div>
+      <div class="hero-stat-card" data-tip="USA · España · Canadá · Aruba · Asia"><div class="hsc-num" data-i18n="stat_5countries">5 países</div><div class="hsc-label" data-i18n="stat_countrieslbl">Con presencia activa o en expansión</div></div>
       <div class="map-dest-tags">
-        <div class="mdt" data-region="usa" onmouseenter="highlightRegion('usa')" onmouseleave="clearHighlight()">🇺🇸 USA <span class="mdt-badge">Activo</span></div>
-        <div class="mdt" data-region="europe" onmouseenter="highlightRegion('europe')" onmouseleave="clearHighlight()">🇪🇸 España <span class="mdt-badge">Activo</span></div>
-        <div class="mdt" data-region="canada" onmouseenter="highlightRegion('canada')" onmouseleave="clearHighlight()">🇨🇦 Canadá <span class="mdt-badge">Activo</span></div>
-        <div class="mdt" data-region="aruba" onmouseenter="highlightRegion('aruba')" onmouseleave="clearHighlight()">🇦🇼 Aruba <span class="mdt-badge">Activo</span></div>
-        <div class="mdt mdt-next" data-region="asia" onmouseenter="highlightRegion('asia')" onmouseleave="clearHighlight()">🇰🇷 Corea <span class="mdt-badge mdt-badge-next">Próximo</span></div>
+        <div class="mdt" data-region="usa" onmouseenter="highlightRegion('usa')" onmouseleave="clearHighlight()">🇺🇸 USA <span class="mdt-badge" data-i18n="badge_active">Activo</span></div>
+        <div class="mdt" data-region="europe" onmouseenter="highlightRegion('europe')" onmouseleave="clearHighlight()">🇪🇸 España <span class="mdt-badge" data-i18n="badge_active">Activo</span></div>
+        <div class="mdt" data-region="canada" onmouseenter="highlightRegion('canada')" onmouseleave="clearHighlight()">🇨🇦 Canadá <span class="mdt-badge" data-i18n="badge_active">Activo</span></div>
+        <div class="mdt" data-region="aruba" onmouseenter="highlightRegion('aruba')" onmouseleave="clearHighlight()">🇦🇼 Aruba <span class="mdt-badge" data-i18n="badge_active">Activo</span></div>
+        <div class="mdt mdt-next" data-region="asia" onmouseenter="highlightRegion('asia')" onmouseleave="clearHighlight()">🇰🇷 Corea <span class="mdt-badge mdt-badge-next" data-i18n="badge_soon">Próximo</span></div>
       </div>
     </div>
   </div>
@@ -714,12 +735,12 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
   <div class="nos-inner">
     <div class="nos-grid">
       <div class="nos-left rvl">
-        <span class="section-eyebrow ey-cafe">Quiénes somos</span>
-        <h2 class="section-title" style="font-size:clamp(2rem,3.2vw,2.8rem);color:var(--C);margin-bottom:16px;">Más que panela.<br>Somos <em class="ital" style="color:var(--R)">Bellavista.</em></h2>
-        <p>Nacimos en Mogotes, Santander, con un propósito claro: llevar la riqueza del campo colombiano al mundo. Hoy somos referente nacional e internacional en productos naturales certificados, con más de 20 años construyendo confianza.</p>
+        <span class="section-eyebrow ey-cafe" data-i18n="e_about">Quiénes somos</span>
+        <h2 data-i18n="t_about" data-i18n-html class="section-title" style="font-size:clamp(2rem,3.2vw,2.8rem);color:var(--C);margin-bottom:16px;">Más que panela.<br>Somos <em class="ital" style="color:var(--R)">Bellavista.</em></h2>
+        <p data-i18n="about_p1">Nacimos en Mogotes, Santander, con un propósito claro: llevar la riqueza del campo colombiano al mundo. Hoy somos referente nacional e internacional en productos naturales certificados, con más de 20 años construyendo confianza.</p>
         <div class="nos-quote">
-          <p>"Queremos que cuando alguien vea el logo Bellavista, sienta confianza. Que sepa que detrás hay gente honesta, trabajo serio y un producto que no nos da vergüenza mostrarle al mundo."</p>
-          <cite>— Fundador, Bellavista</cite>
+          <p data-i18n="about_quote">"Queremos que cuando alguien vea el logo Bellavista, sienta confianza. Que sepa que detrás hay gente honesta, trabajo serio y un producto que no nos da vergüenza mostrarle al mundo."</p>
+          <cite data-i18n="about_cite">— Fundador, Bellavista</cite>
         </div>
         <div class="nos-impact-pills">
           <div class="np"><span class="np-ico">🌾</span><div><strong>100% Natural — Sin aditivos ni conservantes</strong><span>Producción sostenible que cuida el suelo, el agua y las familias campesinas</span></div></div>
@@ -741,11 +762,11 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
 <section id="productos">
   <div class="prod-header rv">
     <div>
-      <span class="section-eyebrow ey-y">Portafolio</span>
-      <h2 class="section-title st-light" style="font-size:clamp(2rem,3.5vw,3rem);">Nuestros <em class="ital" style="color:var(--Y)">productos</em></h2>
-      <p style="font-size:.82rem;color:rgba(255,255,255,.4);margin-top:6px;letter-spacing:.04em;">Familias de productos · Toca una tarjeta para explorar</p>
+      <span class="section-eyebrow ey-y" data-i18n="e_products">Portafolio</span>
+      <h2 data-i18n="t_products" data-i18n-html class="section-title st-light" style="font-size:clamp(2rem,3.5vw,3rem);">Nuestros <em class="ital" style="color:var(--Y)">productos</em></h2>
+      <p style="font-size:.82rem;color:rgba(255,255,255,.4);margin-top:6px;letter-spacing:.04em;"><span data-i18n="products_sub">Familias de productos · Toca una tarjeta para explorar</span></p>
     </div>
-    <p style="font-size:.85rem;color:rgba(255,255,255,.35);max-width:260px;text-align:right;line-height:1.7;">Desliza las flechas para ver todas las presentaciones disponibles</p>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.35);max-width:260px;text-align:right;line-height:1.7;" data-i18n="products_note">Desliza las flechas para ver todas las presentaciones disponibles</p>
   </div>
   <div class="prod-families">
     <a class="family-card fc-1" href="/panela-bloque" data-family="0">
@@ -756,7 +777,7 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
         <div class="family-dots"><div class="fdot active"></div><div class="fdot"></div><div class="fdot"></div></div>
         <div class="family-arrows"><div class="farr" onclick="prevSlide(event,this)">‹</div><div class="farr" onclick="nextSlide(event,this)">›</div></div>
       </div>
-      <div class="family-body"><div class="family-accent"></div><h3>Panela Bloque</h3><p>Cuadrada, redonda, piloncillo. Orgánica y convencional. Todas las presentaciones comerciales. Vida útil: 1 año.</p><span class="family-tag">Nacional & Exportación</span><span class="family-cta"> Ver todos →</span></div>
+      <div class="family-body"><div class="family-accent"></div><h3 data-i18n="fam_bloque">Panela Bloque</h3><p>Cuadrada, redonda, piloncillo. Orgánica y convencional. Todas las presentaciones comerciales. Vida útil: 1 año.</p><span class="family-tag">Nacional & Exportación</span><span class="family-cta"> <span data-i18n="fam_cta">Ver todos →</span></span></div>
     </a>
     <a class="family-card fc-2" href="/panela-partida" data-family="1">
       <div class="family-img">
@@ -765,7 +786,7 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
         <div class="family-dots"><div class="fdot active"></div><div class="fdot"></div></div>
         <div class="family-arrows"><div class="farr" onclick="prevSlide(event,this)">‹</div><div class="farr" onclick="nextSlide(event,this)">›</div></div>
       </div>
-      <div class="family-body"><div class="family-accent"></div><h3>Panela Partida</h3><p>Fraccionada y partida en distintos gramajes. Ideal para empaques individuales y mercados minoristas.</p><span class="family-tag">Minorista</span><span class="family-cta"> Ver todos →</span></div>
+      <div class="family-body"><div class="family-accent"></div><h3 data-i18n="fam_partida">Panela Partida</h3><p>Fraccionada y partida en distintos gramajes. Ideal para empaques individuales y mercados minoristas.</p><span class="family-tag">Minorista</span><span class="family-cta"> <span data-i18n="fam_cta">Ver todos →</span></span></div>
     </a>
     <a class="family-card fc-3" href="/pastilla-sachet" data-family="2">
       <div class="family-img">
@@ -774,7 +795,7 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
         <div class="family-dots"><div class="fdot active"></div><div class="fdot"></div></div>
         <div class="family-arrows"><div class="farr" onclick="prevSlide(event,this)">‹</div><div class="farr" onclick="nextSlide(event,this)">›</div></div>
       </div>
-      <div class="family-body"><div class="family-accent"></div><h3>Pastilla & Sachet</h3><p>Pastillas individuales y sachets de 8g para hoteles, restaurantes y aerolíneas. Presentación premium.</p><span class="family-tag">Horeca & Aerolíneas</span><span class="family-cta"> Ver todos →</span></div>
+      <div class="family-body"><div class="family-accent"></div><h3 data-i18n="fam_pastilla">Pastilla & Sachet</h3><p>Pastillas individuales y sachets de 8g para hoteles, restaurantes y aerolíneas. Presentación premium.</p><span class="family-tag">Horeca & Aerolíneas</span><span class="family-cta"> <span data-i18n="fam_cta">Ver todos →</span></span></div>
     </a>
     <a class="family-card fc-4" href="/granulada-pulverizada" data-family="3">
       <div class="family-img">
@@ -784,7 +805,7 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
         <div class="family-dots"><div class="fdot active"></div><div class="fdot"></div><div class="fdot"></div></div>
         <div class="family-arrows"><div class="farr" onclick="prevSlide(event,this)">‹</div><div class="farr" onclick="nextSlide(event,this)">›</div></div>
       </div>
-      <div class="family-body"><div class="family-accent"></div><h3>Granulada & Pulverizada</h3><p>Granulada, pulverizada y micro-pulverizada. Doypack, sachet, tarros y bolsas. Ideal para repostería.</p><span class="family-tag">Exportación</span><span class="family-cta"> Ver todos →</span></div>
+      <div class="family-body"><div class="family-accent"></div><h3 data-i18n="fam_granulada">Granulada & Pulverizada</h3><p>Granulada, pulverizada y micro-pulverizada. Doypack, sachet, tarros y bolsas. Ideal para repostería.</p><span class="family-tag">Exportación</span><span class="family-cta"> <span data-i18n="fam_cta">Ver todos →</span></span></div>
     </a>
     <a class="family-card fc-5" href="/panela-liquida" data-family="4">
       <div class="family-img">
@@ -793,7 +814,7 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
         <div class="family-dots"><div class="fdot active"></div><div class="fdot"></div></div>
         <div class="family-arrows"><div class="farr" onclick="prevSlide(event,this)">‹</div><div class="farr" onclick="nextSlide(event,this)">›</div></div>
       </div>
-      <div class="family-body"><div class="family-accent"></div><h3>Panela Líquida</h3><p>Miel de caña Premium. Presentaciones 350g, 520g y 5.3kg. Alternativa natural a las mieles procesadas.</p><span class="family-tag">Premium</span><span class="family-cta"> Ver todos →</span></div>
+      <div class="family-body"><div class="family-accent"></div><h3 data-i18n="fam_liquida">Panela Líquida</h3><p>Miel de caña Premium. Presentaciones 350g, 520g y 5.3kg. Alternativa natural a las mieles procesadas.</p><span class="family-tag">Premium</span><span class="family-cta"> <span data-i18n="fam_cta">Ver todos →</span></span></div>
     </a>
     <a class="family-card fc-6" href="/redonda-piloncillo" data-family="5">
       <div class="family-img">
@@ -802,34 +823,19 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
         <div class="family-dots"><div class="fdot active"></div><div class="fdot"></div></div>
         <div class="family-arrows"><div class="farr" onclick="prevSlide(event,this)">‹</div><div class="farr" onclick="nextSlide(event,this)">›</div></div>
       </div>
-      <div class="family-body"><div class="family-accent"></div><h3>Redonda & Piloncillo</h3><p>Forma redonda y piloncillo para mercados de México y Centroamérica. Presentaciones exportación.</p><span class="family-tag">Exportación LATAM</span><span class="family-cta"> Ver todos →</span></div>
+      <div class="family-body"><div class="family-accent"></div><h3 data-i18n="fam_redonda">Redonda & Piloncillo</h3><p>Forma redonda y piloncillo para mercados de México y Centroamérica. Presentaciones exportación.</p><span class="family-tag">Exportación LATAM</span><span class="family-cta"> <span data-i18n="fam_cta">Ver todos →</span></span></div>
     </a>
   </div>
 </section>
 
-<div class="wv" style="background:var(--C)"><svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C480,0 960,50 1440,15 L1440,50 L0,50 Z" fill="var(--CR)"/></svg></div>
-
-<section id="tablas">
-  <div class="tab-inner">
-    <div class="tab-head rv">
-      <span class="section-eyebrow ey-cafe">Información para exportación</span>
-      <h2 class="section-title" style="color:var(--C);">Tablas <em class="ital" style="color:var(--R)">nutricionales</em></h2>
-      <p>Valores nutricionales de cada familia de producto, disponibles para procesos de exportación y revisión en aduana.</p>
-    </div>
-    <p class="tab-note">Valores de referencia por cada 100 g · Panela de caña 100% natural, sin aditivos ni conservantes.</p>
-    <div class="tab-grid">
-      <div class="nf rv"><div class="nf-head"><h3>Panela Bloque</h3><span>Por 100 g · Cuadrada, redonda, orgánica</span></div><table><tbody><tr><td>Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td>Energía</td><td>380 kcal</td></tr><tr><td>Carbohidratos totales</td><td>95 g</td></tr><tr class="nf-sub"><td>Azúcares</td><td>92 g</td></tr><tr><td>Proteína</td><td>0,7 g</td></tr><tr><td>Grasa total</td><td>0 g</td></tr><tr><td>Sodio</td><td>25 mg</td></tr><tr><td>Calcio</td><td>80 mg</td></tr><tr><td>Hierro</td><td>1,5 mg</td></tr><tr><td>Potasio</td><td>120 mg</td></tr></tbody></table></div><div class="nf rv"><div class="nf-head"><h3>Panela Partida</h3><span>Por 100 g · Fraccionada en gramajes</span></div><table><tbody><tr><td>Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td>Energía</td><td>380 kcal</td></tr><tr><td>Carbohidratos totales</td><td>95 g</td></tr><tr class="nf-sub"><td>Azúcares</td><td>92 g</td></tr><tr><td>Proteína</td><td>0,7 g</td></tr><tr><td>Grasa total</td><td>0 g</td></tr><tr><td>Sodio</td><td>25 mg</td></tr><tr><td>Calcio</td><td>80 mg</td></tr><tr><td>Hierro</td><td>1,5 mg</td></tr><tr><td>Potasio</td><td>120 mg</td></tr></tbody></table></div><div class="nf rv"><div class="nf-head"><h3>Pastilla & Sachet</h3><span>Por 100 g · Porción individual 8 g</span></div><table><tbody><tr><td>Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td>Energía</td><td>380 kcal</td></tr><tr><td>Carbohidratos totales</td><td>95 g</td></tr><tr class="nf-sub"><td>Azúcares</td><td>92 g</td></tr><tr><td>Proteína</td><td>0,7 g</td></tr><tr><td>Grasa total</td><td>0 g</td></tr><tr><td>Sodio</td><td>25 mg</td></tr><tr><td>Calcio</td><td>80 mg</td></tr><tr><td>Hierro</td><td>1,5 mg</td></tr><tr><td>Potasio</td><td>120 mg</td></tr></tbody></table></div><div class="nf rv"><div class="nf-head"><h3>Granulada & Pulverizada</h3><span>Por 100 g · Granulada y micro-pulverizada</span></div><table><tbody><tr><td>Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td>Energía</td><td>380 kcal</td></tr><tr><td>Carbohidratos totales</td><td>95 g</td></tr><tr class="nf-sub"><td>Azúcares</td><td>92 g</td></tr><tr><td>Proteína</td><td>0,7 g</td></tr><tr><td>Grasa total</td><td>0 g</td></tr><tr><td>Sodio</td><td>25 mg</td></tr><tr><td>Calcio</td><td>80 mg</td></tr><tr><td>Hierro</td><td>1,5 mg</td></tr><tr><td>Potasio</td><td>120 mg</td></tr></tbody></table></div><div class="nf rv"><div class="nf-head"><h3>Panela Líquida</h3><span>Por 100 g · Miel de caña pura</span></div><table><tbody><tr><td>Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td>Energía</td><td>310 kcal</td></tr><tr><td>Carbohidratos totales</td><td>78 g</td></tr><tr class="nf-sub"><td>Azúcares</td><td>75 g</td></tr><tr><td>Proteína</td><td>0,5 g</td></tr><tr><td>Grasa total</td><td>0 g</td></tr><tr><td>Sodio</td><td>20 mg</td></tr><tr><td>Calcio</td><td>70 mg</td></tr><tr><td>Hierro</td><td>1,3 mg</td></tr><tr><td>Potasio</td><td>110 mg</td></tr><tr><td>Humedad</td><td>20 %</td></tr></tbody></table></div><div class="nf rv"><div class="nf-head"><h3>Redonda & Piloncillo</h3><span>Por 100 g · Exportación LATAM</span></div><table><tbody><tr><td>Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td>Energía</td><td>380 kcal</td></tr><tr><td>Carbohidratos totales</td><td>95 g</td></tr><tr class="nf-sub"><td>Azúcares</td><td>92 g</td></tr><tr><td>Proteína</td><td>0,7 g</td></tr><tr><td>Grasa total</td><td>0 g</td></tr><tr><td>Sodio</td><td>25 mg</td></tr><tr><td>Calcio</td><td>80 mg</td></tr><tr><td>Hierro</td><td>1,5 mg</td></tr><tr><td>Potasio</td><td>120 mg</td></tr></tbody></table></div>
-    </div>
-  </div>
-</section>
-<div class="wv" style="background:var(--CR)"><svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C480,0 960,50 1440,15 L1440,50 L0,50 Z" fill="var(--G)"/></svg></div>
+<div class="wv" style="background:var(--C)"><svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C480,0 960,50 1440,15 L1440,50 L0,50 Z" fill="var(--G)"/></svg></div>
 
 <section id="certificaciones">
   <div class="certs-inner">
     <div class="certs-head rv">
-      <span class="section-eyebrow ey-g">Calidad certificada</span>
-      <h2 class="section-title st-light" style="font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:12px;">Respaldados por las más<br>altas <em class="ital" style="color:var(--Y)">certificaciones</em></h2>
-      <p>Los avales más exigentes de la industria alimentaria nacional e internacional.</p>
+      <span class="section-eyebrow ey-g" data-i18n="e_certs">Calidad certificada</span>
+      <h2 data-i18n="t_certs" data-i18n-html class="section-title st-light" style="font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:12px;">Respaldados por las más<br>altas <em class="ital" style="color:var(--Y)">certificaciones</em></h2>
+      <p data-i18n="certs_desc">Los avales más exigentes de la industria alimentaria nacional e internacional.</p>
     </div>
     <div class="stamps-row">
       <div class="stamp rv"><svg class="ring" viewBox="0 0 140 140"><circle cx="70" cy="70" r="64" fill="rgba(20,80,14,.7)" stroke="rgba(245,200,0,.45)" stroke-width="2"/><circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1" stroke-dasharray="3,3"/><text font-size="7" fill="rgba(255,255,255,.65)" font-family="Nunito,sans-serif" letter-spacing="4.5" font-weight="600"><textPath href="#c1">· REGISTRO SANITARIO · COLOMBIA ·</textPath></text><defs><path id="c1" d="M70,70 m-54,0 a54,54 0 1,1 0.1,0"/></defs></svg><div class="stamp-inner"><span class="stamp-ico">🏥</span><div class="stamp-name">INVIMA</div></div></div>
@@ -846,26 +852,26 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
 <section id="modelos">
   <div class="mod-inner">
     <div class="mod-head rv">
-      <span class="section-eyebrow ey-cafe">Nuestras empresas</span>
-      <h2 class="section-title st-cafe" style="font-size:clamp(2rem,3.5vw,2.8rem);">El grupo <em class="ital" style="color:var(--R)">Bellavista</em></h2>
-      <p>Más que una empresa de panela — somos un grupo empresarial del campo colombiano.</p>
+      <span class="section-eyebrow ey-cafe" data-i18n="e_companies">Nuestras empresas</span>
+      <h2 data-i18n="t_companies" data-i18n-html class="section-title st-cafe" style="font-size:clamp(2rem,3.5vw,2.8rem);">El grupo <em class="ital" style="color:var(--R)">Bellavista</em></h2>
+      <p data-i18n="companies_desc">Más que una empresa de panela — somos un grupo empresarial del campo colombiano.</p>
     </div>
     <div class="mod-companies rv">
       <a class="mod-company" href="#contacto">
         <div class="mod-company-bg"><img src="img/empresa-1.jpg" alt="Empresa 1" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="mod-company-ph"><div class="mod-company-ph-ico">🏭</div><div class="mod-company-ph-txt">img/empresa-1.jpg</div></div></div>
         <div class="mod-company-overlay"></div><div class="mod-plus">+</div>
-        <div class="mod-company-content"><div class="mod-co-logo">Logo<br>1</div><div class="mod-co-badge">● Activa</div><h3>Empresa 1</h3><p>Descripción breve de la empresa 1 del grupo y su especialidad.</p></div>
+        <div class="mod-company-content"><div class="mod-co-logo">Logo<br>1</div><div class="mod-co-badge" data-i18n="badge_activa">● Activa</div><h3>Empresa 1</h3><p>Descripción breve de la empresa 1 del grupo y su especialidad.</p></div>
       </a>
       <a class="mod-company" href="#contacto">
         <div class="mod-company-bg"><img src="img/empresa-2.jpg" alt="Empresa 2" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="mod-company-ph"><div class="mod-company-ph-ico">🌾</div><div class="mod-company-ph-txt">img/empresa-2.jpg</div></div></div>
         <div class="mod-company-overlay"></div><div class="mod-plus">+</div>
-        <div class="mod-company-content"><div class="mod-co-logo">Logo<br>2</div><div class="mod-co-badge">● Activa</div><h3>Empresa 2</h3><p>Descripción breve de la empresa 2 del grupo y su especialidad.</p></div>
+        <div class="mod-company-content"><div class="mod-co-logo">Logo<br>2</div><div class="mod-co-badge" data-i18n="badge_activa">● Activa</div><h3>Empresa 2</h3><p>Descripción breve de la empresa 2 del grupo y su especialidad.</p></div>
       </a>
     </div>
     <div class="mod-sub rv">
-      <div class="mod-sub-card"><span class="msc-ico">🏷️</span><h4>Marca Propia</h4><p>Producimos bajo nuestra marca Bellavista con los más altos estándares para mercados nacionales e internacionales.</p></div>
-      <div class="mod-sub-card"><span class="msc-ico">🤝</span><h4>White Label</h4><p>Tu marca, nuestra producción. Para distribuidores y retailers que buscan calidad certificada internacionalmente.</p></div>
-      <div class="mod-sub-card"><span class="msc-ico">🏭</span><h4>Maquila</h4><p>Fabricación por contrato. 500 toneladas/mes para cubrir demandas industriales a escala internacional.</p></div>
+      <div class="mod-sub-card"><span class="msc-ico">🏷️</span><h4 data-i18n="comp_mp">Marca Propia</h4><p data-i18n="comp_mp_d">Producimos bajo nuestra marca Bellavista con los más altos estándares para mercados nacionales e internacionales.</p></div>
+      <div class="mod-sub-card"><span class="msc-ico">🤝</span><h4 data-i18n="comp_wl">White Label</h4><p data-i18n="comp_wl_d">Tu marca, nuestra producción. Para distribuidores y retailers que buscan calidad certificada internacionalmente.</p></div>
+      <div class="mod-sub-card"><span class="msc-ico">🏭</span><h4 data-i18n="comp_mq">Maquila</h4><p data-i18n="comp_mq_d">Fabricación por contrato. 500 toneladas/mes para cubrir demandas industriales a escala internacional.</p></div>
     </div>
   </div>
 </section>
@@ -875,9 +881,9 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
 <section id="noticias" style="background:var(--O);padding:100px 40px;">
   <div style="max-width:1100px;margin:0 auto;">
     <div class="rv" style="text-align:center;margin-bottom:56px;">
-      <span class="section-eyebrow ey-y">Actualidad</span>
-      <h2 class="section-title st-light" style="font-size:clamp(2rem,3.5vw,2.8rem);">Noticias <em class="ital" style="color:var(--Y)">Bellavista</em></h2>
-      <p style="font-size:.9rem;color:rgba(255,255,255,.4);max-width:480px;margin:10px auto 0;line-height:1.7;">Lo más reciente del grupo, nuestros mercados y el campo colombiano.</p>
+      <span class="section-eyebrow ey-y" data-i18n="e_news">Actualidad</span>
+      <h2 data-i18n="t_news" data-i18n-html class="section-title st-light" style="font-size:clamp(2rem,3.5vw,2.8rem);">Noticias <em class="ital" style="color:var(--Y)">Bellavista</em></h2>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.4);max-width:480px;margin:10px auto 0;line-height:1.7;" data-i18n="news_desc">Lo más reciente del grupo, nuestros mercados y el campo colombiano.</p>
     </div>
     <div class="news-grid rv">
       <article class="news-card news-card-featured">
@@ -898,22 +904,38 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
 <section id="contacto">
   <div class="cta-deco d1"></div><div class="cta-deco d2"></div>
   <div class="cta-inner rv">
-    <span class="section-eyebrow ey-w">Hablemos</span>
-    <h2 class="section-title st-light" style="font-size:clamp(2.2rem,4vw,3.8rem);margin-bottom:18px;">¿Listo para trabajar<br>con <em class="ital" style="color:var(--Y)">Bellavista?</em></h2>
-    <p>Cuéntanos qué necesitas — muestra, cotización o información. Respondemos rápido.</p>
+    <span class="section-eyebrow ey-w" data-i18n="e_cta">Hablemos</span>
+    <h2 data-i18n="t_cta" data-i18n-html class="section-title st-light" style="font-size:clamp(2.2rem,4vw,3.8rem);margin-bottom:18px;">¿Listo para trabajar<br>con <em class="ital" style="color:var(--Y)">Bellavista?</em></h2>
+    <p data-i18n="cta_p">Cuéntanos qué necesitas — muestra, cotización o información. Respondemos rápido.</p>
     <div class="cta-btns">
-      <a href="https://wa.me/TUNUMERO?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Bellavista" class="btn-wa-big" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Escribir por WhatsApp</a>
-      <a href="mailto:info@panelabellavista.com" class="btn-outline-w">✉ Enviar correo</a>
+      <a href="https://wa.me/TUNUMERO?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Bellavista" class="btn-wa-big" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> <span data-i18n="wa_write">Escribir por WhatsApp</span></a>
+      <a href="mailto:info@panelabellavista.com" class="btn-outline-w" data-i18n="cta_email">✉ Enviar correo</a>
     </div>
   </div>
 </section>
 
+<div class="wv" style="background:var(--R)"><svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C480,0 960,50 1440,15 L1440,50 L0,50 Z" fill="var(--CR)"/></svg></div>
+<section id="tablas">
+  <div class="tab-inner">
+    <div class="tab-head rv">
+      <span class="section-eyebrow ey-cafe" data-i18n="e_nutrition">Información para exportación</span>
+      <h2 data-i18n="t_nutrition" data-i18n-html class="section-title" style="color:var(--C);">Tablas <em class="ital" style="color:var(--R)">nutricionales</em></h2>
+      <p data-i18n="nutrition_desc">Valores nutricionales de cada familia de producto, disponibles para procesos de exportación y revisión en aduana.</p>
+    </div>
+    <p class="tab-note" data-i18n="tab_note">Valores de referencia por cada 100 g · Panela de caña 100% natural, sin aditivos ni conservantes.</p>
+    <div class="tab-grid">
+      <div class="nf rv"><div class="nf-head"><h3 data-i18n="fam_bloque">Panela Bloque</h3><span>Por 100 g · Cuadrada, redonda, orgánica</span></div><table><tbody><tr><td data-i18n="nf_serving">Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td data-i18n="nf_energy">Energía</td><td>380 kcal</td></tr><tr><td data-i18n="nf_carbs">Carbohidratos totales</td><td>95 g</td></tr><tr class="nf-sub"><td data-i18n="nf_sugars">Azúcares</td><td>92 g</td></tr><tr><td data-i18n="nf_protein">Proteína</td><td>0,7 g</td></tr><tr><td data-i18n="nf_fat">Grasa total</td><td>0 g</td></tr><tr><td data-i18n="nf_sodium">Sodio</td><td>25 mg</td></tr><tr><td data-i18n="nf_calcium">Calcio</td><td>80 mg</td></tr><tr><td data-i18n="nf_iron">Hierro</td><td>1,5 mg</td></tr><tr><td data-i18n="nf_potassium">Potasio</td><td>120 mg</td></tr></tbody></table></div><div class="nf rv"><div class="nf-head"><h3 data-i18n="fam_partida">Panela Partida</h3><span>Por 100 g · Fraccionada en gramajes</span></div><table><tbody><tr><td data-i18n="nf_serving">Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td data-i18n="nf_energy">Energía</td><td>380 kcal</td></tr><tr><td data-i18n="nf_carbs">Carbohidratos totales</td><td>95 g</td></tr><tr class="nf-sub"><td data-i18n="nf_sugars">Azúcares</td><td>92 g</td></tr><tr><td data-i18n="nf_protein">Proteína</td><td>0,7 g</td></tr><tr><td data-i18n="nf_fat">Grasa total</td><td>0 g</td></tr><tr><td data-i18n="nf_sodium">Sodio</td><td>25 mg</td></tr><tr><td data-i18n="nf_calcium">Calcio</td><td>80 mg</td></tr><tr><td data-i18n="nf_iron">Hierro</td><td>1,5 mg</td></tr><tr><td data-i18n="nf_potassium">Potasio</td><td>120 mg</td></tr></tbody></table></div><div class="nf rv"><div class="nf-head"><h3 data-i18n="fam_pastilla">Pastilla & Sachet</h3><span>Por 100 g · Porción individual 8 g</span></div><table><tbody><tr><td data-i18n="nf_serving">Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td data-i18n="nf_energy">Energía</td><td>380 kcal</td></tr><tr><td data-i18n="nf_carbs">Carbohidratos totales</td><td>95 g</td></tr><tr class="nf-sub"><td data-i18n="nf_sugars">Azúcares</td><td>92 g</td></tr><tr><td data-i18n="nf_protein">Proteína</td><td>0,7 g</td></tr><tr><td data-i18n="nf_fat">Grasa total</td><td>0 g</td></tr><tr><td data-i18n="nf_sodium">Sodio</td><td>25 mg</td></tr><tr><td data-i18n="nf_calcium">Calcio</td><td>80 mg</td></tr><tr><td data-i18n="nf_iron">Hierro</td><td>1,5 mg</td></tr><tr><td data-i18n="nf_potassium">Potasio</td><td>120 mg</td></tr></tbody></table></div><div class="nf rv"><div class="nf-head"><h3 data-i18n="fam_granulada">Granulada & Pulverizada</h3><span>Por 100 g · Granulada y micro-pulverizada</span></div><table><tbody><tr><td data-i18n="nf_serving">Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td data-i18n="nf_energy">Energía</td><td>380 kcal</td></tr><tr><td data-i18n="nf_carbs">Carbohidratos totales</td><td>95 g</td></tr><tr class="nf-sub"><td data-i18n="nf_sugars">Azúcares</td><td>92 g</td></tr><tr><td data-i18n="nf_protein">Proteína</td><td>0,7 g</td></tr><tr><td data-i18n="nf_fat">Grasa total</td><td>0 g</td></tr><tr><td data-i18n="nf_sodium">Sodio</td><td>25 mg</td></tr><tr><td data-i18n="nf_calcium">Calcio</td><td>80 mg</td></tr><tr><td data-i18n="nf_iron">Hierro</td><td>1,5 mg</td></tr><tr><td data-i18n="nf_potassium">Potasio</td><td>120 mg</td></tr></tbody></table></div><div class="nf rv"><div class="nf-head"><h3 data-i18n="fam_liquida">Panela Líquida</h3><span>Por 100 g · Miel de caña pura</span></div><table><tbody><tr><td data-i18n="nf_serving">Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td data-i18n="nf_energy">Energía</td><td>310 kcal</td></tr><tr><td data-i18n="nf_carbs">Carbohidratos totales</td><td>78 g</td></tr><tr class="nf-sub"><td data-i18n="nf_sugars">Azúcares</td><td>75 g</td></tr><tr><td data-i18n="nf_protein">Proteína</td><td>0,5 g</td></tr><tr><td data-i18n="nf_fat">Grasa total</td><td>0 g</td></tr><tr><td data-i18n="nf_sodium">Sodio</td><td>20 mg</td></tr><tr><td data-i18n="nf_calcium">Calcio</td><td>70 mg</td></tr><tr><td data-i18n="nf_iron">Hierro</td><td>1,3 mg</td></tr><tr><td data-i18n="nf_potassium">Potasio</td><td>110 mg</td></tr><tr><td data-i18n="nf_moisture">Humedad</td><td>20 %</td></tr></tbody></table></div><div class="nf rv"><div class="nf-head"><h3 data-i18n="fam_redonda">Redonda & Piloncillo</h3><span>Por 100 g · Exportación LATAM</span></div><table><tbody><tr><td data-i18n="nf_serving">Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td data-i18n="nf_energy">Energía</td><td>380 kcal</td></tr><tr><td data-i18n="nf_carbs">Carbohidratos totales</td><td>95 g</td></tr><tr class="nf-sub"><td data-i18n="nf_sugars">Azúcares</td><td>92 g</td></tr><tr><td data-i18n="nf_protein">Proteína</td><td>0,7 g</td></tr><tr><td data-i18n="nf_fat">Grasa total</td><td>0 g</td></tr><tr><td data-i18n="nf_sodium">Sodio</td><td>25 mg</td></tr><tr><td data-i18n="nf_calcium">Calcio</td><td>80 mg</td></tr><tr><td data-i18n="nf_iron">Hierro</td><td>1,5 mg</td></tr><tr><td data-i18n="nf_potassium">Potasio</td><td>120 mg</td></tr></tbody></table></div>
+    </div>
+  </div>
+</section>
+<div class="wv" style="background:var(--CR)"><svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C480,0 960,50 1440,15 L1440,50 L0,50 Z" fill="#080400"/></svg></div>
+
 <footer>
   <div class="ft-inner">
     <div class="ft-top">
-      <div class="ft-brand"><div class="fb-logo"><div class="logo-box"><span class="logo-ph-txt">Logo</span></div><span class="nav-brand">Bellavista</span></div><p>Del campo colombiano al mundo. Productos naturales con calidad certificada. Mogotes, Santander.</p></div>
-      <div class="ft-col"><h5>Navegación</h5><ul><li><a href="#nosotros">Nosotros</a></li><li><a href="#productos">Productos</a></li><li><a href="#tablas">Tablas nutricionales</a></li><li><a href="#certificaciones">Certificaciones</a></li><li><a href="#noticias">Noticias</a></li><li><a href="#modelos">Empresas</a></li></ul></div>
-      <div class="ft-col"><h5>Contacto</h5><ul><li><a href="https://wa.me/TUNUMERO" target="_blank">WhatsApp</a></li><li><a href="mailto:info@panelabellavista.com">info@panelabellavista.com</a></li><li><a href="https://panelabellavista.com" target="_blank">panelabellavista.com</a></li></ul></div>
+      <div class="ft-brand"><div class="fb-logo"><div class="logo-box"><span class="logo-ph-txt">Logo</span></div><span class="nav-brand">Bellavista</span></div><p data-i18n="ft_brand">Del campo colombiano al mundo. Productos naturales con calidad certificada. Mogotes, Santander.</p></div>
+      <div class="ft-col"><h5 data-i18n="ft_nav">Navegación</h5><ul><li><a href="#nosotros" data-i18n="nav_about">Nosotros</a></li><li><a href="#productos" data-i18n="nav_products">Productos</a></li><li><a href="#tablas" data-i18n="nav_nutrition">Tablas nutricionales</a></li><li><a href="#certificaciones" data-i18n="nav_certs">Certificaciones</a></li><li><a href="#noticias" data-i18n="nav_news">Noticias</a></li><li><a href="#modelos" data-i18n="nav_companies">Empresas</a></li></ul></div>
+      <div class="ft-col"><h5 data-i18n="ft_contact">Contacto</h5><ul><li><a href="https://wa.me/TUNUMERO" target="_blank">WhatsApp</a></li><li><a href="mailto:info@panelabellavista.com">info@panelabellavista.com</a></li><li><a href="https://panelabellavista.com" target="_blank">panelabellavista.com</a></li></ul></div>
     </div>
     <div class="ft-bot">
       <p>© 2025 Bellavista · VR Vega Rodríguez SAS · Mogotes, Santander, Colombia</p>
@@ -988,6 +1010,25 @@ function prevSlide(e,btn){e.preventDefault();e.stopPropagation();var card=btn.cl
   requestAnimationFrame(anim);
   window.highlightRegion=function(region){var map={usa:'usa',europe:'esp',canada:'can',aruba:'aruba',asia:'kor'};var iso=map[region]||region;lit(iso,true);svg.setAttribute('data-hover',iso);};
   window.clearHighlight=function(){var h=svg.getAttribute('data-hover');if(h){lit(h,false);svg.removeAttribute('data-hover');}};
+})();
+</script>
+<script>
+var BV_I18N={"nav_about": {"es": "Nosotros", "en": "About us", "ko": "회사 소개"}, "nav_products": {"es": "Productos", "en": "Products", "ko": "제품"}, "nav_nutrition": {"es": "Tablas nutricionales", "en": "Nutrition facts", "ko": "영양성분표"}, "nav_certs": {"es": "Certificaciones", "en": "Certifications", "ko": "인증"}, "nav_news": {"es": "Noticias", "en": "News", "ko": "뉴스"}, "nav_companies": {"es": "Empresas", "en": "Companies", "ko": "기업"}, "nav_contact": {"es": "Contáctanos", "en": "Contact us", "ko": "문의하기"}, "hero_eyebrow": {"es": "Mogotes, Santander · Colombia · Since 2002", "en": "Mogotes, Santander · Colombia · Since 2002", "ko": "모고테스, 산탄데르 · 콜롬비아 · 2002년부터"}, "hero_h1": {"es": "Del campo<br><em>al mundo.</em>", "en": "From the field<br><em>to the world.</em>", "ko": "산지에서<br><em>세계로.</em>"}, "hero_desc": {"es": "Somos <strong>Bellavista</strong> — más de 20 años produciendo lo mejor del campo colombiano con calidad certificada internacionalmente.", "en": "We are <strong>Bellavista</strong> — over 20 years producing the best of the Colombian countryside with internationally certified quality.", "ko": "<strong>Bellavista</strong>는 20년 이상 국제 인증 품질로 콜롬비아 농촌 최고의 제품을 생산해 왔습니다."}, "hero_cta1": {"es": "Hablar con un asesor", "en": "Talk to an advisor", "ko": "상담원과 대화하기"}, "hero_cta2": {"es": "Ver portafolio →", "en": "View portfolio →", "ko": "제품 보기 →"}, "stat_top5lbl": {"es": "Exportadores de panela en Colombia", "en": "Panela exporters in Colombia", "ko": "콜롬비아 파넬라 수출 기업"}, "stat_yearslbl": {"es": "Años de experiencia", "en": "Years of experience", "ko": "년의 경험"}, "stat_caplbl": {"es": "Capacidad / mes", "en": "Capacity / month", "ko": "월 생산능력"}, "stat_countrieslbl": {"es": "Con presencia activa o en expansión", "en": "With active or expanding presence", "ko": "진출 또는 확장 중"}, "stat_5countries": {"es": "5 países", "en": "5 countries", "ko": "5개국"}, "badge_active": {"es": "Activo", "en": "Active", "ko": "활성"}, "badge_soon": {"es": "Próximo", "en": "Soon", "ko": "예정"}, "e_about": {"es": "Quiénes somos", "en": "About us", "ko": "회사 소개"}, "t_about": {"es": "Más que panela.<br>Somos <em class=\"ital\" style=\"color:var(--R)\">Bellavista.</em>", "en": "More than panela.<br>We are <em class=\"ital\" style=\"color:var(--R)\">Bellavista.</em>", "ko": "파넬라 그 이상.<br>우리는 <em class=\"ital\" style=\"color:var(--R)\">Bellavista</em>입니다."}, "about_p1": {"es": "Nacimos en Mogotes, Santander, con un propósito claro: llevar la riqueza del campo colombiano al mundo. Hoy somos referente nacional e internacional en productos naturales certificados, con más de 20 años construyendo confianza.", "en": "We were born in Mogotes, Santander, with a clear purpose: to bring the wealth of the Colombian countryside to the world. Today we are a national and international benchmark in certified natural products, with over 20 years building trust.", "ko": "우리는 명확한 목표를 가지고 산탄데르 모고테스에서 시작했습니다: 콜롬비아 농촌의 풍요로움을 세계에 전하는 것입니다. 오늘날 우리는 20년 넘게 신뢰를 쌓아온 인증 천연 제품의 국내외 기준입니다."}, "about_quote": {"es": "\"Queremos que cuando alguien vea el logo Bellavista, sienta confianza. Que sepa que detrás hay gente honesta, trabajo serio y un producto que no nos da vergüenza mostrarle al mundo.\"", "en": "\"We want that when someone sees the Bellavista logo, they feel confidence. That they know there are honest people behind it, serious work and a product we are proud to show the world.\"", "ko": "\"누군가 Bellavista 로고를 볼 때 신뢰를 느끼길 바랍니다. 그 뒤에 정직한 사람들과 성실한 노력, 그리고 세계에 자랑스럽게 보여줄 수 있는 제품이 있음을 알기를 바랍니다.\""}, "about_cite": {"es": "— Fundador, Bellavista", "en": "— Founder, Bellavista", "ko": "— 창립자, Bellavista"}, "e_products": {"es": "Portafolio", "en": "Portfolio", "ko": "포트폴리오"}, "t_products": {"es": "Nuestros <em class=\"ital\" style=\"color:var(--Y)\">productos</em>", "en": "Our <em class=\"ital\" style=\"color:var(--Y)\">products</em>", "ko": "우리의 <em class=\"ital\" style=\"color:var(--Y)\">제품</em>"}, "products_sub": {"es": "Familias de productos · Toca una tarjeta para explorar", "en": "Product families · Tap a card to explore", "ko": "제품군 · 카드를 눌러 살펴보세요"}, "products_note": {"es": "Desliza las flechas para ver todas las presentaciones disponibles", "en": "Use the arrows to see all available presentations", "ko": "화살표로 모든 제품 형태를 확인하세요"}, "fam_bloque": {"es": "Panela Bloque", "en": "Panela Block", "ko": "파넬라 블록"}, "fam_partida": {"es": "Panela Partida", "en": "Split Panela", "ko": "조각 파넬라"}, "fam_pastilla": {"es": "Pastilla & Sachet", "en": "Tablet & Sachet", "ko": "정제 & 스틱"}, "fam_granulada": {"es": "Granulada & Pulverizada", "en": "Granulated & Powdered", "ko": "과립 & 분말"}, "fam_liquida": {"es": "Panela Líquida", "en": "Liquid Panela", "ko": "액상 파넬라"}, "fam_redonda": {"es": "Redonda & Piloncillo", "en": "Round & Piloncillo", "ko": "원형 & 필론시요"}, "fam_cta": {"es": "Ver todos →", "en": "View all →", "ko": "전체 보기 →"}, "e_certs": {"es": "Calidad certificada", "en": "Certified quality", "ko": "인증 품질"}, "t_certs": {"es": "Respaldados por las más<br>altas <em class=\"ital\" style=\"color:var(--Y)\">certificaciones</em>", "en": "Backed by the highest<br><em class=\"ital\" style=\"color:var(--Y)\">certifications</em>", "ko": "최고 수준의 <em class=\"ital\" style=\"color:var(--Y)\">인증</em>으로<br>보증됩니다"}, "certs_desc": {"es": "Los avales más exigentes de la industria alimentaria nacional e internacional.", "en": "The most demanding endorsements of the national and international food industry.", "ko": "국내외 식품 산업에서 가장 엄격한 인증을 보유하고 있습니다."}, "e_companies": {"es": "Nuestras empresas", "en": "Our companies", "ko": "우리 기업"}, "t_companies": {"es": "El grupo <em class=\"ital\" style=\"color:var(--R)\">Bellavista</em>", "en": "The <em class=\"ital\" style=\"color:var(--R)\">Bellavista</em> group", "ko": "<em class=\"ital\" style=\"color:var(--R)\">Bellavista</em> 그룹"}, "companies_desc": {"es": "Más que una empresa de panela — somos un grupo empresarial del campo colombiano.", "en": "More than a panela company — we are a business group from the Colombian countryside.", "ko": "파넬라 회사 그 이상 — 우리는 콜롬비아 농촌의 기업 그룹입니다."}, "badge_activa": {"es": "● Activa", "en": "● Active", "ko": "● 운영 중"}, "comp_mp": {"es": "Marca Propia", "en": "Private Label", "ko": "자체 브랜드"}, "comp_mp_d": {"es": "Producimos bajo nuestra marca Bellavista con los más altos estándares para mercados nacionales e internacionales.", "en": "We produce under our Bellavista brand with the highest standards for national and international markets.", "ko": "국내외 시장을 위해 최고 기준으로 Bellavista 브랜드 제품을 생산합니다."}, "comp_wl": {"es": "White Label", "en": "White Label", "ko": "화이트 라벨"}, "comp_wl_d": {"es": "Tu marca, nuestra producción. Para distribuidores y retailers que buscan calidad certificada internacionalmente.", "en": "Your brand, our production. For distributors and retailers seeking internationally certified quality.", "ko": "당신의 브랜드, 우리의 생산. 국제 인증 품질을 찾는 유통업체와 소매업체를 위해."}, "comp_mq": {"es": "Maquila", "en": "Contract Manufacturing", "ko": "위탁 생산"}, "comp_mq_d": {"es": "Fabricación por contrato. 500 toneladas/mes para cubrir demandas industriales a escala internacional.", "en": "Contract manufacturing. 500 tons/month to cover industrial demand at an international scale.", "ko": "위탁 생산. 국제 규모의 산업 수요를 위한 월 500톤."}, "e_news": {"es": "Actualidad", "en": "Latest", "ko": "최신 소식"}, "t_news": {"es": "Noticias <em class=\"ital\" style=\"color:var(--Y)\">Bellavista</em>", "en": "<em class=\"ital\" style=\"color:var(--Y)\">Bellavista</em> News", "ko": "<em class=\"ital\" style=\"color:var(--Y)\">Bellavista</em> 뉴스"}, "news_desc": {"es": "Lo más reciente del grupo, nuestros mercados y el campo colombiano.", "en": "The latest from the group, our markets and the Colombian countryside.", "ko": "그룹, 시장, 콜롬비아 농촌의 최신 소식."}, "e_nutrition": {"es": "Información para exportación", "en": "Export information", "ko": "수출 정보"}, "t_nutrition": {"es": "Tablas <em class=\"ital\" style=\"color:var(--R)\">nutricionales</em>", "en": "Nutrition <em class=\"ital\" style=\"color:var(--R)\">facts</em>", "ko": "<em class=\"ital\" style=\"color:var(--R)\">영양</em> 성분표"}, "nutrition_desc": {"es": "Valores nutricionales de cada familia de producto, disponibles para procesos de exportación y revisión en aduana.", "en": "Nutritional values for each product family, available for export processes and customs review.", "ko": "각 제품군의 영양 성분으로, 수출 절차 및 통관 검토에 활용할 수 있습니다."}, "tab_note": {"es": "Valores de referencia por cada 100 g · Panela de caña 100% natural, sin aditivos ni conservantes.", "en": "Reference values per 100 g · 100% natural cane panela, no additives or preservatives.", "ko": "100g당 기준값 · 100% 천연 사탕수수 파넬라, 첨가물·보존료 없음."}, "nf_serving": {"es": "Tamaño de porción", "en": "Serving size", "ko": "제공량"}, "nf_energy": {"es": "Energía", "en": "Energy", "ko": "열량"}, "nf_carbs": {"es": "Carbohidratos totales", "en": "Total carbohydrates", "ko": "총 탄수화물"}, "nf_sugars": {"es": "Azúcares", "en": "Sugars", "ko": "당류"}, "nf_protein": {"es": "Proteína", "en": "Protein", "ko": "단백질"}, "nf_fat": {"es": "Grasa total", "en": "Total fat", "ko": "총 지방"}, "nf_sodium": {"es": "Sodio", "en": "Sodium", "ko": "나트륨"}, "nf_calcium": {"es": "Calcio", "en": "Calcium", "ko": "칼슘"}, "nf_iron": {"es": "Hierro", "en": "Iron", "ko": "철분"}, "nf_potassium": {"es": "Potasio", "en": "Potassium", "ko": "칼륨"}, "nf_moisture": {"es": "Humedad", "en": "Moisture", "ko": "수분"}, "e_cta": {"es": "Hablemos", "en": "Let's talk", "ko": "문의하기"}, "t_cta": {"es": "¿Listo para trabajar<br>con <em class=\"ital\" style=\"color:var(--Y)\">Bellavista?</em>", "en": "Ready to work<br>with <em class=\"ital\" style=\"color:var(--Y)\">Bellavista?</em>", "ko": "<em class=\"ital\" style=\"color:var(--Y)\">Bellavista</em>와<br>함께하시겠습니까?"}, "cta_p": {"es": "Cuéntanos qué necesitas — muestra, cotización o información. Respondemos rápido.", "en": "Tell us what you need — sample, quote or information. We respond fast.", "ko": "필요한 것을 알려주세요 — 샘플, 견적 또는 정보. 신속히 답변드립니다."}, "cta_email": {"es": "✉ Enviar correo", "en": "✉ Send email", "ko": "✉ 이메일 보내기"}, "wa_write": {"es": "Escribir por WhatsApp", "en": "Message on WhatsApp", "ko": "WhatsApp으로 문의"}, "wa_advisor": {"es": "Hablar con un asesor", "en": "Talk to an advisor", "ko": "상담원과 대화하기"}, "ft_nav": {"es": "Navegación", "en": "Navigation", "ko": "메뉴"}, "ft_contact": {"es": "Contacto", "en": "Contact", "ko": "연락처"}, "ft_brand": {"es": "Del campo colombiano al mundo. Productos naturales con calidad certificada. Mogotes, Santander.", "en": "From the Colombian countryside to the world. Natural products with certified quality. Mogotes, Santander.", "ko": "콜롬비아 농촌에서 세계로. 인증 품질의 천연 제품. 산탄데르 모고테스."}};
+(function(){
+function apply(l){
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var t=BV_I18N[el.getAttribute('data-i18n')];
+    if(t&&t[l]!=null){ if(el.hasAttribute('data-i18n-html'))el.innerHTML=t[l]; else el.textContent=t[l]; }
+  });
+  var lbl=document.getElementById('langLabel'); if(lbl)lbl.textContent={es:'ES',en:'EN',ko:'KO'}[l];
+  document.querySelectorAll('[data-lang]').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===l);});
+}
+window.setLang=function(l){try{localStorage.setItem('bvLang',l);}catch(e){}apply(l);var m=document.getElementById('langMenu');if(m)m.classList.remove('open');};
+window.toggleLang=function(e){e.stopPropagation();var m=document.getElementById('langMenu');if(m)m.classList.toggle('open');};
+document.addEventListener('click',function(){var m=document.getElementById('langMenu');if(m)m.classList.remove('open');});
+var s='es';try{s=localStorage.getItem('bvLang')||'es';}catch(e){}
+apply(s);
 })();
 </script>
 </body>
