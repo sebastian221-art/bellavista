@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Granulada & Pulverizada — Bellavista · Panela del Campo al Mundo</title>
-<meta name="description" content="Bellavista — Panela granulada, pulverizada y micro-pulverizada. Sustituto natural del azúcar refinada, ideal para repostería, bebidas">
+<meta name="description" content="Bellavista — Panela granulada, pulverizada y micro-pulverizada. Sustituto natural del azúcar refinada, ideal para repostería.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Schoolbell&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
@@ -21,11 +21,22 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:66px;displ
 .logo-box img{width:100%;height:100%;object-fit:contain;}
 .logo-ph-txt{font-size:.42rem;color:rgba(245,200,0,.5);text-align:center;line-height:1.4;text-transform:uppercase;letter-spacing:.04em;padding:2px;}
 .nav-brand{font-family:'Schoolbell',cursive;font-size:1.25rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--Y);text-decoration:none;}
+.nav-right{display:flex;align-items:center;gap:20px;}
 .nav-links{display:flex;gap:28px;list-style:none;}
 .nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:color .2s;}
 .nav-links a:hover{color:var(--Y);}
 .nav-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1.5px solid var(--Y);color:var(--Y);padding:9px 20px;border-radius:4px;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .25s,color .25s;}
 .nav-btn:hover{background:var(--Y);color:var(--C);}
+.lang-switch{position:relative;}
+.lang-cur{display:inline-flex;align-items:center;gap:5px;background:transparent;border:1px solid rgba(245,200,0,.45);color:var(--Y);padding:7px 12px;border-radius:4px;font:600 .7rem 'Nunito',sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s;}
+.lang-cur:hover{background:var(--Y);color:var(--C);}
+.lang-menu{position:absolute;top:calc(100% + 8px);right:0;background:rgba(92,42,0,.98);border:1px solid rgba(245,200,0,.25);border-radius:8px;padding:6px;display:none;flex-direction:column;gap:2px;min-width:140px;z-index:130;box-shadow:0 12px 30px rgba(0,0,0,.45);}
+.lang-menu.open{display:flex;}
+.lang-menu button{background:transparent;border:none;color:rgba(255,255,255,.7);text-align:left;padding:9px 12px;border-radius:5px;font:500 .82rem 'Nunito',sans-serif;cursor:pointer;transition:background .15s,color .15s;}
+.lang-menu button:hover,.lang-menu button.active{background:rgba(245,200,0,.16);color:var(--Y);}
+.mob-langs{display:flex;gap:8px;margin:6px 0 0;}
+.mob-langs button{flex:1;background:transparent;border:1px solid rgba(245,200,0,.35);color:rgba(255,255,255,.65);padding:11px 8px;border-radius:7px;font:600 .78rem 'Nunito',sans-serif;cursor:pointer;transition:background .2s,color .2s;}
+.mob-langs button.active{background:var(--Y);color:var(--C);border-color:var(--Y);}
 .ham-wrap{display:none;flex-direction:column;justify-content:center;width:36px;height:36px;gap:5px;cursor:pointer;padding:4px;}
 .ham-wrap span{display:block;height:1.5px;background:rgba(255,255,255,.7);border-radius:2px;transition:transform .35s cubic-bezier(.76,0,.24,1),opacity .2s,width .3s;transform-origin:center;}
 .ham-wrap span:nth-child(1){width:22px;}.ham-wrap span:nth-child(2){width:16px;}.ham-wrap span:nth-child(3){width:22px;}
@@ -98,9 +109,6 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:66px;displ
 .nutr-row.nutr-header{background:rgba(92,42,0,.04);margin:0 -22px;padding:8px 22px;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(92,42,0,.4);}
 .nutr-val{font-size:.88rem;color:var(--C);font-weight:500;}
 .nutr-pct{font-size:.75rem;color:rgba(92,42,0,.4);min-width:40px;text-align:right;}
-.nutrition-ph{padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border:1.5px dashed rgba(92,42,0,.15);border-radius:10px;margin:16px 0;}
-.nutrition-ph-icon{font-size:2.5rem;opacity:.25;}
-.nutrition-ph-text{font-size:.72rem;color:rgba(92,42,0,.35);text-align:center;letter-spacing:.06em;text-transform:uppercase;line-height:1.7;}
 
 /* PRESENTATIONS */
 .prod-presentations{background:var(--C);padding:80px 40px;}
@@ -139,7 +147,7 @@ footer{background:#080400;padding:48px 40px 24px;border-top:1px solid rgba(245,2
 .waf svg{width:26px;height:26px;fill:white;}
 @keyframes wring{0%{transform:scale(1);opacity:1;}100%{transform:scale(1.6);opacity:0;}}
 
-/* ALSO SEE (otras familias) */
+/* ALSO SEE */
 .also-see{background:var(--CR);padding:80px 40px;}
 .also-see-inner{max-width:1100px;margin:0 auto;}
 .also-see h2{font-family:'Schoolbell',cursive;font-size:1.8rem;color:var(--C);margin-bottom:32px;font-weight:600;}
@@ -154,7 +162,7 @@ footer{background:#080400;padding:48px 40px 24px;border-top:1px solid rgba(245,2
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  nav{padding:0 18px;}.nav-links,.nav-btn{display:none;}.ham-wrap{display:flex;}
+  nav{padding:0 18px;}.nav-links,.nav-btn,.lang-switch{display:none;}.ham-wrap{display:flex;}
   .prod-hero{padding:90px 20px 60px;}
   .prod-hero-inner{grid-template-columns:1fr;gap:40px;}
   .prod-specs{padding:60px 20px;}
@@ -181,10 +189,11 @@ footer{background:#080400;padding:48px 40px 24px;border-top:1px solid rgba(245,2
 
 
 <div class="mob" id="mob">
-  <a class="mob-link" href="/#nosotros" onclick="closeMob()">Nosotros</a>
-  <a class="mob-link" href="/#productos" onclick="closeMob()">Productos</a>
-  <a class="mob-link" href="/#certificaciones" onclick="closeMob()">Certificaciones</a>
-  <a class="mob-link" href="/#noticias" onclick="closeMob()">Noticias</a>
+  <a class="mob-link" href="/#nosotros" onclick="closeMob()" data-i18n="nav_about">Nosotros</a>
+  <a class="mob-link" href="/#productos" onclick="closeMob()" data-i18n="nav_products">Productos</a>
+  <a class="mob-link" href="/#certificaciones" onclick="closeMob()" data-i18n="nav_certs">Certificaciones</a>
+  <a class="mob-link" href="/#noticias" onclick="closeMob()" data-i18n="nav_news">Noticias</a>
+  <div class="mob-langs"><button data-lang="es" onclick="setLang('es')">ES</button><button data-lang="en" onclick="setLang('en')">EN</button><button data-lang="ko" onclick="setLang('ko')">한국어</button></div>
   <div class="mob-sep"></div>
   <a class="mob-wa" href="https://wa.me/TUNUMERO" target="_blank">💬 WhatsApp</a>
 </div>
@@ -193,13 +202,23 @@ footer{background:#080400;padding:48px 40px 24px;border-top:1px solid rgba(245,2
     <a href="/" class="logo-box"><span class="logo-ph-txt">Tu Logo</span></a>
     <a href="/" class="nav-brand">Bellavista</a>
   </div>
-  <ul class="nav-links">
-    <li><a href="/#nosotros">Nosotros</a></li>
-    <li><a href="/#productos">Productos</a></li>
-    <li><a href="/#certificaciones">Certificaciones</a></li>
-    <li><a href="/#noticias">Noticias</a></li>
-  </ul>
-  <a href="https://wa.me/TUNUMERO" class="nav-btn" target="_blank">Contáctanos</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="/#nosotros" data-i18n="nav_about">Nosotros</a></li>
+      <li><a href="/#productos" data-i18n="nav_products">Productos</a></li>
+      <li><a href="/#certificaciones" data-i18n="nav_certs">Certificaciones</a></li>
+      <li><a href="/#noticias" data-i18n="nav_news">Noticias</a></li>
+    </ul>
+    <div class="lang-switch" id="langSwitch">
+      <button class="lang-cur" onclick="toggleLang(event)"><span id="langLabel">ES</span> ▾</button>
+      <div class="lang-menu" id="langMenu">
+        <button data-lang="es" onclick="setLang('es')">Español</button>
+        <button data-lang="en" onclick="setLang('en')">English</button>
+        <button data-lang="ko" onclick="setLang('ko')">한국어</button>
+      </div>
+    </div>
+    <a href="https://wa.me/TUNUMERO" class="nav-btn" target="_blank" data-i18n="nav_contact">Contáctanos</a>
+  </div>
   <div class="ham-wrap" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
 </nav>
 
@@ -209,32 +228,30 @@ footer{background:#080400;padding:48px 40px 24px;border-top:1px solid rgba(245,2
   <div class="prod-hero-inner">
     <div class="prod-hero-left">
       <div class="prod-breadcrumb">
-        <a href="/">Inicio</a>
+        <a href="/" data-i18n="bc_home">Inicio</a>
         <span>›</span>
-        <a href="/#productos">Productos</a>
+        <a href="/#productos" data-i18n="nav_products">Productos</a>
         <span>›</span>
-        <a href="/granulada-pulverizada">Granulada & Pulverizada</a>
+        <a href="/granulada-pulverizada" data-i18n="fam_granulada">Granulada & Pulverizada</a>
       </div>
-      <span class="prod-eyebrow">Exportación · Repostería</span>
-      <h1 class="prod-title">Granulada <em>& Pulverizada</em></h1>
-      <p class="prod-desc">Panela granulada, pulverizada y micro-pulverizada. Sustituto natural del azúcar refinada, ideal para repostería, bebidas instantáneas y aplicaciones industriales. Disponible en doypack, sachet, tarros y bolsas.</p>
-      <div class="prod-tags"><span class="prod-tag tag-y">Exportación</span><span class="prod-tag tag-g">Repostería</span><span class="prod-tag tag-y">Industrial</span></div>
+      <span class="prod-eyebrow" data-i18n="pe">Exportación · Repostería</span>
+      <h1 class="prod-title" data-i18n="pt" data-i18n-html>Granulada <em>& Pulverizada</em></h1>
+      <p class="prod-desc" data-i18n="pd">Panela granulada, pulverizada y micro-pulverizada. Sustituto natural del azúcar refinada, ideal para repostería, bebidas instantáneas y aplicaciones industriales. Disponible en doypack, sachet, tarros y bolsas.</p>
+      <div class="prod-tags"><span class="prod-tag tag-y" data-i18n="ptag1">Exportación</span><span class="prod-tag tag-g" data-i18n="ptag2">Repostería</span><span class="prod-tag tag-y" data-i18n="ptag3">Industrial</span></div>
       <div class="prod-actions">
-        <a href="https://wa.me/TUNUMERO?text=Hola%2C%20me%20interesa%20información%20sobre%20Granulada%20&%20Pulverizada%20de%20Bellavista" class="btn-wa-prod" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Solicitar cotización
+        <a href="https://wa.me/TUNUMERO?text=Hola%2C%20me%20interesa%20información%20sobre%20Granulada%20%26%20Pulverizada%20de%20Bellavista" class="btn-wa-prod" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> <span data-i18n="cta_quote">Solicitar cotización</span>
         </a>
-        <a href="/#productos" class="btn-back">← Todos los productos</a>
+        <a href="/#productos" class="btn-back" data-i18n="back_all">← Todos los productos</a>
       </div>
     </div>
 
     <div class="prod-hero-right">
-      <!-- FOTO PRINCIPAL -->
       <!-- Reemplaza el div.prod-photo-main por: <img class="prod-photo-main" src="foto-granulada-pulverizada.jpg" alt="Granulada & Pulverizada"> -->
       <div class="prod-photo-main" style="background:linear-gradient(135deg,#8A7000,#F0D400)20;">
         <span class="prod-photo-icon">✨</span>
-        <span class="prod-photo-label">Agregar foto principal del producto</span>
+        <span class="prod-photo-label" data-i18n="photo_label">Agregar foto principal del producto</span>
       </div>
-      <!-- MINIATURAS (reemplaza cada div.prod-thumb con <img src="...">) -->
       <div class="prod-photo-thumbs">
         <div class="prod-thumb" style="background:linear-gradient(135deg,#8A7000,#F0D400)20;">📷</div>
         <div class="prod-thumb" style="background:linear-gradient(135deg,#8A7000,#F0D400)20;">📷</div>
@@ -248,34 +265,32 @@ footer{background:#080400;padding:48px 40px 24px;border-top:1px solid rgba(245,2
 <section class="prod-specs">
   <div class="prod-specs-inner">
     <div class="specs-block">
-      <h2>Especificaciones</h2>
-      <div class="spec-row"><span class="spec-key">Referencia</span><span class="spec-val">Granulada, pulverizada, micro-pulverizada</span></div><div class="spec-row"><span class="spec-key">Granulometría</span><span class="spec-val">Gruesa 1-3mm · Fina <1mm · Micro <0.3mm</span></div><div class="spec-row"><span class="spec-key">Tipología</span><span class="spec-val">Orgánica y Convencional</span></div><div class="spec-row"><span class="spec-key">Marca Comercial</span><span class="spec-val">Propia o Marca Blanca</span></div><div class="spec-row"><span class="spec-key">Presentación</span><span class="spec-val">Doypack, sachet, tarro, bolsa, granel</span></div><div class="spec-row"><span class="spec-key">Vida Útil</span><span class="spec-val">1 año</span></div><div class="spec-row"><span class="spec-key">Certificaciones</span><span class="spec-val">INVIMA, FDA, CO Colombia, Green Business</span></div>
+      <h2 data-i18n="specs_title">Especificaciones</h2>
+      <div class="spec-row"><span class="spec-key" data-i18n="spk_ref">Referencia</span><span class="spec-val" data-i18n="sv1">Granulada, pulverizada, micro-pulverizada</span></div><div class="spec-row"><span class="spec-key" data-i18n="spk_granul">Granulometría</span><span class="spec-val" data-i18n="sv2">Gruesa 1-3mm · Fina <1mm · Micro <0.3mm</span></div><div class="spec-row"><span class="spec-key" data-i18n="spk_type">Tipología</span><span class="spec-val" data-i18n="sv3">Orgánica y Convencional</span></div><div class="spec-row"><span class="spec-key" data-i18n="spk_brand">Marca Comercial</span><span class="spec-val" data-i18n="sv4">Propia o Marca Blanca</span></div><div class="spec-row"><span class="spec-key" data-i18n="spk_pres">Presentación</span><span class="spec-val" data-i18n="sv5">Doypack, sachet, tarro, bolsa, granel</span></div><div class="spec-row"><span class="spec-key" data-i18n="spk_shelf">Vida Útil</span><span class="spec-val" data-i18n="sv6">1 año</span></div><div class="spec-row"><span class="spec-key" data-i18n="spk_certs">Certificaciones</span><span class="spec-val" data-i18n="sv7">INVIMA, FDA, CO Colombia, Green Business</span></div>
     </div>
     <div class="specs-block">
-      <h2>Tabla Nutricional</h2>
-      
+      <h2 data-i18n="nutr_title">Tabla Nutricional</h2>
 <div class="nutrition-wrap">
   <div class="nutrition-header">
-    <h3>Información Nutricional</h3>
-    <p>Porción: 10g · Porciones por envase: según presentación</p>
+    <h3 data-i18n="nh_title">Información Nutricional</h3>
+    <p data-i18n="nh_portion">Porción: 10g · Porciones por envase: según presentación</p>
   </div>
   <div class="nutrition-body">
-    <div class="nutr-row nutr-header"><span>Nutriente</span><span style="display:flex;gap:32px;"><span>Cantidad</span><span>% VD*</span></span></div>
-    <div class="nutr-row nutr-main"><span>Valor energético</span><span style="display:flex;gap:32px;"><span class="nutr-val">38 kcal / 159 kJ</span><span class="nutr-pct">2%</span></span></div>
-    <div class="nutr-row nutr-main"><span>Carbohidratos</span><span style="display:flex;gap:32px;"><span class="nutr-val">9,6 g</span><span class="nutr-pct">3%</span></span></div>
-    <div class="nutr-row nutr-sub"><span>— Azúcares totales</span><span style="display:flex;gap:32px;"><span class="nutr-val">9,4 g</span><span class="nutr-pct">—</span></span></div>
-    <div class="nutr-row nutr-sub"><span>— Azúcares añadidos</span><span style="display:flex;gap:32px;"><span class="nutr-val">9,4 g</span><span class="nutr-pct">—</span></span></div>
-    <div class="nutr-row nutr-main"><span>Proteínas</span><span style="display:flex;gap:32px;"><span class="nutr-val">0,1 g</span><span class="nutr-pct">—</span></span></div>
-    <div class="nutr-row nutr-main"><span>Grasas totales</span><span style="display:flex;gap:32px;"><span class="nutr-val">0 g</span><span class="nutr-pct">0%</span></span></div>
-    <div class="nutr-row nutr-main"><span>Sodio</span><span style="display:flex;gap:32px;"><span class="nutr-val">3 mg</span><span class="nutr-pct">0%</span></span></div>
-    <div class="nutr-row nutr-main"><span>Calcio</span><span style="display:flex;gap:32px;"><span class="nutr-val">8 mg</span><span class="nutr-pct">1%</span></span></div>
-    <div class="nutr-row nutr-main"><span>Hierro</span><span style="display:flex;gap:32px;"><span class="nutr-val">0,3 mg</span><span class="nutr-pct">2%</span></span></div>
-    <div class="nutr-row nutr-main"><span>Potasio</span><span style="display:flex;gap:32px;"><span class="nutr-val">40 mg</span><span class="nutr-pct">1%</span></span></div>
-    <div class="nutr-row nutr-main"><span>Fósforo</span><span style="display:flex;gap:32px;"><span class="nutr-val">4 mg</span><span class="nutr-pct">1%</span></span></div>
+    <div class="nutr-row nutr-header"><span data-i18n="nh_nutrient">Nutriente</span><span style="display:flex;gap:32px;"><span data-i18n="nh_amount">Cantidad</span><span data-i18n="nh_vd">% VD*</span></span></div>
+    <div class="nutr-row nutr-main"><span data-i18n="ne_energy">Valor energético</span><span style="display:flex;gap:32px;"><span class="nutr-val">38 kcal / 159 kJ</span><span class="nutr-pct">2%</span></span></div>
+    <div class="nutr-row nutr-main"><span data-i18n="ne_carbs">Carbohidratos</span><span style="display:flex;gap:32px;"><span class="nutr-val">9,6 g</span><span class="nutr-pct">3%</span></span></div>
+    <div class="nutr-row nutr-sub"><span data-i18n="ne_sugars">— Azúcares totales</span><span style="display:flex;gap:32px;"><span class="nutr-val">9,4 g</span><span class="nutr-pct">—</span></span></div>
+    <div class="nutr-row nutr-sub"><span data-i18n="ne_added">— Azúcares añadidos</span><span style="display:flex;gap:32px;"><span class="nutr-val">9,4 g</span><span class="nutr-pct">—</span></span></div>
+    <div class="nutr-row nutr-main"><span data-i18n="ne_protein">Proteínas</span><span style="display:flex;gap:32px;"><span class="nutr-val">0,1 g</span><span class="nutr-pct">—</span></span></div>
+    <div class="nutr-row nutr-main"><span data-i18n="ne_fat">Grasas totales</span><span style="display:flex;gap:32px;"><span class="nutr-val">0 g</span><span class="nutr-pct">0%</span></span></div>
+    <div class="nutr-row nutr-main"><span data-i18n="ne_sodium">Sodio</span><span style="display:flex;gap:32px;"><span class="nutr-val">3 mg</span><span class="nutr-pct">0%</span></span></div>
+    <div class="nutr-row nutr-main"><span data-i18n="ne_calcium">Calcio</span><span style="display:flex;gap:32px;"><span class="nutr-val">8 mg</span><span class="nutr-pct">1%</span></span></div>
+    <div class="nutr-row nutr-main"><span data-i18n="ne_iron">Hierro</span><span style="display:flex;gap:32px;"><span class="nutr-val">0,3 mg</span><span class="nutr-pct">2%</span></span></div>
+    <div class="nutr-row nutr-main"><span data-i18n="ne_potassium">Potasio</span><span style="display:flex;gap:32px;"><span class="nutr-val">40 mg</span><span class="nutr-pct">1%</span></span></div>
+    <div class="nutr-row nutr-main"><span data-i18n="ne_phos">Fósforo</span><span style="display:flex;gap:32px;"><span class="nutr-val">4 mg</span><span class="nutr-pct">1%</span></span></div>
   </div>
 </div>
-<p style="font-size:.65rem;color:rgba(92,42,0,.38);margin-top:10px;line-height:1.6;">*% Valores Diarios con base en una dieta de 2.000 kcal. Sus valores diarios podem ser maiores ou menores dependendo de suas necessidades energéticas.</p>
-
+<p style="font-size:.65rem;color:rgba(92,42,0,.38);margin-top:10px;line-height:1.6;" data-i18n="nutr_footnote">*% Valores Diarios con base en una dieta de 2.000 kcal. Sus valores diarios pueden ser mayores o menores según sus necesidades energéticas.</p>
     </div>
   </div>
 </section>
@@ -283,9 +298,9 @@ footer{background:#080400;padding:48px 40px 24px;border-top:1px solid rgba(245,2
 <!-- PRESENTACIONES -->
 <section class="prod-presentations">
   <div class="prod-pres-inner">
-    <h2>Presentaciones <em>disponibles</em></h2>
+    <h2 data-i18n="pres_title" data-i18n-html>Presentaciones <em>disponibles</em></h2>
     <div class="pres-grid">
-      <div class="pres-card"><span class="pres-card-ico">🍰</span><h4>Doypack 500g</h4><p>Granulada, cierre resellable</p></div><div class="pres-card"><span class="pres-card-ico">🍰</span><h4>Doypack 1kg</h4><p>Formato familiar</p></div><div class="pres-card"><span class="pres-card-ico">🏺</span><h4>Tarro 400g</h4><p>Vidrio premium</p></div><div class="pres-card"><span class="pres-card-ico">📫</span><h4>Sachet 8g</h4><p>Para horeca</p></div><div class="pres-card"><span class="pres-card-ico">🏭</span><h4>Bolsa 5kg</h4><p>Para repostería industrial</p></div><div class="pres-card"><span class="pres-card-ico">🏭</span><h4>Granel 25kg</h4><p>Saco para exportación</p></div>
+      <div class="pres-card"><span class="pres-card-ico">🍰</span><h4 data-i18n="pn1">Doypack 500g</h4><p data-i18n="pdd1">Granulada, cierre resellable</p></div><div class="pres-card"><span class="pres-card-ico">🍰</span><h4 data-i18n="pn2">Doypack 1kg</h4><p data-i18n="pdd2">Formato familiar</p></div><div class="pres-card"><span class="pres-card-ico">🏺</span><h4 data-i18n="pn3">Tarro 400g</h4><p data-i18n="pdd3">Vidrio premium</p></div><div class="pres-card"><span class="pres-card-ico">📫</span><h4 data-i18n="pn4">Sachet 8g</h4><p data-i18n="pdd4">Para horeca</p></div><div class="pres-card"><span class="pres-card-ico">🏭</span><h4 data-i18n="pn5">Bolsa 5kg</h4><p data-i18n="pdd5">Para repostería industrial</p></div><div class="pres-card"><span class="pres-card-ico">🏭</span><h4 data-i18n="pn6">Granel 25kg</h4><p data-i18n="pdd6">Saco para exportación</p></div>
     </div>
   </div>
 </section>
@@ -293,49 +308,9 @@ footer{background:#080400;padding:48px 40px 24px;border-top:1px solid rgba(245,2
 <!-- OTRAS FAMILIAS -->
 <section class="also-see">
   <div class="also-see-inner">
-    <h2>Otras familias de productos</h2>
+    <h2 data-i18n="also_title">Otras familias de productos</h2>
     <div class="also-grid">
-      
-        <a class="also-card" href="/panela-bloque">
-          <div class="also-card-img" style="background:#6B380020;">🟫</div>
-          <div class="also-card-body">
-            <h4>Panela Bloque</h4>
-            <p>Cuadrada, redonda, piloncillo</p>
-            <span class="also-card-arrow">Ver familia →</span>
-          </div>
-        </a>
-        <a class="also-card" href="/panela-partida">
-          <div class="also-card-img" style="background:#2D7A2D20;">✂️</div>
-          <div class="also-card-body">
-            <h4>Panela Partida</h4>
-            <p>Fraccionada en distintos gramajes</p>
-            <span class="also-card-arrow">Ver familia →</span>
-          </div>
-        </a>
-        <a class="also-card" href="/pastilla-sachet">
-          <div class="also-card-img" style="background:#8B000020;">💊</div>
-          <div class="also-card-body">
-            <h4>Pastilla & Sachet</h4>
-            <p>Para hoteles, aerolíneas y restaurantes</p>
-            <span class="also-card-arrow">Ver familia →</span>
-          </div>
-        </a>
-        <a class="also-card" href="/panela-liquida">
-          <div class="also-card-img" style="background:#4A200020;">🍯</div>
-          <div class="also-card-body">
-            <h4>Panela Líquida</h4>
-            <p>Miel de caña Premium</p>
-            <span class="also-card-arrow">Ver familia →</span>
-          </div>
-        </a>
-        <a class="also-card" href="/redonda-piloncillo">
-          <div class="also-card-img" style="background:#2A602020;">⭕</div>
-          <div class="also-card-body">
-            <h4>Redonda & Piloncillo</h4>
-            <p>Para mercados LATAM</p>
-            <span class="also-card-arrow">Ver familia →</span>
-          </div>
-        </a>
+      <a class="also-card" href="/panela-bloque"><div class="also-card-img" style="background:#6B380020;">🟫</div><div class="also-card-body"><h4 data-i18n="fam_bloque">Panela Bloque</h4><p data-i18n="also_d_bloque">Cuadrada, redonda, piloncillo</p><span class="also-card-arrow" data-i18n="also_more">Ver familia →</span></div></a><a class="also-card" href="/panela-partida"><div class="also-card-img" style="background:#2D7A2D20;">✂️</div><div class="also-card-body"><h4 data-i18n="fam_partida">Panela Partida</h4><p data-i18n="also_d_partida">Fraccionada en distintos gramajes</p><span class="also-card-arrow" data-i18n="also_more">Ver familia →</span></div></a><a class="also-card" href="/pastilla-sachet"><div class="also-card-img" style="background:#8B000020;">💊</div><div class="also-card-body"><h4 data-i18n="fam_pastilla">Pastilla & Sachet</h4><p data-i18n="also_d_pastilla">Para hoteles, aerolíneas y restaurantes</p><span class="also-card-arrow" data-i18n="also_more">Ver familia →</span></div></a><a class="also-card" href="/panela-liquida"><div class="also-card-img" style="background:#4A200020;">🍯</div><div class="also-card-body"><h4 data-i18n="fam_liquida">Panela Líquida</h4><p data-i18n="also_d_liquida">Miel de caña Premium</p><span class="also-card-arrow" data-i18n="also_more">Ver familia →</span></div></a><a class="also-card" href="/redonda-piloncillo"><div class="also-card-img" style="background:#2A602020;">⭕</div><div class="also-card-body"><h4 data-i18n="fam_redonda">Redonda & Piloncillo</h4><p data-i18n="also_d_redonda">Para mercados LATAM</p><span class="also-card-arrow" data-i18n="also_more">Ver familia →</span></div></a>
     </div>
   </div>
 </section>
@@ -343,11 +318,11 @@ footer{background:#080400;padding:48px 40px 24px;border-top:1px solid rgba(245,2
 <!-- CTA -->
 <section class="prod-cta">
   <div class="prod-cta-inner">
-    <h2>¿Te interesa <em>Granulada & Pulverizada?</em></h2>
-    <p>Escríbenos por WhatsApp y te enviamos información completa, muestras y cotización. Respondemos rápido.</p>
+    <h2 data-i18n="pcta" data-i18n-html>¿Te interesa <em>Granulada & Pulverizada?</em></h2>
+    <p data-i18n="cta_p_prod">Escríbenos por WhatsApp y te enviamos información completa, muestras y cotización. Respondemos rápido.</p>
     <div class="prod-cta-btns">
-      <a href="https://wa.me/TUNUMERO?text=Hola%2C%20me%20interesa%20información%20sobre%20Granulada%20&%20Pulverizada%20de%20Bellavista" class="btn-wa-prod" target="_blank" style="justify-content:center;">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Escribir por WhatsApp
+      <a href="https://wa.me/TUNUMERO?text=Hola%2C%20me%20interesa%20información%20sobre%20Granulada%20%26%20Pulverizada%20de%20Bellavista" class="btn-wa-prod" target="_blank" style="justify-content:center;">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> <span data-i18n="wa_write">Escribir por WhatsApp</span>
       </a>
     </div>
   </div>
@@ -369,6 +344,25 @@ footer{background:#080400;padding:48px 40px 24px;border-top:1px solid rgba(245,2
 var mobOpen=false;
 function toggleMob(){mobOpen=!mobOpen;document.getElementById('mob').classList.toggle('open',mobOpen);document.getElementById('ham').classList.toggle('open',mobOpen);}
 function closeMob(){mobOpen=false;document.getElementById('mob').classList.remove('open');document.getElementById('ham').classList.remove('open');}
+</script>
+<script>
+var BV_I18N={"nav_about": {"es": "Nosotros", "en": "About us", "ko": "회사 소개"}, "nav_products": {"es": "Productos", "en": "Products", "ko": "제품"}, "nav_certs": {"es": "Certificaciones", "en": "Certifications", "ko": "인증"}, "nav_news": {"es": "Noticias", "en": "News", "ko": "뉴스"}, "nav_contact": {"es": "Contáctanos", "en": "Contact us", "ko": "문의하기"}, "bc_home": {"es": "Inicio", "en": "Home", "ko": "홈"}, "cta_quote": {"es": "Solicitar cotización", "en": "Request a quote", "ko": "견적 요청"}, "back_all": {"es": "← Todos los productos", "en": "← All products", "ko": "← 전체 제품"}, "photo_label": {"es": "Agregar foto principal del producto", "en": "Add the main product photo", "ko": "제품 대표 사진 추가"}, "specs_title": {"es": "Especificaciones", "en": "Specifications", "ko": "사양"}, "nutr_title": {"es": "Tabla Nutricional", "en": "Nutrition Facts", "ko": "영양성분표"}, "nh_title": {"es": "Información Nutricional", "en": "Nutrition Facts", "ko": "영양 정보"}, "nh_portion": {"es": "Porción: 10g · Porciones por envase: según presentación", "en": "Serving: 10g · Servings per container: depends on presentation", "ko": "제공량: 10g · 용기당 제공 횟수: 형태에 따라 다름"}, "nh_nutrient": {"es": "Nutriente", "en": "Nutrient", "ko": "영양소"}, "nh_amount": {"es": "Cantidad", "en": "Amount", "ko": "함량"}, "nh_vd": {"es": "% VD*", "en": "% DV*", "ko": "% 일일권장량*"}, "ne_energy": {"es": "Valor energético", "en": "Energy", "ko": "열량"}, "ne_carbs": {"es": "Carbohidratos", "en": "Carbohydrates", "ko": "탄수화물"}, "ne_sugars": {"es": "— Azúcares totales", "en": "— Total sugars", "ko": "— 총 당류"}, "ne_added": {"es": "— Azúcares añadidos", "en": "— Added sugars", "ko": "— 첨가당"}, "ne_protein": {"es": "Proteínas", "en": "Protein", "ko": "단백질"}, "ne_fat": {"es": "Grasas totales", "en": "Total fat", "ko": "총 지방"}, "ne_sodium": {"es": "Sodio", "en": "Sodium", "ko": "나트륨"}, "ne_calcium": {"es": "Calcio", "en": "Calcium", "ko": "칼슘"}, "ne_iron": {"es": "Hierro", "en": "Iron", "ko": "철분"}, "ne_potassium": {"es": "Potasio", "en": "Potassium", "ko": "칼륨"}, "ne_phos": {"es": "Fósforo", "en": "Phosphorus", "ko": "인"}, "nutr_footnote": {"es": "*% Valores Diarios con base en una dieta de 2.000 kcal. Sus valores diarios pueden ser mayores o menores según sus necesidades energéticas.", "en": "*% Daily Values based on a 2,000 kcal diet. Your daily values may be higher or lower depending on your energy needs.", "ko": "*% 일일 권장량은 2,000 kcal 식단 기준입니다. 개인의 에너지 필요량에 따라 달라질 수 있습니다."}, "pres_title": {"es": "Presentaciones <em>disponibles</em>", "en": "Available <em>presentations</em>", "ko": "이용 가능한 <em>형태</em>"}, "also_title": {"es": "Otras familias de productos", "en": "Other product families", "ko": "다른 제품군"}, "also_more": {"es": "Ver familia →", "en": "View family →", "ko": "제품군 보기 →"}, "cta_p_prod": {"es": "Escríbenos por WhatsApp y te enviamos información completa, muestras y cotización. Respondemos rápido.", "en": "Message us on WhatsApp and we'll send full information, samples and a quote. We reply fast.", "ko": "WhatsApp으로 문의하시면 상세 정보, 샘플, 견적을 보내드립니다. 신속히 답변드립니다."}, "wa_write": {"es": "Escribir por WhatsApp", "en": "Message on WhatsApp", "ko": "WhatsApp으로 문의"}, "spk_ref": {"es": "Referencia", "en": "Reference", "ko": "품목"}, "spk_type": {"es": "Tipología", "en": "Type", "ko": "유형"}, "spk_brand": {"es": "Marca Comercial", "en": "Brand", "ko": "브랜드"}, "spk_pres": {"es": "Presentación", "en": "Presentation", "ko": "형태"}, "spk_shelf": {"es": "Vida Útil", "en": "Shelf life", "ko": "유통기한"}, "spk_temp": {"es": "Temperatura", "en": "Storage temperature", "ko": "보관 온도"}, "spk_certs": {"es": "Certificaciones", "en": "Certifications", "ko": "인증"}, "spk_weights": {"es": "Gramajes", "en": "Weights", "ko": "중량"}, "spk_w_sachet": {"es": "Gramaje sachet", "en": "Sachet weight", "ko": "스틱 중량"}, "spk_w_tablet": {"es": "Gramaje pastilla", "en": "Tablet weight", "ko": "정제 중량"}, "spk_pack": {"es": "Empaque", "en": "Packaging", "ko": "포장"}, "spk_pres_pl": {"es": "Presentaciones", "en": "Presentations", "ko": "형태"}, "spk_weights2": {"es": "Pesos", "en": "Weights", "ko": "중량"}, "spk_granul": {"es": "Granulometría", "en": "Granulometry", "ko": "입도"}, "fam_bloque": {"es": "Panela Bloque", "en": "Panela Block", "ko": "파넬라 블록"}, "fam_partida": {"es": "Panela Partida", "en": "Split Panela", "ko": "조각 파넬라"}, "fam_pastilla": {"es": "Pastilla & Sachet", "en": "Tablet & Sachet", "ko": "정제 & 스틱"}, "fam_granulada": {"es": "Granulada & Pulverizada", "en": "Granulated & Powdered", "ko": "과립 & 분말"}, "fam_liquida": {"es": "Panela Líquida", "en": "Liquid Panela", "ko": "액상 파넬라"}, "fam_redonda": {"es": "Redonda & Piloncillo", "en": "Round & Piloncillo", "ko": "원형 & 필론시요"}, "also_d_bloque": {"es": "Cuadrada, redonda, piloncillo", "en": "Square, round, piloncillo", "ko": "정사각형, 원형, 필론시요"}, "also_d_partida": {"es": "Fraccionada en distintos gramajes", "en": "Split into different weights", "ko": "다양한 중량으로 분할"}, "also_d_pastilla": {"es": "Para hoteles, aerolíneas y restaurantes", "en": "For hotels, airlines and restaurants", "ko": "호텔, 항공사, 레스토랑용"}, "also_d_granulada": {"es": "Doypack, sachet, tarros y bolsas", "en": "Doypack, sachet, jars and bags", "ko": "도이팩, 스틱, 병, 봉지"}, "also_d_liquida": {"es": "Miel de caña Premium", "en": "Premium cane honey", "ko": "프리미엄 사탕수수 시럽"}, "also_d_redonda": {"es": "Para mercados LATAM", "en": "For LATAM markets", "ko": "중남미 시장용"}, "pe": {"es": "Exportación · Repostería", "en": "Export · Baking", "ko": "수출 · 제과"}, "pt": {"es": "Granulada <em>& Pulverizada</em>", "en": "Granulated <em>& Powdered</em>", "ko": "과립 <em>& 분말</em>"}, "pd": {"es": "Panela granulada, pulverizada y micro-pulverizada. Sustituto natural del azúcar refinada, ideal para repostería, bebidas instantáneas y aplicaciones industriales. Disponible en doypack, sachet, tarros y bolsas.", "en": "Granulated, powdered and micro-powdered panela. A natural substitute for refined sugar, ideal for baking, instant beverages and industrial applications. Available in doypack, sachet, jars and bags.", "ko": "과립, 분말, 미세분말 파넬라. 정제 설탕의 천연 대체품으로 제과, 인스턴트 음료, 산업용에 이상적입니다. 도이팩, 스틱, 병, 봉지로 제공됩니다."}, "pcta": {"es": "¿Te interesa <em>Granulada & Pulverizada?</em>", "en": "Interested in <em>Granulated & Powdered?</em>", "ko": "<em>과립 & 분말</em>에 관심 있으신가요?"}, "ptag1": {"es": "Exportación", "en": "Export", "ko": "수출"}, "ptag2": {"es": "Repostería", "en": "Baking", "ko": "제과"}, "ptag3": {"es": "Industrial", "en": "Industrial", "ko": "산업용"}, "sv1": {"es": "Granulada, pulverizada, micro-pulverizada", "en": "Granulated, powdered, micro-powdered", "ko": "과립, 분말, 미세분말"}, "sv2": {"es": "Gruesa 1-3mm · Fina <1mm · Micro <0.3mm", "en": "Coarse 1-3mm · Fine <1mm · Micro <0.3mm", "ko": "굵은 1-3mm · 고운 <1mm · 미세 <0.3mm"}, "sv3": {"es": "Orgánica y Convencional", "en": "Organic and conventional", "ko": "유기농 및 일반"}, "sv4": {"es": "Propia o Marca Blanca", "en": "Own brand or white label", "ko": "자체 브랜드 또는 화이트 라벨"}, "sv5": {"es": "Doypack, sachet, tarro, bolsa, granel", "en": "Doypack, sachet, jar, bag, bulk", "ko": "도이팩, 스틱, 병, 봉지, 대용량"}, "sv6": {"es": "1 año", "en": "1 year", "ko": "1년"}, "sv7": {"es": "INVIMA, FDA, CO Colombia, Green Business", "en": "INVIMA, FDA, CO Colombia, Green Business", "ko": "INVIMA, FDA, CO Colombia, Green Business"}, "pn1": {"es": "Doypack 500g", "en": "Doypack 500g", "ko": "도이팩 500g"}, "pdd1": {"es": "Granulada, cierre resellable", "en": "Granulated, resealable", "ko": "과립, 재밀봉"}, "pn2": {"es": "Doypack 1kg", "en": "Doypack 1kg", "ko": "도이팩 1kg"}, "pdd2": {"es": "Formato familiar", "en": "Family size", "ko": "패밀리 사이즈"}, "pn3": {"es": "Tarro 400g", "en": "Jar 400g", "ko": "병 400g"}, "pdd3": {"es": "Vidrio premium", "en": "Premium glass", "ko": "프리미엄 유리"}, "pn4": {"es": "Sachet 8g", "en": "Sachet 8g", "ko": "스틱 8g"}, "pdd4": {"es": "Para horeca", "en": "For horeca", "ko": "호레카용"}, "pn5": {"es": "Bolsa 5kg", "en": "Bag 5kg", "ko": "봉지 5kg"}, "pdd5": {"es": "Para repostería industrial", "en": "For industrial baking", "ko": "산업용 제과"}, "pn6": {"es": "Granel 25kg", "en": "Bulk 25kg", "ko": "대용량 25kg"}, "pdd6": {"es": "Saco para exportación", "en": "Sack for export", "ko": "수출용 자루"}};
+(function(){
+function apply(l){
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var t=BV_I18N[el.getAttribute('data-i18n')];
+    if(t&&t[l]!=null){ if(el.hasAttribute('data-i18n-html'))el.innerHTML=t[l]; else el.textContent=t[l]; }
+  });
+  var lbl=document.getElementById('langLabel'); if(lbl)lbl.textContent={es:'ES',en:'EN',ko:'KO'}[l];
+  document.querySelectorAll('[data-lang]').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===l);});
+}
+window.setLang=function(l){try{localStorage.setItem('bvLang',l);}catch(e){}apply(l);var m=document.getElementById('langMenu');if(m)m.classList.remove('open');};
+window.toggleLang=function(e){e.stopPropagation();var m=document.getElementById('langMenu');if(m)m.classList.toggle('open');};
+document.addEventListener('click',function(){var m=document.getElementById('langMenu');if(m)m.classList.remove('open');});
+var s='es';try{s=localStorage.getItem('bvLang')||'es';}catch(e){}
+apply(s);
+})();
 </script>
 
 
