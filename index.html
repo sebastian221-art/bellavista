@@ -45,7 +45,7 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:66px;displ
 .logo-box img{width:100%;height:100%;object-fit:contain;}
 .logo-ph-txt{font-size:.42rem;color:rgba(245,200,0,.5);text-align:center;line-height:1.4;text-transform:uppercase;letter-spacing:.04em;padding:2px;}
 .nav-brand{font-family:'Schoolbell',cursive;font-size:1.55rem;font-weight:400;letter-spacing:.02em;color:var(--Y);}
-.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links{display:flex;gap:24px;list-style:none;}
 .nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:color .2s;position:relative;}
 .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--Y);transition:width .3s;}
 .nav-links a:hover{color:var(--Y);}
@@ -365,6 +365,29 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
 .hero-stat-card[data-tip]::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(4px);background:rgba(92,42,0,.95);color:rgba(255,255,255,.8);font-size:.65rem;padding:5px 12px;border-radius:6px;white-space:nowrap;border:1px solid rgba(245,200,0,.2);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;font-family:'Nunito',sans-serif;font-weight:400;letter-spacing:.03em;}
 .hero-stat-card[data-tip]:hover::after{opacity:1;transform:translateX(-50%) translateY(0);}
 @media(min-width:481px) and (max-width:900px){.prod-families{grid-template-columns:repeat(2,1fr);}}
+
+#tablas{background:var(--CR);padding:120px 40px;}
+.tab-inner{max-width:1120px;margin:0 auto;}
+.tab-head{text-align:center;margin-bottom:14px;}
+.tab-head .section-title{font-size:clamp(2rem,3.5vw,2.8rem);color:var(--C);}
+.tab-head p{font-size:.9rem;color:rgba(92,42,0,.6);max-width:580px;margin:10px auto 0;line-height:1.7;}
+.tab-note{text-align:center;font-size:.72rem;color:rgba(92,42,0,.5);letter-spacing:.04em;margin-bottom:46px;}
+.tab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.nf{background:var(--W);border:1px solid rgba(92,42,0,.1);border-radius:14px;overflow:hidden;box-shadow:0 2px 14px rgba(92,42,0,.05);transition:transform .3s,box-shadow .3s;}
+.nf:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(92,42,0,.1);}
+.nf-head{background:var(--C);padding:15px 18px;}
+.nf-head h3{font-family:'Schoolbell',cursive;font-size:1.3rem;color:var(--Y);font-weight:600;line-height:1.1;}
+.nf-head span{display:block;font-size:.6rem;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase;margin-top:3px;}
+.nf table{width:100%;border-collapse:collapse;}
+.nf td{padding:8px 18px;font-size:.8rem;color:var(--C);border-bottom:1px solid rgba(92,42,0,.08);}
+.nf td:last-child{text-align:right;font-weight:700;color:var(--CM);white-space:nowrap;}
+.nf tr:last-child td{border-bottom:none;}
+.nf .nf-sub td:first-child{padding-left:34px;font-size:.74rem;color:rgba(92,42,0,.6);font-weight:400;}
+.nf .nf-sub td:last-child{font-weight:400;color:rgba(92,42,0,.6);}
+.nf .nf-cal td{background:rgba(245,200,0,.14);font-weight:700;}
+.nf .nf-cal td:last-child{color:var(--C);}
+@media(max-width:900px){#tablas{padding:70px 20px;}.tab-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){#tablas{padding:50px 16px;}.tab-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -390,6 +413,7 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
 <div class="mob" id="mob">
   <a class="mob-link" href="#nosotros" onclick="closeMob()">Nosotros</a>
   <a class="mob-link" href="#productos" onclick="closeMob()">Productos</a>
+  <a class="mob-link" href="#tablas" onclick="closeMob()">Tablas nutricionales</a>
   <a class="mob-link" href="#certificaciones" onclick="closeMob()">Certificaciones</a>
   <a class="mob-link" href="#noticias" onclick="closeMob()">Noticias</a>
   <a class="mob-link" href="#modelos" onclick="closeMob()">Empresas</a>
@@ -405,6 +429,7 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
   <ul class="nav-links">
     <li><a href="#nosotros">Nosotros</a></li>
     <li><a href="#productos">Productos</a></li>
+    <li><a href="#tablas">Tablas nutricionales</a></li>
     <li><a href="#certificaciones">Certificaciones</a></li>
     <li><a href="#noticias">Noticias</a></li>
     <li><a href="#modelos">Empresas</a></li>
@@ -627,9 +652,9 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
 <circle class="rdot" data-iso="aruba" r="3" cx="318" cy="208"/>
 
 <g class="origin" transform="translate(308,234)">
-  <circle class="origin-pulse" r="6"/>
-  <circle class="origin-dot" r="3.4"/>
-  <circle r="1.4" fill="#fff"/>
+  <circle class="origin-pulse" r="3.6"/>
+  <circle class="origin-dot" r="1.8"/>
+  <circle r="0.8" fill="#fff"/>
 </g>
 </g></svg></div>
   <div class="hero-overlay"></div>
@@ -782,7 +807,22 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
   </div>
 </section>
 
-<div class="wv" style="background:var(--C)"><svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C480,0 960,50 1440,15 L1440,50 L0,50 Z" fill="var(--G)"/></svg></div>
+<div class="wv" style="background:var(--C)"><svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C480,0 960,50 1440,15 L1440,50 L0,50 Z" fill="var(--CR)"/></svg></div>
+
+<section id="tablas">
+  <div class="tab-inner">
+    <div class="tab-head rv">
+      <span class="section-eyebrow ey-cafe">Información para exportación</span>
+      <h2 class="section-title" style="color:var(--C);">Tablas <em class="ital" style="color:var(--R)">nutricionales</em></h2>
+      <p>Valores nutricionales de cada familia de producto, disponibles para procesos de exportación y revisión en aduana.</p>
+    </div>
+    <p class="tab-note">Valores de referencia por cada 100 g · Panela de caña 100% natural, sin aditivos ni conservantes.</p>
+    <div class="tab-grid">
+      <div class="nf rv"><div class="nf-head"><h3>Panela Bloque</h3><span>Por 100 g · Cuadrada, redonda, orgánica</span></div><table><tbody><tr><td>Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td>Energía</td><td>380 kcal</td></tr><tr><td>Carbohidratos totales</td><td>95 g</td></tr><tr class="nf-sub"><td>Azúcares</td><td>92 g</td></tr><tr><td>Proteína</td><td>0,7 g</td></tr><tr><td>Grasa total</td><td>0 g</td></tr><tr><td>Sodio</td><td>25 mg</td></tr><tr><td>Calcio</td><td>80 mg</td></tr><tr><td>Hierro</td><td>1,5 mg</td></tr><tr><td>Potasio</td><td>120 mg</td></tr></tbody></table></div><div class="nf rv"><div class="nf-head"><h3>Panela Partida</h3><span>Por 100 g · Fraccionada en gramajes</span></div><table><tbody><tr><td>Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td>Energía</td><td>380 kcal</td></tr><tr><td>Carbohidratos totales</td><td>95 g</td></tr><tr class="nf-sub"><td>Azúcares</td><td>92 g</td></tr><tr><td>Proteína</td><td>0,7 g</td></tr><tr><td>Grasa total</td><td>0 g</td></tr><tr><td>Sodio</td><td>25 mg</td></tr><tr><td>Calcio</td><td>80 mg</td></tr><tr><td>Hierro</td><td>1,5 mg</td></tr><tr><td>Potasio</td><td>120 mg</td></tr></tbody></table></div><div class="nf rv"><div class="nf-head"><h3>Pastilla & Sachet</h3><span>Por 100 g · Porción individual 8 g</span></div><table><tbody><tr><td>Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td>Energía</td><td>380 kcal</td></tr><tr><td>Carbohidratos totales</td><td>95 g</td></tr><tr class="nf-sub"><td>Azúcares</td><td>92 g</td></tr><tr><td>Proteína</td><td>0,7 g</td></tr><tr><td>Grasa total</td><td>0 g</td></tr><tr><td>Sodio</td><td>25 mg</td></tr><tr><td>Calcio</td><td>80 mg</td></tr><tr><td>Hierro</td><td>1,5 mg</td></tr><tr><td>Potasio</td><td>120 mg</td></tr></tbody></table></div><div class="nf rv"><div class="nf-head"><h3>Granulada & Pulverizada</h3><span>Por 100 g · Granulada y micro-pulverizada</span></div><table><tbody><tr><td>Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td>Energía</td><td>380 kcal</td></tr><tr><td>Carbohidratos totales</td><td>95 g</td></tr><tr class="nf-sub"><td>Azúcares</td><td>92 g</td></tr><tr><td>Proteína</td><td>0,7 g</td></tr><tr><td>Grasa total</td><td>0 g</td></tr><tr><td>Sodio</td><td>25 mg</td></tr><tr><td>Calcio</td><td>80 mg</td></tr><tr><td>Hierro</td><td>1,5 mg</td></tr><tr><td>Potasio</td><td>120 mg</td></tr></tbody></table></div><div class="nf rv"><div class="nf-head"><h3>Panela Líquida</h3><span>Por 100 g · Miel de caña pura</span></div><table><tbody><tr><td>Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td>Energía</td><td>310 kcal</td></tr><tr><td>Carbohidratos totales</td><td>78 g</td></tr><tr class="nf-sub"><td>Azúcares</td><td>75 g</td></tr><tr><td>Proteína</td><td>0,5 g</td></tr><tr><td>Grasa total</td><td>0 g</td></tr><tr><td>Sodio</td><td>20 mg</td></tr><tr><td>Calcio</td><td>70 mg</td></tr><tr><td>Hierro</td><td>1,3 mg</td></tr><tr><td>Potasio</td><td>110 mg</td></tr><tr><td>Humedad</td><td>20 %</td></tr></tbody></table></div><div class="nf rv"><div class="nf-head"><h3>Redonda & Piloncillo</h3><span>Por 100 g · Exportación LATAM</span></div><table><tbody><tr><td>Tamaño de porción</td><td>100 g</td></tr><tr class="nf-cal"><td>Energía</td><td>380 kcal</td></tr><tr><td>Carbohidratos totales</td><td>95 g</td></tr><tr class="nf-sub"><td>Azúcares</td><td>92 g</td></tr><tr><td>Proteína</td><td>0,7 g</td></tr><tr><td>Grasa total</td><td>0 g</td></tr><tr><td>Sodio</td><td>25 mg</td></tr><tr><td>Calcio</td><td>80 mg</td></tr><tr><td>Hierro</td><td>1,5 mg</td></tr><tr><td>Potasio</td><td>120 mg</td></tr></tbody></table></div>
+    </div>
+  </div>
+</section>
+<div class="wv" style="background:var(--CR)"><svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C480,0 960,50 1440,15 L1440,50 L0,50 Z" fill="var(--G)"/></svg></div>
 
 <section id="certificaciones">
   <div class="certs-inner">
@@ -872,7 +912,7 @@ footer{background:#080400;padding:64px 40px 28px;border-top:1px solid rgba(245,2
   <div class="ft-inner">
     <div class="ft-top">
       <div class="ft-brand"><div class="fb-logo"><div class="logo-box"><span class="logo-ph-txt">Logo</span></div><span class="nav-brand">Bellavista</span></div><p>Del campo colombiano al mundo. Productos naturales con calidad certificada. Mogotes, Santander.</p></div>
-      <div class="ft-col"><h5>Navegación</h5><ul><li><a href="#nosotros">Nosotros</a></li><li><a href="#productos">Productos</a></li><li><a href="#certificaciones">Certificaciones</a></li><li><a href="#noticias">Noticias</a></li><li><a href="#modelos">Empresas</a></li></ul></div>
+      <div class="ft-col"><h5>Navegación</h5><ul><li><a href="#nosotros">Nosotros</a></li><li><a href="#productos">Productos</a></li><li><a href="#tablas">Tablas nutricionales</a></li><li><a href="#certificaciones">Certificaciones</a></li><li><a href="#noticias">Noticias</a></li><li><a href="#modelos">Empresas</a></li></ul></div>
       <div class="ft-col"><h5>Contacto</h5><ul><li><a href="https://wa.me/TUNUMERO" target="_blank">WhatsApp</a></li><li><a href="mailto:info@panelabellavista.com">info@panelabellavista.com</a></li><li><a href="https://panelabellavista.com" target="_blank">panelabellavista.com</a></li></ul></div>
     </div>
     <div class="ft-bot">
