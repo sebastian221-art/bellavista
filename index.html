@@ -74,6 +74,9 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:66px;displ
 #hero{min-height:100svh;position:relative;overflow:hidden;background:var(--C);display:flex;align-items:center;padding:80px 40px 80px;}
 .hero-bg-map{position:absolute;inset:0;z-index:0;overflow:hidden;}
 #heroMap{width:100%;height:100%;display:block;pointer-events:none;}
+/* FONDO HERO (imagen/video del campo) */
+.hero-bg-media{position:absolute;inset:0;z-index:0;overflow:hidden;background:linear-gradient(160deg,#301800 0%,#0f0702 58%,#080400 100%);}
+.hero-bg-media img,.hero-bg-media video{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
 .map-base path{fill:rgba(58,34,7,.55);stroke:rgba(122,74,24,.3);stroke-width:.4;}
 .c-hl{fill:none;stroke:rgba(255,255,255,.55);stroke-width:1.4;vector-effect:non-scaling-stroke;transition:fill .5s ease,filter .5s ease;}
 .c-col{stroke:rgba(255,255,255,.72);stroke-width:1.8;}
@@ -682,6 +685,13 @@ html[lang="en"] #news-ticker::before{content:"NEWS";}html[lang="ko"] #news-ticke
   <circle r="0.8" fill="#fff"/>
 </g>
 </g></svg></div>
+  <div class="hero-bg-media">
+    <!-- FONDO DEL HERO: sube tu foto a img/hero-campo.jpg -->
+    <img src="img/hero-campo.jpg" alt="" onerror="this.remove()">
+    <!-- PARA VIDEO (opcional): borra el <img> de arriba, sube img/hero-campo.mp4 y descomenta:
+    <video autoplay muted loop playsinline poster="img/hero-campo.jpg"><source src="img/hero-campo.mp4" type="video/mp4"></video>
+    -->
+  </div>
   <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-text">
@@ -700,13 +710,6 @@ html[lang="en"] #news-ticker::before{content:"NEWS";}html[lang="ko"] #news-ticke
         <div class="hsc-mini hero-stat-card" data-tip="Capacidad productiva mensual"><div class="hsc-num">500t</div><div class="hsc-label" data-i18n="stat_caplbl">Capacidad / mes</div></div>
       </div>
       <div class="hero-stat-card" data-tip="USA · España · Canadá · Aruba · Asia"><div class="hsc-num" data-i18n="stat_5countries">5 países</div><div class="hsc-label" data-i18n="stat_countrieslbl">Con presencia activa o en expansión</div></div>
-      <div class="map-dest-tags">
-        <div class="mdt" data-region="usa" onmouseenter="highlightRegion('usa')" onmouseleave="clearHighlight()">🇺🇸 USA <span class="mdt-badge" data-i18n="badge_active">Activo</span></div>
-        <div class="mdt" data-region="europe" onmouseenter="highlightRegion('europe')" onmouseleave="clearHighlight()">🇪🇸 España <span class="mdt-badge" data-i18n="badge_active">Activo</span></div>
-        <div class="mdt" data-region="canada" onmouseenter="highlightRegion('canada')" onmouseleave="clearHighlight()">🇨🇦 Canadá <span class="mdt-badge" data-i18n="badge_active">Activo</span></div>
-        <div class="mdt" data-region="aruba" onmouseenter="highlightRegion('aruba')" onmouseleave="clearHighlight()">🇦🇼 Aruba <span class="mdt-badge" data-i18n="badge_active">Activo</span></div>
-        <div class="mdt mdt-next" data-region="asia" onmouseenter="highlightRegion('asia')" onmouseleave="clearHighlight()">🇰🇷 Corea <span class="mdt-badge mdt-badge-next" data-i18n="badge_soon">Próximo</span></div>
-      </div>
     </div>
   </div>
   <div class="hero-wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C360,70 1080,10 1440,40 L1440,60 L0,60 Z" fill="#F0D400"/></svg></div>
@@ -1036,7 +1039,7 @@ apply(s);
 })();
 </script>
 <script>
-(function(){var hm=document.getElementById("heroMap");if(!hm)return;function fit(){if(window.innerWidth<=900){hm.setAttribute("viewBox","60 20 260 750");hm.setAttribute("preserveAspectRatio","xMidYMid slice");}else{hm.setAttribute("viewBox","165 46 438 214");hm.setAttribute("preserveAspectRatio","xMidYMid meet");}}fit();window.addEventListener("resize",fit);})();
+(function(){var hm=document.getElementById("heroMap");if(!hm)return;function fit(){if(window.innerWidth<=900){hm.setAttribute("viewBox","200 40 160 220");hm.setAttribute("preserveAspectRatio","xMidYMid slice");}else{hm.setAttribute("viewBox","165 46 438 214");hm.setAttribute("preserveAspectRatio","xMidYMid meet");}}fit();window.addEventListener("resize",fit);})();
 </script>
 </body>
 </html>
