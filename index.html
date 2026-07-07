@@ -80,7 +80,10 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:66px;displ
 .map-base path{fill:#ffffff;stroke:rgba(12,58,92,.28);stroke-width:.4;}
 .c-hl{fill:none;stroke:rgba(12,58,92,.35);stroke-width:1;vector-effect:non-scaling-stroke;transition:fill .5s ease,filter .5s ease;}
 .c-col{fill:url(#campoP);stroke:rgba(30,84,22,.75);stroke-width:1.5;}
-.c-aruba{stroke:rgba(255,255,255,.6);stroke-width:1.4;}
+.c-usa{fill:#FFFF00;stroke:rgba(150,140,0,.75);}
+.c-esp{fill:#D11335;stroke:rgba(130,12,30,.75);}
+.c-can{fill:#009245;stroke:rgba(0,80,40,.75);}
+.c-aruba{fill:#5C2A00;stroke:rgba(35,16,0,.85);stroke-width:1.3;}
 .c-hl.lit{filter:url(#hlGlow);}
 .route{fill:none;stroke-linecap:round;}
 .route-on{stroke:rgba(217,148,0,.6);stroke-width:1;stroke-dasharray:3 4;vector-effect:non-scaling-stroke;}
@@ -91,7 +94,7 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:66px;displ
 @keyframes destPulse{0%,100%{transform:scale(1);opacity:.85;}50%{transform:scale(1.35);opacity:1;}}
 .kor-mark.lit{fill:#fff;}
 .kor-label{fill:rgba(255,255,255,.82);font:600 9px Nunito,sans-serif;paint-order:stroke;stroke:rgba(8,3,0,.85);stroke-width:2.4px;}
-.map-lbl{fill:#0a2c44;font:800 13px Nunito,sans-serif;paint-order:stroke;stroke:rgba(255,255,255,.95);stroke-width:3px;}
+.map-lbl{fill:#0a2c44;font:800 12px Nunito,sans-serif;paint-order:stroke;stroke:rgba(255,255,255,.95);stroke-width:3px;}
 .map-lbl-next{fill:rgba(10,44,68,.7);}
 .kor-mark{fill:#e0a018;transform-box:fill-box;transform-origin:center;animation:korPulse 1.9s ease-in-out infinite;}
 @keyframes korPulse{0%,100%{opacity:.35;transform:scale(1);}50%{opacity:1;transform:scale(1.55);}}
@@ -107,10 +110,10 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:66px;displ
 .flip-face{backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:12px;overflow:hidden;}
 .flip-front{position:relative;}
 .flip-back{position:absolute;inset:0;transform:rotateY(180deg);background:linear-gradient(160deg,#6b2f06,#37130a);display:flex;}
-.flip-back-inner{width:100%;padding:15px 15px;display:flex;flex-direction:column;justify-content:center;gap:7px;}
+.flip-back-inner{width:100%;padding:12px 14px;display:flex;flex-direction:column;justify-content:center;gap:6px;}
 .dl-title{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--Y);font-weight:700;margin-bottom:2px;}
-.dl-list{display:flex;flex-direction:column;gap:6px;}
-.dl-item{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:7px 11px;}
+.dl-list{display:flex;flex-direction:column;gap:5px;}
+.dl-item{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:6px 11px;}
 .dl-flag{font-size:.95rem;line-height:1;}
 .dl-name{font-size:.8rem;color:rgba(255,255,255,.9);font-weight:600;}
 .dl-badge{margin-left:auto;font-size:.55rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:3px;}
@@ -522,7 +525,7 @@ html[lang="en"] #news-ticker::before{content:"NEWS";}html[lang="ko"] #news-ticke
         <div class="hsc-mini hero-stat-card" data-tip="Capacidad productiva mensual"><div class="hsc-num">500t</div><div class="hsc-label" data-i18n="stat_caplbl">Capacidad / mes</div></div>
       </div>
       <div class="hero-stat-card" data-tip="USA · España · Canadá · Aruba · Asia"><div class="hsc-num" data-i18n="stat_5countries">5 países</div><div class="hsc-label" data-i18n="stat_countrieslbl">Con presencia activa o en expansión</div></div>
-      <div class="hero-map-card" onclick="flipMap(this)"><div class="flip-inner"><div class="flip-face flip-front"><span class="flip-cue">&#8635;</span><div class="hero-map-viz"><svg id="heroMap" viewBox="45 20 900 320" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <div class="hero-map-card" onclick="flipMap(this)"><div class="flip-inner"><div class="flip-face flip-front"><span class="flip-cue">&#8635;</span><div class="hero-map-viz"><svg id="heroMap" viewBox="165 44 440 216" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 <defs>
   <pattern id="campoP" width="3.4" height="3.4" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><rect width="3.4" height="3.4" fill="#B8EC3F"/><rect width="3.4" height="1.5" fill="#9BD32F"/><circle cx="0.9" cy="0.8" r="0.34" fill="#5C2A00"/></pattern>
   <radialGradient id="seaGlow" cx="42%" cy="40%" r="75%">
