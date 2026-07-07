@@ -98,18 +98,18 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:66px;displ
 .map-lbl-next{fill:rgba(10,44,68,.7);}
 .kor-mark{fill:#e0a018;transform-box:fill-box;transform-origin:center;animation:korPulse 1.9s ease-in-out infinite;}
 @keyframes korPulse{0%,100%{opacity:.35;transform:scale(1);}50%{opacity:1;transform:scale(1.55);}}
-.hero-map-card{margin-top:0;background:#0a3350;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:6px;box-shadow:0 12px 34px rgba(0,0,0,.45);}
+.hero-map-card{margin-top:0;background:#3a1d0c;border:1px solid rgba(92,42,0,.55);border-radius:16px;padding:6px;box-shadow:0 12px 34px rgba(0,0,0,.45);}
 .hmc-head{display:flex;align-items:center;gap:8px;margin-top:14px;margin-bottom:8px;}
 .hmc-dot{width:7px;height:7px;border-radius:50%;background:var(--GL);box-shadow:0 0 8px var(--GL);}
 .hmc-title{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--Y);font-weight:700;}
-.hero-map-viz{width:100%;background:#0a3350;border-radius:12px;overflow:hidden;}
-.hero-map-viz svg{width:100%;height:auto;display:block;}
+.hero-map-viz{width:100%;height:210px;background:#0a3350;border-radius:11px;overflow:hidden;}
+.hero-map-viz svg{width:100%;height:100%;display:block;}
 .hero-map-card{perspective:1200px;cursor:pointer;user-select:none;-webkit-user-select:none;}
 .flip-inner{position:relative;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.4,.15,.2,1);}
 .hero-map-card.flipped .flip-inner{transform:rotateY(180deg);}
 .flip-face{backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:12px;overflow:hidden;}
-.flip-front{position:relative;min-height:236px;display:flex;align-items:center;justify-content:center;background:#0a3350;}
-.flip-back{position:absolute;inset:0;transform:rotateY(180deg);background:linear-gradient(160deg,#6b2f06,#37130a);display:flex;}
+.flip-front{position:relative;height:210px;border-radius:11px;overflow:hidden;}
+.flip-back{position:absolute;inset:0;transform:rotateY(180deg);background:linear-gradient(160deg,#6b2f06,#37130a);display:flex;border-radius:11px;overflow:hidden;}
 .flip-back-inner{width:100%;padding:12px 14px;display:flex;flex-direction:column;justify-content:center;gap:6px;}
 .dl-title{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--Y);font-weight:700;margin-bottom:2px;}
 .dl-list{display:flex;flex-direction:column;gap:5px;}
@@ -525,7 +525,7 @@ html[lang="en"] #news-ticker::before{content:"NEWS";}html[lang="ko"] #news-ticke
         <div class="hsc-mini hero-stat-card" data-tip="Capacidad productiva mensual"><div class="hsc-num">500t</div><div class="hsc-label" data-i18n="stat_caplbl">Capacidad / mes</div></div>
       </div>
       <div class="hero-stat-card" data-tip="USA · España · Canadá · Aruba · Asia"><div class="hsc-num" data-i18n="stat_5countries">5 países</div><div class="hsc-label" data-i18n="stat_countrieslbl">Con presencia activa o en expansión</div></div>
-      <div class="hero-map-card" onclick="flipMap(this)"><div class="flip-inner"><div class="flip-face flip-front"><span class="flip-cue">&#8635;</span><div class="hero-map-viz"><svg id="heroMap" viewBox="80 28 800 300" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <div class="hero-map-card" onclick="flipMap(this)"><div class="flip-inner"><div class="flip-face flip-front"><span class="flip-cue">&#8635;</span><div class="hero-map-viz"><svg id="heroMap" viewBox="80 28 800 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 <defs>
   <pattern id="campoP" width="3.4" height="3.4" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><rect width="3.4" height="3.4" fill="#B8EC3F"/><rect width="3.4" height="1.5" fill="#9BD32F"/><circle cx="0.9" cy="0.8" r="0.34" fill="#5C2A00"/></pattern>
   <radialGradient id="seaGlow" cx="42%" cy="40%" r="75%">
